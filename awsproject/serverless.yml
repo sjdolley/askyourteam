@@ -20,6 +20,9 @@ service: awsproject
 # Check out our docs for more details
 frameworkVersion: '2'
 
+custom:
+  tableName: 'users-${self:provider.stage}'
+
 provider:
   name: aws
   runtime: nodejs12.x
@@ -37,7 +40,13 @@ provider:
         - dynamodb:Scan
         - dynamodb:GetItem
         - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
       Resource: "*"
+  environment:
+    usersTable: ${self:custom.tableName}
+#  environment:
+#    userTable: ${self:custom.tableName}
 #        - "s3:ListBucket"
 #      Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "ServerlessDeploymentBucket" } ] ]  }
 #    - Effect: "Allow"
@@ -64,8 +73,19 @@ provider:
 #    - exclude-me-dir/**
 
 functions:
-  hello:
-    handler: handler.hello
+  createUser:
+    handler: api/users/create.create
+    events:
+      - http:
+          path: api/users
+          method: post
+
+  getUser:
+    handler: api/users/get.get
+    events:
+      - http:
+          path: api/users/{id}
+          method: get
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
@@ -113,7 +133,6 @@ resources:
       Type: 'AWS::DynamoDB::Table'
       DeletionPolicy: Retain
       Properties:
-        TableName: usersTable
         AttributeDefinitions:
           -
             AttributeName: "email"
@@ -124,7 +143,8 @@ resources:
             KeyType:  "HASH"
         ProvisionedThroughput:
           ReadCapacityUnits: 1
-          WriteCapacityUnits: 1  
+          WriteCapacityUnits: 1 
+        TableName: ${self:custom.tableName} 
 #      Type: AWS::S3::Bucket
 #      Properties:
 #        BucketName: my-new-bucket
