@@ -1,2 +1,12 @@
 # .gitignore
 node_modules
+jpsm_packages
+
+# Serverless directories
+.serverless
+
+secrets.json
+
+# lock files
+yarn.lock
+package-lock.json

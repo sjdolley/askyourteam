@@ -25,7 +25,9 @@
         }
       ],
       "environment": {
-        "usersTable": "users-dev"
+        "usersTable": "users-dev",
+        "JWT_SECRET": "garfunkal",
+        "AWS_ID": "510372081928"
       },
       "variableSyntax": "\\${([^{}:]+?(?:\\(|:)(?:[^:{}][^{}]*?)?)}",
       "versionFunctions": true,
@@ -112,6 +114,30 @@
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
               "LogGroupName": "/aws/lambda/awsproject-dev-getUser"
+            }
+          },
+          "VerifyDashtokenLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/awsproject-dev-verify-token"
+            }
+          },
+          "MeLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/awsproject-dev-me"
+            }
+          },
+          "LoginLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/awsproject-dev-login"
+            }
+          },
+          "RegisterLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/awsproject-dev-register"
             }
           },
           "IamRoleLambdaExecution": {
@@ -201,7 +227,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/awsproject/dev/1621232853515-2021-05-17T06:27:33.515Z/awsproject.zip"
+                "S3Key": "serverless/awsproject/dev/1621238305603-2021-05-17T07:58:25.603Z/awsproject.zip"
               },
               "Handler": "api/users/create.create",
               "Runtime": "nodejs12.x",
@@ -210,7 +236,9 @@
               "Timeout": 6,
               "Environment": {
                 "Variables": {
-                  "usersTable": "users-dev"
+                  "usersTable": "users-dev",
+                  "JWT_SECRET": "garfunkal",
+                  "AWS_ID": "510372081928"
                 }
               },
               "Role": {
@@ -231,7 +259,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/awsproject/dev/1621232853515-2021-05-17T06:27:33.515Z/awsproject.zip"
+                "S3Key": "serverless/awsproject/dev/1621238305603-2021-05-17T07:58:25.603Z/awsproject.zip"
               },
               "Handler": "api/users/get.get",
               "Runtime": "nodejs12.x",
@@ -240,7 +268,9 @@
               "Timeout": 6,
               "Environment": {
                 "Variables": {
-                  "usersTable": "users-dev"
+                  "usersTable": "users-dev",
+                  "JWT_SECRET": "garfunkal",
+                  "AWS_ID": "510372081928"
                 }
               },
               "Role": {
@@ -254,24 +284,192 @@
               "GetUserLogGroup"
             ]
           },
-          "CreateUserLambdaVersionlc8yBORmGcDqRIeco8ckB9R4YoUF0NXfuTEnE0ck0E": {
+          "VerifyDashtokenLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/awsproject/dev/1621238305603-2021-05-17T07:58:25.603Z/awsproject.zip"
+              },
+              "Handler": "api/functions/functions/authorize.handler",
+              "Runtime": "nodejs12.x",
+              "FunctionName": "awsproject-dev-verify-token",
+              "MemorySize": 1024,
+              "Timeout": 6,
+              "Environment": {
+                "Variables": {
+                  "usersTable": "users-dev",
+                  "JWT_SECRET": "garfunkal",
+                  "AWS_ID": "510372081928"
+                }
+              },
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              }
+            },
+            "DependsOn": [
+              "VerifyDashtokenLogGroup"
+            ]
+          },
+          "MeLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/awsproject/dev/1621238305603-2021-05-17T07:58:25.603Z/awsproject.zip"
+              },
+              "Handler": "api/functions/testvalidatefunction.handler",
+              "Runtime": "nodejs12.x",
+              "FunctionName": "awsproject-dev-me",
+              "MemorySize": 1024,
+              "Timeout": 6,
+              "Environment": {
+                "Variables": {
+                  "usersTable": "users-dev",
+                  "JWT_SECRET": "garfunkal",
+                  "AWS_ID": "510372081928"
+                }
+              },
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              }
+            },
+            "DependsOn": [
+              "MeLogGroup"
+            ]
+          },
+          "LoginLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/awsproject/dev/1621238305603-2021-05-17T07:58:25.603Z/awsproject.zip"
+              },
+              "Handler": "api/functions/login.handler",
+              "Runtime": "nodejs12.x",
+              "FunctionName": "awsproject-dev-login",
+              "MemorySize": 1024,
+              "Timeout": 6,
+              "Environment": {
+                "Variables": {
+                  "usersTable": "users-dev",
+                  "JWT_SECRET": "garfunkal",
+                  "AWS_ID": "510372081928"
+                }
+              },
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              }
+            },
+            "DependsOn": [
+              "LoginLogGroup"
+            ]
+          },
+          "RegisterLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/awsproject/dev/1621238305603-2021-05-17T07:58:25.603Z/awsproject.zip"
+              },
+              "Handler": "api/functions/register.handler",
+              "Runtime": "nodejs12.x",
+              "FunctionName": "awsproject-dev-register",
+              "MemorySize": 1024,
+              "Timeout": 6,
+              "Environment": {
+                "Variables": {
+                  "usersTable": "users-dev",
+                  "JWT_SECRET": "garfunkal",
+                  "AWS_ID": "510372081928"
+                }
+              },
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              }
+            },
+            "DependsOn": [
+              "RegisterLogGroup"
+            ]
+          },
+          "CreateUserLambdaVersionvsR3IFaWv5VZI0y5gEalDGZgrOx78wwlKCzzLeQL9g": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "CreateUserLambdaFunction"
               },
-              "CodeSha256": "S4Ky2hKZgSUZCAbuLphm3aJqkBjgitmNnXRbRsDMzrw="
+              "CodeSha256": "48JhPXqT6VipNt8iYPIA/xFz2hzMoeu0mOgfSQssnrw="
             }
           },
-          "GetUserLambdaVersionskpBAXks9ODb9cDgxYKG0lVSZDQxlEE4KrePYsFQ": {
+          "GetUserLambdaVersiontOFy7uDjkFMg6Qcff09ZAklDN0tEqkjOUI46rHPni2o": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetUserLambdaFunction"
               },
-              "CodeSha256": "S4Ky2hKZgSUZCAbuLphm3aJqkBjgitmNnXRbRsDMzrw="
+              "CodeSha256": "48JhPXqT6VipNt8iYPIA/xFz2hzMoeu0mOgfSQssnrw="
+            }
+          },
+          "VerifyDashtokenLambdaVersionN0asG5MauyRw1t67KGDwNAtMoV4qHPd6Oc344ZFBhb8": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "VerifyDashtokenLambdaFunction"
+              },
+              "CodeSha256": "48JhPXqT6VipNt8iYPIA/xFz2hzMoeu0mOgfSQssnrw="
+            }
+          },
+          "MeLambdaVersionGoyjrq9IXZTZOcu2Qa1sBO5FiBEqwlFBk8ZfgUEwk8A": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "MeLambdaFunction"
+              },
+              "CodeSha256": "48JhPXqT6VipNt8iYPIA/xFz2hzMoeu0mOgfSQssnrw="
+            }
+          },
+          "LoginLambdaVersion4pyrF7m1gvLt0C06R7t6OFyxoCg2sPi1pW7IUYQIU": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "LoginLambdaFunction"
+              },
+              "CodeSha256": "48JhPXqT6VipNt8iYPIA/xFz2hzMoeu0mOgfSQssnrw="
+            }
+          },
+          "RegisterLambdaVersionNkkCHmiuamyMh4atQXkBOCm6z99SOGZecopO6RJwo": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "RegisterLambdaFunction"
+              },
+              "CodeSha256": "48JhPXqT6VipNt8iYPIA/xFz2hzMoeu0mOgfSQssnrw="
             }
           },
           "ApiGatewayRestApi": {
@@ -320,6 +518,186 @@
                 "Ref": "ApiGatewayResourceApiUsers"
               },
               "PathPart": "{id}",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayResourceTestvalidatefunction": {
+            "Type": "AWS::ApiGateway::Resource",
+            "Properties": {
+              "ParentId": {
+                "Fn::GetAtt": [
+                  "ApiGatewayRestApi",
+                  "RootResourceId"
+                ]
+              },
+              "PathPart": "testvalidatefunction",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayResourceLogin": {
+            "Type": "AWS::ApiGateway::Resource",
+            "Properties": {
+              "ParentId": {
+                "Fn::GetAtt": [
+                  "ApiGatewayRestApi",
+                  "RootResourceId"
+                ]
+              },
+              "PathPart": "login",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayResourceRegister": {
+            "Type": "AWS::ApiGateway::Resource",
+            "Properties": {
+              "ParentId": {
+                "Fn::GetAtt": [
+                  "ApiGatewayRestApi",
+                  "RootResourceId"
+                ]
+              },
+              "PathPart": "register",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayMethodTestvalidatefunctionOptions": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "AuthorizationType": "NONE",
+              "HttpMethod": "OPTIONS",
+              "MethodResponses": [
+                {
+                  "StatusCode": "200",
+                  "ResponseParameters": {
+                    "method.response.header.Access-Control-Allow-Origin": true,
+                    "method.response.header.Access-Control-Allow-Headers": true,
+                    "method.response.header.Access-Control-Allow-Methods": true
+                  },
+                  "ResponseModels": {}
+                }
+              ],
+              "RequestParameters": {},
+              "Integration": {
+                "Type": "MOCK",
+                "RequestTemplates": {
+                  "application/json": "{statusCode:200}"
+                },
+                "ContentHandling": "CONVERT_TO_TEXT",
+                "IntegrationResponses": [
+                  {
+                    "StatusCode": "200",
+                    "ResponseParameters": {
+                      "method.response.header.Access-Control-Allow-Origin": "'*'",
+                      "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'"
+                    },
+                    "ResponseTemplates": {
+                      "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+                    }
+                  }
+                ]
+              },
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceTestvalidatefunction"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayMethodLoginOptions": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "AuthorizationType": "NONE",
+              "HttpMethod": "OPTIONS",
+              "MethodResponses": [
+                {
+                  "StatusCode": "200",
+                  "ResponseParameters": {
+                    "method.response.header.Access-Control-Allow-Origin": true,
+                    "method.response.header.Access-Control-Allow-Headers": true,
+                    "method.response.header.Access-Control-Allow-Methods": true
+                  },
+                  "ResponseModels": {}
+                }
+              ],
+              "RequestParameters": {},
+              "Integration": {
+                "Type": "MOCK",
+                "RequestTemplates": {
+                  "application/json": "{statusCode:200}"
+                },
+                "ContentHandling": "CONVERT_TO_TEXT",
+                "IntegrationResponses": [
+                  {
+                    "StatusCode": "200",
+                    "ResponseParameters": {
+                      "method.response.header.Access-Control-Allow-Origin": "'*'",
+                      "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'"
+                    },
+                    "ResponseTemplates": {
+                      "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+                    }
+                  }
+                ]
+              },
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceLogin"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayMethodRegisterOptions": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "AuthorizationType": "NONE",
+              "HttpMethod": "OPTIONS",
+              "MethodResponses": [
+                {
+                  "StatusCode": "200",
+                  "ResponseParameters": {
+                    "method.response.header.Access-Control-Allow-Origin": true,
+                    "method.response.header.Access-Control-Allow-Headers": true,
+                    "method.response.header.Access-Control-Allow-Methods": true
+                  },
+                  "ResponseModels": {}
+                }
+              ],
+              "RequestParameters": {},
+              "Integration": {
+                "Type": "MOCK",
+                "RequestTemplates": {
+                  "application/json": "{statusCode:200}"
+                },
+                "ContentHandling": "CONVERT_TO_TEXT",
+                "IntegrationResponses": [
+                  {
+                    "StatusCode": "200",
+                    "ResponseParameters": {
+                      "method.response.header.Access-Control-Allow-Origin": "'*'",
+                      "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'"
+                    },
+                    "ResponseTemplates": {
+                      "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+                    }
+                  }
+                ]
+              },
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceRegister"
+              },
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
               }
@@ -411,7 +789,175 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1621232849278": {
+          "ApiGatewayMethodTestvalidatefunctionGet": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "HttpMethod": "GET",
+              "RequestParameters": {},
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceTestvalidatefunction"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "ApiKeyRequired": false,
+              "AuthorizationType": "CUSTOM",
+              "AuthorizerId": {
+                "Ref": "VerifyDashtokenApiGatewayAuthorizer"
+              },
+              "Integration": {
+                "IntegrationHttpMethod": "POST",
+                "Type": "AWS_PROXY",
+                "Uri": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":apigateway:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":lambda:path/2015-03-31/functions/",
+                      {
+                        "Fn::GetAtt": [
+                          "MeLambdaFunction",
+                          "Arn"
+                        ]
+                      },
+                      "/invocations"
+                    ]
+                  ]
+                }
+              },
+              "MethodResponses": []
+            },
+            "DependsOn": "VerifyDashtokenApiGatewayAuthorizer"
+          },
+          "ApiGatewayMethodLoginPost": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "HttpMethod": "POST",
+              "RequestParameters": {},
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceLogin"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "ApiKeyRequired": false,
+              "AuthorizationType": "NONE",
+              "Integration": {
+                "IntegrationHttpMethod": "POST",
+                "Type": "AWS_PROXY",
+                "Uri": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":apigateway:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":lambda:path/2015-03-31/functions/",
+                      {
+                        "Fn::GetAtt": [
+                          "LoginLambdaFunction",
+                          "Arn"
+                        ]
+                      },
+                      "/invocations"
+                    ]
+                  ]
+                }
+              },
+              "MethodResponses": []
+            }
+          },
+          "ApiGatewayMethodRegisterPost": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "HttpMethod": "POST",
+              "RequestParameters": {},
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceRegister"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "ApiKeyRequired": false,
+              "AuthorizationType": "NONE",
+              "Integration": {
+                "IntegrationHttpMethod": "POST",
+                "Type": "AWS_PROXY",
+                "Uri": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":apigateway:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":lambda:path/2015-03-31/functions/",
+                      {
+                        "Fn::GetAtt": [
+                          "RegisterLambdaFunction",
+                          "Arn"
+                        ]
+                      },
+                      "/invocations"
+                    ]
+                  ]
+                }
+              },
+              "MethodResponses": []
+            }
+          },
+          "VerifyDashtokenApiGatewayAuthorizer": {
+            "Type": "AWS::ApiGateway::Authorizer",
+            "Properties": {
+              "AuthorizerResultTtlInSeconds": 3600,
+              "IdentitySource": "method.request.header.Authorization",
+              "Name": "verify-token",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "AuthorizerUri": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":apigateway:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":lambda:path/2015-03-31/functions/",
+                    {
+                      "Fn::GetAtt": [
+                        "VerifyDashtokenLambdaFunction",
+                        "Arn"
+                      ]
+                    },
+                    "/invocations"
+                  ]
+                ]
+              },
+              "Type": "TOKEN"
+            }
+          },
+          "ApiGatewayDeployment1621238304212": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -420,8 +966,14 @@
               "StageName": "dev"
             },
             "DependsOn": [
+              "ApiGatewayMethodTestvalidatefunctionOptions",
+              "ApiGatewayMethodLoginOptions",
+              "ApiGatewayMethodRegisterOptions",
               "ApiGatewayMethodApiUsersPost",
-              "ApiGatewayMethodApiUsersIdVarGet"
+              "ApiGatewayMethodApiUsersIdVarGet",
+              "ApiGatewayMethodTestvalidatefunctionGet",
+              "ApiGatewayMethodLoginPost",
+              "ApiGatewayMethodRegisterPost"
             ]
           },
           "CreateUserLambdaPermissionApiGateway": {
@@ -498,6 +1050,154 @@
               }
             }
           },
+          "MeLambdaPermissionApiGateway": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "MeLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "apigateway.amazonaws.com",
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "ApiGatewayRestApi"
+                    },
+                    "/*/*"
+                  ]
+                ]
+              }
+            }
+          },
+          "VerifyDashtokenLambdaPermissionApiGateway": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "VerifyDashtokenLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "apigateway.amazonaws.com",
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "ApiGatewayRestApi"
+                    },
+                    "/*/*"
+                  ]
+                ]
+              }
+            }
+          },
+          "LoginLambdaPermissionApiGateway": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "LoginLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "apigateway.amazonaws.com",
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "ApiGatewayRestApi"
+                    },
+                    "/*/*"
+                  ]
+                ]
+              }
+            }
+          },
+          "RegisterLambdaPermissionApiGateway": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "RegisterLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "apigateway.amazonaws.com",
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "ApiGatewayRestApi"
+                    },
+                    "/*/*"
+                  ]
+                ]
+              }
+            }
+          },
           "usersTable": {
             "Type": "AWS::DynamoDB::Table",
             "DeletionPolicy": "Retain",
@@ -534,7 +1234,7 @@
           "CreateUserLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "CreateUserLambdaVersionlc8yBORmGcDqRIeco8ckB9R4YoUF0NXfuTEnE0ck0E"
+              "Ref": "CreateUserLambdaVersionvsR3IFaWv5VZI0y5gEalDGZgrOx78wwlKCzzLeQL9g"
             },
             "Export": {
               "Name": "sls-awsproject-dev-CreateUserLambdaFunctionQualifiedArn"
@@ -543,10 +1243,46 @@
           "GetUserLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetUserLambdaVersionskpBAXks9ODb9cDgxYKG0lVSZDQxlEE4KrePYsFQ"
+              "Ref": "GetUserLambdaVersiontOFy7uDjkFMg6Qcff09ZAklDN0tEqkjOUI46rHPni2o"
             },
             "Export": {
               "Name": "sls-awsproject-dev-GetUserLambdaFunctionQualifiedArn"
+            }
+          },
+          "VerifyDashtokenLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "VerifyDashtokenLambdaVersionN0asG5MauyRw1t67KGDwNAtMoV4qHPd6Oc344ZFBhb8"
+            },
+            "Export": {
+              "Name": "sls-awsproject-dev-VerifyDashtokenLambdaFunctionQualifiedArn"
+            }
+          },
+          "MeLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "MeLambdaVersionGoyjrq9IXZTZOcu2Qa1sBO5FiBEqwlFBk8ZfgUEwk8A"
+            },
+            "Export": {
+              "Name": "sls-awsproject-dev-MeLambdaFunctionQualifiedArn"
+            }
+          },
+          "LoginLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "LoginLambdaVersion4pyrF7m1gvLt0C06R7t6OFyxoCg2sPi1pW7IUYQIU"
+            },
+            "Export": {
+              "Name": "sls-awsproject-dev-LoginLambdaFunctionQualifiedArn"
+            }
+          },
+          "RegisterLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "RegisterLambdaVersionNkkCHmiuamyMh4atQXkBOCm6z99SOGZecopO6RJwo"
+            },
+            "Export": {
+              "Name": "sls-awsproject-dev-RegisterLambdaFunctionQualifiedArn"
             }
           },
           "ServiceEndpoint": {
@@ -662,6 +1398,14 @@
       "vpc": {}
     },
     "custom": {
+      "secrets": {
+        "JWT_SECRET": "garfunkal",
+        "AWS_ID": "510372081928",
+        "aws_access_key_id": "ASIAXNVEL6EEECS7YKMW",
+        "aws_secret_access_key": "FO7v8SXhYh0X1PBr/0VwCwhip13fYk7ZQtpzJPOn",
+        "aws_session_token": "IQoJb3JpZ2luX2VjEKf//////////wEaCXVzLXdlc3QtMiJGMEQCIGzclWZ5ZKVI2XsCq2K9dez48HZYTpRoPOE2tHS91oOkAiAcYSy8YN3MVYz8lMNR0Tn5IyzdtRdLKjCEBj9O0NojYiqxAghAEAEaDDUxMDM3MjA4MTkyOCIMlkY52i9oDw9+oYmcKo4CcOiP/7S9e1KBdgJvsa1N0QmxEBvPj633DeslIFYadnUAxb98jVDcsOL3yFkSy4p/l9Qbbh20zWmdzlVQ2KB8t2E+B/zY3N2H/9xUA3YszQKXS3Hjd4gf2wq410C6lkgSKzcO8Ezgb5VnF6BGQfCCjwFcpk+hJ9pfgY8VocEZfMOLZaNT6OvjRy3F+nIpt1ByLgP1RjN/DvGyAf4s8jSlf8yhGO8oJ7P33fZQ6+3AZWrkswPSHmDrajFcVnufsBUi7HPZ0xz9ojgIflccHsuzkdVGFVizPM76NvrM07ibYwZao90pN/uU7OG3dmcJarXtu+olYcS+rmADwRTPRjYpMxuZuHK0/PDHBMUGBt5fMNSYiIUGOp4BgTPsdQe6jql/95Mxt898lk6JNrST85Ly8QewYpv+XQv7dOWRjpWp/Togv5u6aItv2fjZsA0r3KOE2sohSGaLu1vpCb/axn+Fdf/zmOfpvmuLf4+e0YRtQi8WHkrMmv86bo+xSFbYzaY4EvYnoQxhx0d553mg4WvmRCc/h/STY6xaAsEY732+lCo89Ph+kfu9s+Uki9duLviiQ/rvVWg=",
+        "aws_shared_credentials_file": "~/.aws/credentials."
+      },
       "tableName": "users-dev"
     },
     "pluginsData": {},
@@ -683,7 +1427,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "CreateUserLambdaVersionlc8yBORmGcDqRIeco8ckB9R4YoUF0NXfuTEnE0ck0E"
+        "versionLogicalId": "CreateUserLambdaVersionvsR3IFaWv5VZI0y5gEalDGZgrOx78wwlKCzzLeQL9g"
       },
       "getUser": {
         "handler": "api/users/get.get",
@@ -702,7 +1446,142 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "GetUserLambdaVersionskpBAXks9ODb9cDgxYKG0lVSZDQxlEE4KrePYsFQ"
+        "versionLogicalId": "GetUserLambdaVersiontOFy7uDjkFMg6Qcff09ZAklDN0tEqkjOUI46rHPni2o"
+      },
+      "verify-token": {
+        "handler": "api/functions/functions/authorize.handler",
+        "events": [],
+        "name": "awsproject-dev-verify-token",
+        "package": {},
+        "memory": 1024,
+        "timeout": 6,
+        "runtime": "nodejs12.x",
+        "vpc": {},
+        "versionLogicalId": "VerifyDashtokenLambdaVersionN0asG5MauyRw1t67KGDwNAtMoV4qHPd6Oc344ZFBhb8"
+      },
+      "me": {
+        "handler": "api/functions/testvalidatefunction.handler",
+        "events": [
+          {
+            "http": {
+              "path": "testvalidatefunction",
+              "method": "get",
+              "cors": {
+                "origins": [
+                  "*"
+                ],
+                "origin": "*",
+                "methods": [
+                  "OPTIONS",
+                  "GET"
+                ],
+                "headers": [
+                  "Content-Type",
+                  "X-Amz-Date",
+                  "Authorization",
+                  "X-Api-Key",
+                  "X-Amz-Security-Token",
+                  "X-Amz-User-Agent"
+                ],
+                "allowCredentials": false
+              },
+              "authorizer": {
+                "name": "verify-token",
+                "arn": {
+                  "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"VerifyDashtokenLambdaPermissionApiGateway\"][\"Properties\"][\"FunctionName\"]"
+                },
+                "managedExternally": false,
+                "resultTtlInSeconds": 3600,
+                "identitySource": "method.request.header.Authorization",
+                "claims": []
+              },
+              "integration": "AWS_PROXY"
+            }
+          }
+        ],
+        "name": "awsproject-dev-me",
+        "package": {},
+        "memory": 1024,
+        "timeout": 6,
+        "runtime": "nodejs12.x",
+        "vpc": {},
+        "versionLogicalId": "MeLambdaVersionGoyjrq9IXZTZOcu2Qa1sBO5FiBEqwlFBk8ZfgUEwk8A"
+      },
+      "login": {
+        "handler": "api/functions/login.handler",
+        "events": [
+          {
+            "http": {
+              "path": "login",
+              "method": "post",
+              "cors": {
+                "origins": [
+                  "*"
+                ],
+                "origin": "*",
+                "methods": [
+                  "OPTIONS",
+                  "POST"
+                ],
+                "headers": [
+                  "Content-Type",
+                  "X-Amz-Date",
+                  "Authorization",
+                  "X-Api-Key",
+                  "X-Amz-Security-Token",
+                  "X-Amz-User-Agent"
+                ],
+                "allowCredentials": false
+              },
+              "integration": "AWS_PROXY"
+            }
+          }
+        ],
+        "name": "awsproject-dev-login",
+        "package": {},
+        "memory": 1024,
+        "timeout": 6,
+        "runtime": "nodejs12.x",
+        "vpc": {},
+        "versionLogicalId": "LoginLambdaVersion4pyrF7m1gvLt0C06R7t6OFyxoCg2sPi1pW7IUYQIU"
+      },
+      "register": {
+        "handler": "api/functions/register.handler",
+        "events": [
+          {
+            "http": {
+              "path": "register",
+              "method": "post",
+              "cors": {
+                "origins": [
+                  "*"
+                ],
+                "origin": "*",
+                "methods": [
+                  "OPTIONS",
+                  "POST"
+                ],
+                "headers": [
+                  "Content-Type",
+                  "X-Amz-Date",
+                  "Authorization",
+                  "X-Api-Key",
+                  "X-Amz-Security-Token",
+                  "X-Amz-User-Agent"
+                ],
+                "allowCredentials": false
+              },
+              "integration": "AWS_PROXY"
+            }
+          }
+        ],
+        "name": "awsproject-dev-register",
+        "package": {},
+        "memory": 1024,
+        "timeout": 6,
+        "runtime": "nodejs12.x",
+        "vpc": {},
+        "versionLogicalId": "RegisterLambdaVersionNkkCHmiuamyMh4atQXkBOCm6z99SOGZecopO6RJwo"
       }
     },
     "resources": {
@@ -758,7 +1637,7 @@
     "artifact": "C:\\Users\\Simeon\\Askyourteam\\askyourteam-1\\awsproject\\.serverless\\awsproject.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/awsproject/dev/1621232853515-2021-05-17T06:27:33.515Z",
+    "artifactDirectoryName": "serverless/awsproject/dev/1621238305603-2021-05-17T07:58:25.603Z",
     "artifact": "awsproject.zip"
   }
 }
