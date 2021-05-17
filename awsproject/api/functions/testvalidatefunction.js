@@ -1,4 +1,4 @@
-// ./functions/me.js
+// ./functions/testvalidatefunction.js
 const { getUserByEmail } = require("../lib/db");
 const { getUserFromToken } = require("../lib/utils");
 

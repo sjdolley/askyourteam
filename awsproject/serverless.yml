@@ -13,14 +13,15 @@
 
 service: awsproject
 # app and org for use with dashboard.serverless.com
-#app: your-app-name
-#org: your-org-name
+app: aytquiz
+org: E.I.T.
 
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
 frameworkVersion: '2'
 
 custom:
+  secrets: ${file(secrets.json)}
   tableName: 'users-${self:provider.stage}'
 
 provider:
@@ -45,6 +46,8 @@ provider:
       Resource: "*"
   environment:
     usersTable: ${self:custom.tableName}
+    JWT_SECRET: ${self:custom.secrets.JWT_SECRET}
+    AWS_ID: ${self:custom.secrets.AWS_ID}
 #  environment:
 #    userTable: ${self:custom.tableName}
 #        - "s3:ListBucket"
@@ -86,6 +89,37 @@ functions:
       - http:
           path: api/users/{id}
           method: get
+
+  verify-token:
+    handler: api/functions/functions/authorize.handler
+
+  me:
+    handler: api/functions/testvalidatefunction.handler
+    events:
+          - http:
+              path: testvalidatefunction
+              method: get
+              cors: true
+              authorizer:
+                name: verify-token
+                            # this tells the lambda where to take the information from, 
+                            # in our case the HTTP Authorization header
+                identitySource: method.request.header.Authorization 
+                resultTtlInSeconds: 3600 # cache the result for 1 hour
+  login:
+    handler: api/functions/login.handler
+    events:
+      - http:
+          path: login
+          method: post
+          cors: true
+  register:
+    handler: api/functions/register.handler
+    events:
+      - http:
+          path: register
+          method: post
+          cors: true
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details

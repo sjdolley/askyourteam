@@ -47,11 +47,6 @@ const createDbUser = async props => {
   return User.parse(response);
 };
 
-// export it so we can use it in our lambda
-module.exports = {
-  createDbUser
-};
-
 const getUserByEmail = async email => {
     const params = User.get({ email, sk: "User" });
     const response = await docClient.get(params).promise();

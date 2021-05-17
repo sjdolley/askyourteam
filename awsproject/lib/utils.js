@@ -1,4 +1,17 @@
 // ./lib/utils.js
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
+const { getUserByEmail } = require("../lib/db");
+
+async function signToken(user) {
+  const secret = Buffer.from(process.env.JWT_SECRET, "base64");
+
+  return jwt.sign({ email: user.email, id: user.id, roles: ["USER"] }, secret, {
+    expiresIn: 86400 // expires in 24 hours
+  });
+}
+
+
 async function login(args) {
     try {
       const user = await getUserByEmail(args.email);
@@ -30,3 +43,9 @@ async function getUserFromToken(token) {
   
     return decoded;
   }
+
+  module.exports = {
+    signToken,
+    getUserFromToken,
+    login
+  };
