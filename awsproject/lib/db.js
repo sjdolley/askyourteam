@@ -4,6 +4,7 @@ const AWS = require("aws-sdk");
 const bcrypt = require("bcryptjs");
 const { Model } = require("dynamodb-toolbox");
 const { v4: uuidv4 } = require("uuid");
+const table = process.env.usersTable
 
 const User = new Model("User", {
   // Specify table name

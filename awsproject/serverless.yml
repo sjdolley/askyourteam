@@ -75,24 +75,24 @@ provider:
 
 functions:
   createUser:
-    handler: api/users/create.create
+    handler: users/create.create
     events:
       - http:
-          path: api/users
+          path: users
           method: post
 
   getUser:
-    handler: api/users/get.get
+    handler: users/get.get
     events:
       - http:
-          path: api/users/{id}
+          path: users/{id}
           method: get
 
   verify-token:
-    handler: api/functions/functions/authorize.handler
+    handler: functions/authorize.handler
 
   me:
-    handler: api/functions/testvalidatefunction.handler
+    handler: functions/testvalidatefunction.handler
     events:
           - http:
               path: testvalidatefunction
@@ -105,14 +105,14 @@ functions:
                 identitySource: method.request.header.Authorization 
                 resultTtlInSeconds: 3600 # cache the result for 1 hour
   login:
-    handler: api/functions/login.handler
+    handler: functions/login.handler
     events:
       - http:
           path: login
           method: post
           cors: true
   register:
-    handler: api/functions/register.handler
+    handler: functions/register.handler
     events:
       - http:
           path: register

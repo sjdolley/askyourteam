@@ -1,5 +1,5 @@
 // ./functions/login.js
-const { login } = require("../lib/utils");
+const { login } = require("./lib/utils");
 
 module.exports.handler = async function signInUser(event) {
   const body = JSON.parse(event.body);
