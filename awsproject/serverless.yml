@@ -20,7 +20,7 @@ frameworkVersion: '2'
 
 custom:
   secrets: ${file(secrets.json)}
-  tableName: 'users-${self:provider.stage}'
+  tableName: 'usersTable-${self:provider.stage}'
 
 provider:
   name: aws
@@ -166,17 +166,16 @@ resources:
       DeletionPolicy: Retain
       Properties:
         AttributeDefinitions:
-          -
-            AttributeName: "email"
-            AttributeType: "S"
+          - AttributeName: email
+            AttributeType: S
         KeySchema:
-          -
-            AttributeName: "email"
-            KeyType:  "HASH"
+          - AttributeName: email
+            KeyType:  HASH
+        TableName: ${self:custom.tableName}
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1 
-        TableName: ${self:custom.tableName} 
+        
 #      Type: AWS::S3::Bucket
 #      Properties:
 #        BucketName: my-new-bucket

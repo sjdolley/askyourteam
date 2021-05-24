@@ -1,14 +1,14 @@
-// lib/db.js
 
+/*
+// Require AWS SDK and instantiate DocumentClient
 const AWS = require("aws-sdk");
 const bcrypt = require("bcryptjs");
 const { Model } = require("dynamodb-toolbox");
 const { v4: uuidv4 } = require("uuid");
-const table = process.env.usersTable
 
 const User = new Model("User", {
   // Specify table name
-  table: "test-users-table",
+  table: "usersTable",
 
   // Define partition and sort keys
   partitionKey: "pk",
@@ -28,8 +28,181 @@ const User = new Model("User", {
 AWS.config.update({
   region: "us-east-1"
 });
+
+const docClient = new AWS.DynamoDB.DocumentClient();
+
+const createDbUser = async props => {
+  const passwordHash = await bcrypt.hash(props.password, 8); // hash the pass
+  delete props.password; // don't save it in clear text
+
+  const params = User.put({
+    ...props,
+    id: uuidv4(),
+    type: "User",
+    passwordHash,
+    createdAt: new Date()
+  });
+
+  console.log("create user with params", params);
+
+  const response = await docClient.put(params).promise();
+
+  return User.parse(response);
+};
+
+const getUserByEmail = async email => {
+  const params = User.get({ email, sk: "User" });
+  const response = await docClient.get(params).promise();
+
+  return User.parse(response);
+};
+
+module.exports = {
+  createDbUser,
+  getUserByEmail
+};
+*/
+
+
+
+
+
+// Require AWS SDK and instantiate DocumentClient
+const AWS = require("aws-sdk");
+const bcrypt = require("bcryptjs");
+const { v4: uuidv4 } = require("uuid");
+
+
+// INIT AWS
+AWS.config.update({
+  region: "us-east-1"
+});
+
+const docClient = new AWS.DynamoDB.DocumentClient();
+
+const createDbUser = async package => {
+  const details = JSON.parse(package.body);
+  const email = details.email;
+  const password = details.password;
+  const passwordHash = await bcrypt.hash(password, 8); // hash the pass
+  delete password; // eliminate the trace of the password
+  
+  const params = {
+    TableName: usersTable,
+    Item:{email: email,
+    id: uuidv4(),
+    type: "User",
+    passwordHash: passwordHash,
+    createdAt: new Date()
+    }
+  }
+
+  console.log("create user with params", params);
+
+  const response = await docClient.put(params).promise();
+
+  return User.parse(response);
+};
+
+const getUserByEmail = async email => {
+  const params = User.get({ email, sk: "User" });
+  const response = await docClient.get(params).promise();
+
+  return User.parse(response);
+};
+
+module.exports = {
+  createDbUser,
+  getUserByEmail
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+// lib/db.js
+'use strict';
+
+const AWS = require("aws-sdk");
+const bcrypt = require("bcryptjs");
+const { v4: uuidv4 } = require("uuid");
+const table = process.env.usersTable
+
+// AWS.config.setPromisesDependency(require('bluebird'));
+
+// INIT AWS
+AWS.config.update({
+  region: "us-east-1"
+});
 // init DynamoDB document client
 const docClient = new AWS.DynamoDB.DocumentClient();
+
+
+
+const createDbUser = (event, context, callback) => {
+  const requestBody = JSON.parse(event.body);
+  const email = requestBody.email;
+  const password = requestBody.password;
+
+
+// put some validation in here dumpkof
+
+  submitUser(userInfo(email, password))
+    .then(res => {
+      callback(null, {
+        statusCode: 200,
+        body: JSON.stringify({
+        message: 'Success on Admin User with email ${email}',
+        id: res.id
+        })
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      callback(null, {
+        statusCode: 500,
+        body: JSON.stringify({
+          message: 'Unable to submit Admin User with email ${email}'
+        })
+      })
+    });
+};
+
+const submitUser = user => {
+  console.log('Submitting Admin');
+  const userInfo = {
+    TableName: process.env.usersTable,
+    Item: user,
+  };
+  return dynamoDB.put(userInfo).promise()
+  .then(res => user);
+};
+
+
+
+const userInfo = (email, password) => {
+  const passwordHash = await bcrypt.hash(password, 8);
+  return {
+    id: uuidv4(),
+    email: email,
+    password: passwordHash,
+    createdAt: new Date()
+  };
+};
+
+
+// console.log('Submitting User');
 
 const createDbUser = async props => {
   const passwordHash = await bcrypt.hash(props.password, 8); // hash the pass
@@ -48,15 +221,35 @@ const createDbUser = async props => {
   return User.parse(response);
 };
 
-const getUserByEmail = async email => {
-    const params = User.get({ email, sk: "User" });
-    const response = await docClient.get(params).promise();
 
-    return User.parse(response);
+
+const getUserByEmail = (event, context, callback) => {
+  const params = {
+    TableName: process.env.usersTable,
+    Key: {
+      email: event.pathParameters.email,
+    }
   };
+
+  dynamoDb.get(params).promise()
+    .then(result => {
+      const response = {
+        statusCode: 200,
+        body: JSON.stringify(result.Item),
+      };
+      callback(null, response);
+    })
+    .catch(error => {
+      console.error(error);
+      callback(new Error('Could not retrieve this Admin'));
+      return;
+    });
+};
+
 
   // don't forget to export it
   module.exports = {
     createDbUser,
     getUserByEmail
   };
+  */
