@@ -1,3 +1,5 @@
+/*
+
 const { updateDbQuizPublish } = require("../lib/db");
 
 module.exports.handler = async function publishQuiz() {
@@ -16,3 +18,5 @@ module.exports.handler = async function publishQuiz() {
         };
       });
 }
+
+*/

@@ -72,7 +72,7 @@ const AWS = require("aws-sdk");
 const bcrypt = require("bcryptjs");
 const { v4: uuidv4 } = require("uuid");
 const usersTable = process.env.usersTable
-
+const quizTable = process.env.quizTable
 
 // INIT AWS
 AWS.config.update({
