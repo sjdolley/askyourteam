@@ -46,6 +46,7 @@ provider:
     usersTable: ${self:custom.tableName}
     JWT_SECRET: ${self:custom.secrets.JWT_SECRET}
     AWS_ID: ${self:custom.secrets.AWS_ID}
+    quizTable: ${self:service}-${opt:stage, self:provider.stage}
 #  environment:
 #    userTable: ${self:custom.tableName}
 #        - "s3:ListBucket"
@@ -175,7 +176,28 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1 
-    
+    quizTable:
+      Type: 'AWS::DynamoDB::Table'
+      DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: quizName
+            AttributeType: S
+          -
+            AttributeName: email
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: quizName
+            KeyType: HASH
+          - 
+            AttributeName: email
+            KeyType: RANGE
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: quizTable      
 
         
 #      Type: AWS::S3::Bucket
