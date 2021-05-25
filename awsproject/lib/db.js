@@ -71,6 +71,7 @@ module.exports = {
 const AWS = require("aws-sdk");
 const bcrypt = require("bcryptjs");
 const { v4: uuidv4 } = require("uuid");
+const usersTable = process.env.usersTable
 
 
 // INIT AWS
@@ -80,8 +81,7 @@ AWS.config.update({
 
 const docClient = new AWS.DynamoDB.DocumentClient();
 
-const createDbUser = async package => {
-  const details = JSON.parse(package.body);
+const createDbUser = async details => {
   const email = details.email;
   const password = details.password;
   const passwordHash = await bcrypt.hash(password, 8); // hash the pass
@@ -91,7 +91,6 @@ const createDbUser = async package => {
     TableName: usersTable,
     Item:{email: email,
     id: uuidv4(),
-    type: "User",
     passwordHash: passwordHash,
     createdAt: new Date()
     }
@@ -99,9 +98,9 @@ const createDbUser = async package => {
 
   console.log("create user with params", params);
 
-  const response = await docClient.put(params).promise();
+  await docClient.put(params).promise();
 
-  return User.parse(response);
+  return { statusCode: 200, body: JSON.stringify(params)}
 };
 
 const getUserByEmail = async email => {

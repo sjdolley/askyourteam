@@ -203,7 +203,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/awsproject/dev/1621926326054-2021-05-25T07:05:26.054Z/awsproject.zip"
+          "S3Key": "serverless/awsproject/dev/1621929355604-2021-05-25T07:55:55.604Z/awsproject.zip"
         },
         "Handler": "users/create.create",
         "Runtime": "nodejs12.x",
@@ -215,7 +215,8 @@
             "usersTable": "usersTable-dev",
             "JWT_SECRET": "garfunkal",
             "AWS_ID": "510372081928",
-            "quizTable": "awsproject-dev"
+            "quizTable": "awsproject-dev",
+            "questionTable": "awsproject-dev"
           }
         },
         "Role": {
@@ -236,7 +237,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/awsproject/dev/1621926326054-2021-05-25T07:05:26.054Z/awsproject.zip"
+          "S3Key": "serverless/awsproject/dev/1621929355604-2021-05-25T07:55:55.604Z/awsproject.zip"
         },
         "Handler": "users/get.get",
         "Runtime": "nodejs12.x",
@@ -248,7 +249,8 @@
             "usersTable": "usersTable-dev",
             "JWT_SECRET": "garfunkal",
             "AWS_ID": "510372081928",
-            "quizTable": "awsproject-dev"
+            "quizTable": "awsproject-dev",
+            "questionTable": "awsproject-dev"
           }
         },
         "Role": {
@@ -269,7 +271,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/awsproject/dev/1621926326054-2021-05-25T07:05:26.054Z/awsproject.zip"
+          "S3Key": "serverless/awsproject/dev/1621929355604-2021-05-25T07:55:55.604Z/awsproject.zip"
         },
         "Handler": "functions/authorize.handler",
         "Runtime": "nodejs12.x",
@@ -281,7 +283,8 @@
             "usersTable": "usersTable-dev",
             "JWT_SECRET": "garfunkal",
             "AWS_ID": "510372081928",
-            "quizTable": "awsproject-dev"
+            "quizTable": "awsproject-dev",
+            "questionTable": "awsproject-dev"
           }
         },
         "Role": {
@@ -302,7 +305,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/awsproject/dev/1621926326054-2021-05-25T07:05:26.054Z/awsproject.zip"
+          "S3Key": "serverless/awsproject/dev/1621929355604-2021-05-25T07:55:55.604Z/awsproject.zip"
         },
         "Handler": "functions/testvalidatefunction.handler",
         "Runtime": "nodejs12.x",
@@ -314,7 +317,8 @@
             "usersTable": "usersTable-dev",
             "JWT_SECRET": "garfunkal",
             "AWS_ID": "510372081928",
-            "quizTable": "awsproject-dev"
+            "quizTable": "awsproject-dev",
+            "questionTable": "awsproject-dev"
           }
         },
         "Role": {
@@ -335,7 +339,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/awsproject/dev/1621926326054-2021-05-25T07:05:26.054Z/awsproject.zip"
+          "S3Key": "serverless/awsproject/dev/1621929355604-2021-05-25T07:55:55.604Z/awsproject.zip"
         },
         "Handler": "functions/login.handler",
         "Runtime": "nodejs12.x",
@@ -347,7 +351,8 @@
             "usersTable": "usersTable-dev",
             "JWT_SECRET": "garfunkal",
             "AWS_ID": "510372081928",
-            "quizTable": "awsproject-dev"
+            "quizTable": "awsproject-dev",
+            "questionTable": "awsproject-dev"
           }
         },
         "Role": {
@@ -368,7 +373,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/awsproject/dev/1621926326054-2021-05-25T07:05:26.054Z/awsproject.zip"
+          "S3Key": "serverless/awsproject/dev/1621929355604-2021-05-25T07:55:55.604Z/awsproject.zip"
         },
         "Handler": "functions/register.handler",
         "Runtime": "nodejs12.x",
@@ -380,7 +385,8 @@
             "usersTable": "usersTable-dev",
             "JWT_SECRET": "garfunkal",
             "AWS_ID": "510372081928",
-            "quizTable": "awsproject-dev"
+            "quizTable": "awsproject-dev",
+            "questionTable": "awsproject-dev"
           }
         },
         "Role": {
@@ -394,64 +400,64 @@
         "RegisterLogGroup"
       ]
     },
-    "CreateUserLambdaVersionCNmM72QwMlg2RJBg08lSIWVG18nZhikKl2H70muP8Q": {
+    "CreateUserLambdaVersionFo3kd09XK2sP8G3ZehJxWTf27ZgyxPSvghgiXPMgI": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "CreateUserLambdaFunction"
         },
-        "CodeSha256": "/Xiws8DsuVNHO9yDdHnBA9rrcIsdrIi68r/s3q7WByY="
+        "CodeSha256": "BePW2wvtCtkH1mgxKWi5Ao8Lk8p30+Zgjw9sqEBN9wM="
       }
     },
-    "GetUserLambdaVersionsKmcEp5MkQ8TVQ8FRMbU0Vw4FAhmv3VyIXyKLEWj90M": {
+    "GetUserLambdaVersiona2ZTI9RBmYFublvDHOI3QshgxaGauqwz4kPUlYRAY": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetUserLambdaFunction"
         },
-        "CodeSha256": "/Xiws8DsuVNHO9yDdHnBA9rrcIsdrIi68r/s3q7WByY="
+        "CodeSha256": "BePW2wvtCtkH1mgxKWi5Ao8Lk8p30+Zgjw9sqEBN9wM="
       }
     },
-    "VerifyDashtokenLambdaVersionIhE6sbdClbXkyUvyUPfiED31IJDb3o0b78Wdg7Z0w": {
+    "VerifyDashtokenLambdaVersion4UA9xk5eMqsKOYsd9N6NU0uWBLMf1yYLgQc5Q2F6uc": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "VerifyDashtokenLambdaFunction"
         },
-        "CodeSha256": "/Xiws8DsuVNHO9yDdHnBA9rrcIsdrIi68r/s3q7WByY="
+        "CodeSha256": "BePW2wvtCtkH1mgxKWi5Ao8Lk8p30+Zgjw9sqEBN9wM="
       }
     },
-    "MeLambdaVersionke5ZwjQsuHMHnBVTSW9IdKjp4PZOUsvop3Nz13GCc": {
+    "MeLambdaVersionZJwm4XYZm5uX4cH3E8F1fBcaGuEXoRjz1WoytFLsLA": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "MeLambdaFunction"
         },
-        "CodeSha256": "/Xiws8DsuVNHO9yDdHnBA9rrcIsdrIi68r/s3q7WByY="
+        "CodeSha256": "BePW2wvtCtkH1mgxKWi5Ao8Lk8p30+Zgjw9sqEBN9wM="
       }
     },
-    "LoginLambdaVersionYkgeiTCYbhbC6nxNUob6G0XqZJHMnxMz49y5UimBncg": {
+    "LoginLambdaVersioniMzaqN4aFxfITJgr8RIFecijFr1n7lmRPnYOkRIsQI": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "LoginLambdaFunction"
         },
-        "CodeSha256": "/Xiws8DsuVNHO9yDdHnBA9rrcIsdrIi68r/s3q7WByY="
+        "CodeSha256": "BePW2wvtCtkH1mgxKWi5Ao8Lk8p30+Zgjw9sqEBN9wM="
       }
     },
-    "RegisterLambdaVersionIAphRPhHiWTxgWrVpTLQPeBjxlJeFgc6fIH47VxNM": {
+    "RegisterLambdaVersionZryqlcpsnCmFwEmxFKWcsfnN4HlkGGEFfwenEyexwo": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "RegisterLambdaFunction"
         },
-        "CodeSha256": "/Xiws8DsuVNHO9yDdHnBA9rrcIsdrIi68r/s3q7WByY="
+        "CodeSha256": "BePW2wvtCtkH1mgxKWi5Ao8Lk8p30+Zgjw9sqEBN9wM="
       }
     },
     "ApiGatewayRestApi": {
@@ -882,7 +888,7 @@
         "Type": "TOKEN"
       }
     },
-    "ApiGatewayDeployment1621926324532": {
+    "ApiGatewayDeployment1621929354113": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -1169,11 +1175,42 @@
             "KeyType": "RANGE"
           }
         ],
+        "TableName": "quizTable",
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 1,
+          "WriteCapacityUnits": 1
+        }
+      }
+    },
+    "questionTable": {
+      "Type": "AWS::DynamoDB::Table",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "questionName",
+            "AttributeType": "S"
+          },
+          {
+            "AttributeName": "quizName",
+            "AttributeType": "S"
+          }
+        ],
+        "KeySchema": [
+          {
+            "AttributeName": "questionName",
+            "KeyType": "HASH"
+          },
+          {
+            "AttributeName": "quizName",
+            "KeyType": "RANGE"
+          }
+        ],
         "ProvisionedThroughput": {
           "ReadCapacityUnits": 1,
           "WriteCapacityUnits": 1
         },
-        "TableName": "quizTable"
+        "TableName": "questionTable"
       }
     }
   },
@@ -1189,7 +1226,7 @@
     "CreateUserLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "CreateUserLambdaVersionCNmM72QwMlg2RJBg08lSIWVG18nZhikKl2H70muP8Q"
+        "Ref": "CreateUserLambdaVersionFo3kd09XK2sP8G3ZehJxWTf27ZgyxPSvghgiXPMgI"
       },
       "Export": {
         "Name": "sls-awsproject-dev-CreateUserLambdaFunctionQualifiedArn"
@@ -1198,7 +1235,7 @@
     "GetUserLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetUserLambdaVersionsKmcEp5MkQ8TVQ8FRMbU0Vw4FAhmv3VyIXyKLEWj90M"
+        "Ref": "GetUserLambdaVersiona2ZTI9RBmYFublvDHOI3QshgxaGauqwz4kPUlYRAY"
       },
       "Export": {
         "Name": "sls-awsproject-dev-GetUserLambdaFunctionQualifiedArn"
@@ -1207,7 +1244,7 @@
     "VerifyDashtokenLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "VerifyDashtokenLambdaVersionIhE6sbdClbXkyUvyUPfiED31IJDb3o0b78Wdg7Z0w"
+        "Ref": "VerifyDashtokenLambdaVersion4UA9xk5eMqsKOYsd9N6NU0uWBLMf1yYLgQc5Q2F6uc"
       },
       "Export": {
         "Name": "sls-awsproject-dev-VerifyDashtokenLambdaFunctionQualifiedArn"
@@ -1216,7 +1253,7 @@
     "MeLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "MeLambdaVersionke5ZwjQsuHMHnBVTSW9IdKjp4PZOUsvop3Nz13GCc"
+        "Ref": "MeLambdaVersionZJwm4XYZm5uX4cH3E8F1fBcaGuEXoRjz1WoytFLsLA"
       },
       "Export": {
         "Name": "sls-awsproject-dev-MeLambdaFunctionQualifiedArn"
@@ -1225,7 +1262,7 @@
     "LoginLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "LoginLambdaVersionYkgeiTCYbhbC6nxNUob6G0XqZJHMnxMz49y5UimBncg"
+        "Ref": "LoginLambdaVersioniMzaqN4aFxfITJgr8RIFecijFr1n7lmRPnYOkRIsQI"
       },
       "Export": {
         "Name": "sls-awsproject-dev-LoginLambdaFunctionQualifiedArn"
@@ -1234,7 +1271,7 @@
     "RegisterLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "RegisterLambdaVersionIAphRPhHiWTxgWrVpTLQPeBjxlJeFgc6fIH47VxNM"
+        "Ref": "RegisterLambdaVersionZryqlcpsnCmFwEmxFKWcsfnN4HlkGGEFfwenEyexwo"
       },
       "Export": {
         "Name": "sls-awsproject-dev-RegisterLambdaFunctionQualifiedArn"
