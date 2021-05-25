@@ -26,9 +26,10 @@ provider:
   name: aws
   runtime: nodejs12.x
   lambdaHashingVersion: 20201221
+  logRetentionInDays: 365
 
 # you can overwrite defaults here
-  stage: dev
+  stage: ${opt:stage}
   region: us-east-1
 
 # you can add statements to the Lambda function's IAM Role here
@@ -227,7 +228,7 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
-        TableName: questionTable     
+        TableName: questionTable-${self:provider.stage}
 
         
 #      Type: AWS::S3::Bucket

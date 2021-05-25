@@ -209,7 +209,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/awsproject/dev/1621970715564-2021-05-25T19:25:15.564Z/awsproject.zip"
+          "S3Key": "serverless/awsproject/dev/1621984737405-2021-05-25T23:18:57.405Z/awsproject.zip"
         },
         "Handler": "users/create.create",
         "Runtime": "nodejs12.x",
@@ -243,7 +243,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/awsproject/dev/1621970715564-2021-05-25T19:25:15.564Z/awsproject.zip"
+          "S3Key": "serverless/awsproject/dev/1621984737405-2021-05-25T23:18:57.405Z/awsproject.zip"
         },
         "Handler": "users/get.get",
         "Runtime": "nodejs12.x",
@@ -277,7 +277,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/awsproject/dev/1621970715564-2021-05-25T19:25:15.564Z/awsproject.zip"
+          "S3Key": "serverless/awsproject/dev/1621984737405-2021-05-25T23:18:57.405Z/awsproject.zip"
         },
         "Handler": "functions/authorize.handler",
         "Runtime": "nodejs12.x",
@@ -311,7 +311,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/awsproject/dev/1621970715564-2021-05-25T19:25:15.564Z/awsproject.zip"
+          "S3Key": "serverless/awsproject/dev/1621984737405-2021-05-25T23:18:57.405Z/awsproject.zip"
         },
         "Handler": "functions/testvalidatefunction.handler",
         "Runtime": "nodejs12.x",
@@ -345,7 +345,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/awsproject/dev/1621970715564-2021-05-25T19:25:15.564Z/awsproject.zip"
+          "S3Key": "serverless/awsproject/dev/1621984737405-2021-05-25T23:18:57.405Z/awsproject.zip"
         },
         "Handler": "functions/login.handler",
         "Runtime": "nodejs12.x",
@@ -379,7 +379,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/awsproject/dev/1621970715564-2021-05-25T19:25:15.564Z/awsproject.zip"
+          "S3Key": "serverless/awsproject/dev/1621984737405-2021-05-25T23:18:57.405Z/awsproject.zip"
         },
         "Handler": "functions/register.handler",
         "Runtime": "nodejs12.x",
@@ -413,7 +413,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/awsproject/dev/1621970715564-2021-05-25T19:25:15.564Z/awsproject.zip"
+          "S3Key": "serverless/awsproject/dev/1621984737405-2021-05-25T23:18:57.405Z/awsproject.zip"
         },
         "Handler": "functions/createQuiz.handler",
         "Runtime": "nodejs12.x",
@@ -440,74 +440,74 @@
         "CreateQuizLogGroup"
       ]
     },
-    "CreateUserLambdaVersioneyqZlmRQYkAOLOK1FAOlwVeLI6QhbGxT9eXub7kxE4": {
+    "CreateUserLambdaVersion1wVZ8mp1zU90fYaw15S5WwkTwfe8o9KZqZlJcZGZAQ": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "CreateUserLambdaFunction"
         },
-        "CodeSha256": "cf6IPLwureiwGV3pwF3bYi5DEeBms/AOK9Dc+MmwwVU="
+        "CodeSha256": "X86XI9QQ2i/Owvg4MiGfM4x74hGZHmZwJHU0XN/j+Is="
       }
     },
-    "GetUserLambdaVersion9DqUb0Ejyy1ZOk9FHQy6Er0c7wSvCzLdO7QOb2SJZUs": {
+    "GetUserLambdaVersionkGqAtsr5LxeYyd1J9NLuwPwX18IfLHeCAuEg6EeUQ": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetUserLambdaFunction"
         },
-        "CodeSha256": "cf6IPLwureiwGV3pwF3bYi5DEeBms/AOK9Dc+MmwwVU="
+        "CodeSha256": "X86XI9QQ2i/Owvg4MiGfM4x74hGZHmZwJHU0XN/j+Is="
       }
     },
-    "VerifyDashtokenLambdaVersion0fnQkGbk1us52oqtk9pHXzNOi4YdwVRWasZQ1wOEk": {
+    "VerifyDashtokenLambdaVersionUmGrOAPYiRAXzgQHgZaQOyQZWB9yCIVvT1Uw7f3RHco": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "VerifyDashtokenLambdaFunction"
         },
-        "CodeSha256": "cf6IPLwureiwGV3pwF3bYi5DEeBms/AOK9Dc+MmwwVU="
+        "CodeSha256": "X86XI9QQ2i/Owvg4MiGfM4x74hGZHmZwJHU0XN/j+Is="
       }
     },
-    "MeLambdaVersiondxTaq1XnhB6edSuCLin5m3IYyloG4ekdnnTZInE8": {
+    "MeLambdaVersioneOVHkWYmRTqpashpG5yh8ZoH7n3ZnQUHq6tyzGhczHs": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "MeLambdaFunction"
         },
-        "CodeSha256": "cf6IPLwureiwGV3pwF3bYi5DEeBms/AOK9Dc+MmwwVU="
+        "CodeSha256": "X86XI9QQ2i/Owvg4MiGfM4x74hGZHmZwJHU0XN/j+Is="
       }
     },
-    "LoginLambdaVersionjlIv6TBSNkeTrmEkJ3uXuLje757GqrYBdFD1QzoDPw": {
+    "LoginLambdaVersionZ63thgQPmTXMfaahKHCykIKSfhu2fIdJExm4lS5jCN0": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "LoginLambdaFunction"
         },
-        "CodeSha256": "cf6IPLwureiwGV3pwF3bYi5DEeBms/AOK9Dc+MmwwVU="
+        "CodeSha256": "X86XI9QQ2i/Owvg4MiGfM4x74hGZHmZwJHU0XN/j+Is="
       }
     },
-    "RegisterLambdaVersionQhknL9qX3CZJhE0TH9K9U2mJcXuEo7ytXlscD55sPU": {
+    "RegisterLambdaVersionGLPeUGTj6KoHvX76Eo6G5KR4JQVvT9s3mKJazv2NQ": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "RegisterLambdaFunction"
         },
-        "CodeSha256": "cf6IPLwureiwGV3pwF3bYi5DEeBms/AOK9Dc+MmwwVU="
+        "CodeSha256": "X86XI9QQ2i/Owvg4MiGfM4x74hGZHmZwJHU0XN/j+Is="
       }
     },
-    "CreateQuizLambdaVersion95SDch7bZaontHuI76cGYXgQiboBi4wIomKHHsL9s": {
+    "CreateQuizLambdaVersionL9CDfdGzHgfCodStarPueBABIk1QnmjUFjEyJ96hk": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "CreateQuizLambdaFunction"
         },
-        "CodeSha256": "cf6IPLwureiwGV3pwF3bYi5DEeBms/AOK9Dc+MmwwVU="
+        "CodeSha256": "X86XI9QQ2i/Owvg4MiGfM4x74hGZHmZwJHU0XN/j+Is="
       }
     },
     "ApiGatewayRestApi": {
@@ -1041,7 +1041,7 @@
         "Type": "TOKEN"
       }
     },
-    "ApiGatewayDeployment1621970714126": {
+    "ApiGatewayDeployment1621984734067": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -1410,72 +1410,48 @@
     "ServerlessDeploymentBucketName": {
       "Value": {
         "Ref": "ServerlessDeploymentBucket"
-      },
-      "Export": {
-        "Name": "sls-awsproject-dev-ServerlessDeploymentBucketName"
       }
     },
     "CreateUserLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "CreateUserLambdaVersioneyqZlmRQYkAOLOK1FAOlwVeLI6QhbGxT9eXub7kxE4"
-      },
-      "Export": {
-        "Name": "sls-awsproject-dev-CreateUserLambdaFunctionQualifiedArn"
+        "Ref": "CreateUserLambdaVersion1wVZ8mp1zU90fYaw15S5WwkTwfe8o9KZqZlJcZGZAQ"
       }
     },
     "GetUserLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetUserLambdaVersion9DqUb0Ejyy1ZOk9FHQy6Er0c7wSvCzLdO7QOb2SJZUs"
-      },
-      "Export": {
-        "Name": "sls-awsproject-dev-GetUserLambdaFunctionQualifiedArn"
+        "Ref": "GetUserLambdaVersionkGqAtsr5LxeYyd1J9NLuwPwX18IfLHeCAuEg6EeUQ"
       }
     },
     "VerifyDashtokenLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "VerifyDashtokenLambdaVersion0fnQkGbk1us52oqtk9pHXzNOi4YdwVRWasZQ1wOEk"
-      },
-      "Export": {
-        "Name": "sls-awsproject-dev-VerifyDashtokenLambdaFunctionQualifiedArn"
+        "Ref": "VerifyDashtokenLambdaVersionUmGrOAPYiRAXzgQHgZaQOyQZWB9yCIVvT1Uw7f3RHco"
       }
     },
     "MeLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "MeLambdaVersiondxTaq1XnhB6edSuCLin5m3IYyloG4ekdnnTZInE8"
-      },
-      "Export": {
-        "Name": "sls-awsproject-dev-MeLambdaFunctionQualifiedArn"
+        "Ref": "MeLambdaVersioneOVHkWYmRTqpashpG5yh8ZoH7n3ZnQUHq6tyzGhczHs"
       }
     },
     "LoginLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "LoginLambdaVersionjlIv6TBSNkeTrmEkJ3uXuLje757GqrYBdFD1QzoDPw"
-      },
-      "Export": {
-        "Name": "sls-awsproject-dev-LoginLambdaFunctionQualifiedArn"
+        "Ref": "LoginLambdaVersionZ63thgQPmTXMfaahKHCykIKSfhu2fIdJExm4lS5jCN0"
       }
     },
     "RegisterLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "RegisterLambdaVersionQhknL9qX3CZJhE0TH9K9U2mJcXuEo7ytXlscD55sPU"
-      },
-      "Export": {
-        "Name": "sls-awsproject-dev-RegisterLambdaFunctionQualifiedArn"
+        "Ref": "RegisterLambdaVersionGLPeUGTj6KoHvX76Eo6G5KR4JQVvT9s3mKJazv2NQ"
       }
     },
     "CreateQuizLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "CreateQuizLambdaVersion95SDch7bZaontHuI76cGYXgQiboBi4wIomKHHsL9s"
-      },
-      "Export": {
-        "Name": "sls-awsproject-dev-CreateQuizLambdaFunctionQualifiedArn"
+        "Ref": "CreateQuizLambdaVersionL9CDfdGzHgfCodStarPueBABIk1QnmjUFjEyJ96hk"
       }
     },
     "ServiceEndpoint": {
@@ -1499,9 +1475,6 @@
             "/dev"
           ]
         ]
-      },
-      "Export": {
-        "Name": "sls-awsproject-dev-ServiceEndpoint"
       }
     }
   }

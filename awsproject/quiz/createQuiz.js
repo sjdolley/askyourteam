@@ -1,3 +1,5 @@
+const { createDbQuiz } = require("../lib/db");
+
 module.exports.handler = async function createQuiz(event) {
     console.log(event.body);
     
