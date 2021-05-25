@@ -103,16 +103,67 @@ const createDbUser = async details => {
   return { statusCode: 200, body: JSON.stringify(params)}
 };
 
-const getUserByEmail = async email => {
-  const params = User.get({ email, sk: "User" });
-  const response = await docClient.get(params).promise();
+const createDbQuiz = async details => {
+  const quizName = details.quizName;
+  const email = details.email
+// add validation to check if quiz already exists with this name
+  const params = {
+    TableName: quizTable,
+    Item:{quizName: quizName,
+    email: email,
+    id:uuidv4(),
+    created: new Date(),
+    published: false}
+  }
 
-  return User.parse(response);
+  console.log("create quiz with params", params);
+
+  await docClient.put(params).promise();
+
+  return { statusCode: 200, body: JSON.stringify(params)}
+} 
+/*
+const getUserByEmail = async email => {
+  const params = {
+    TableName: usersTable,
+    Key: {
+      "email" : {"S": email}
+    }
+  }
+  await docClient.get(params).promise();
+
+  return params.parse(response);
 };
+*/
+
+const getUserByEmail = (event, context, callback) => {
+  const params = {
+    TableName: process.env.usersTable,
+    Key: {
+      email: event.pathParameters.email,
+    }
+  };
+
+  dynamoDb.get(params).promise()
+    .then(result => {
+      const response = {
+        statusCode: 200,
+        body: JSON.stringify(result.Item),
+      };
+      callback(null, response);
+    })
+    .catch(error => {
+      console.error(error);
+      callback(new Error('Could not retrieve this Admin'));
+      return;
+    });
+};
+
 
 module.exports = {
   createDbUser,
-  getUserByEmail
+  getUserByEmail,
+  createDbQuiz
 };
 
 
