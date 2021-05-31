@@ -28,19 +28,21 @@ async function login(args) {
     } catch (err) {
       console.info("Error login", err);
       return Promise.reject(new Error(err));
-    }
+      }
   }
   
   function comparePassword(eventPassword, userPassword) {
+    console.log(eventPassword, userPassword)
     return bcrypt.compare(eventPassword, userPassword);
   }
 
-  // ./lib/utils.js
-async function getUserFromToken(token) {
+  
+  async function getUserFromToken(token) {
+    console.log("we are in getUserFromToken");
     const secret = Buffer.from(process.env.JWT_SECRET, "base64");
-  
+    console.log(secret);
     const decoded = jwt.verify(token.replace("Bearer ", ""), secret);
-  
+    console.log(decoded);  
     return decoded;
   }
 

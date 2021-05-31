@@ -85,10 +85,10 @@
         "RetentionInDays": 365
       }
     },
-    "VerifyDashtokenLogGroup": {
+    "VerifyTokenLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/awsproject-dev-verify-token",
+        "LogGroupName": "/aws/lambda/awsproject-dev-verifyToken",
         "RetentionInDays": 365
       }
     },
@@ -216,7 +216,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/awsproject/dev/1622343535025-2021-05-30T02:58:55.025Z/awsproject.zip"
+          "S3Key": "serverless/awsproject/dev/1622419922260-2021-05-31T00:12:02.260Z/awsproject.zip"
         },
         "Handler": "users/create.create",
         "Runtime": "nodejs12.x",
@@ -250,7 +250,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/awsproject/dev/1622343535025-2021-05-30T02:58:55.025Z/awsproject.zip"
+          "S3Key": "serverless/awsproject/dev/1622419922260-2021-05-31T00:12:02.260Z/awsproject.zip"
         },
         "Handler": "users/get.get",
         "Runtime": "nodejs12.x",
@@ -277,18 +277,18 @@
         "GetUserLogGroup"
       ]
     },
-    "VerifyDashtokenLambdaFunction": {
+    "VerifyTokenLambdaFunction": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
         "Code": {
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/awsproject/dev/1622343535025-2021-05-30T02:58:55.025Z/awsproject.zip"
+          "S3Key": "serverless/awsproject/dev/1622419922260-2021-05-31T00:12:02.260Z/awsproject.zip"
         },
         "Handler": "functions/authorize.handler",
         "Runtime": "nodejs12.x",
-        "FunctionName": "awsproject-dev-verify-token",
+        "FunctionName": "awsproject-dev-verifyToken",
         "MemorySize": 1024,
         "Timeout": 6,
         "Environment": {
@@ -308,7 +308,7 @@
         }
       },
       "DependsOn": [
-        "VerifyDashtokenLogGroup"
+        "VerifyTokenLogGroup"
       ]
     },
     "MeLambdaFunction": {
@@ -318,9 +318,9 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/awsproject/dev/1622343535025-2021-05-30T02:58:55.025Z/awsproject.zip"
+          "S3Key": "serverless/awsproject/dev/1622419922260-2021-05-31T00:12:02.260Z/awsproject.zip"
         },
-        "Handler": "functions/testvalidatefunction.handler",
+        "Handler": "functions/me.handler",
         "Runtime": "nodejs12.x",
         "FunctionName": "awsproject-dev-me",
         "MemorySize": 1024,
@@ -352,7 +352,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/awsproject/dev/1622343535025-2021-05-30T02:58:55.025Z/awsproject.zip"
+          "S3Key": "serverless/awsproject/dev/1622419922260-2021-05-31T00:12:02.260Z/awsproject.zip"
         },
         "Handler": "functions/login.handler",
         "Runtime": "nodejs12.x",
@@ -386,7 +386,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/awsproject/dev/1622343535025-2021-05-30T02:58:55.025Z/awsproject.zip"
+          "S3Key": "serverless/awsproject/dev/1622419922260-2021-05-31T00:12:02.260Z/awsproject.zip"
         },
         "Handler": "functions/register.handler",
         "Runtime": "nodejs12.x",
@@ -420,7 +420,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/awsproject/dev/1622343535025-2021-05-30T02:58:55.025Z/awsproject.zip"
+          "S3Key": "serverless/awsproject/dev/1622419922260-2021-05-31T00:12:02.260Z/awsproject.zip"
         },
         "Handler": "functions/createQuiz.handler",
         "Runtime": "nodejs12.x",
@@ -447,74 +447,74 @@
         "CreateQuizLogGroup"
       ]
     },
-    "CreateUserLambdaVersionYgcXzQ2Fqe8bPG8FpfAFkAZHqYkK8GvN8UQqCbOz6lc": {
+    "CreateUserLambdaVersion8foOeIVzU5aKnPah4PBJH7VUJwOFp71B7tsppJAiLY": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "CreateUserLambdaFunction"
         },
-        "CodeSha256": "vLqWI1ExgCsoIbfefBkXAhjtf7rJaP9a7Q4mbzqpsxU="
+        "CodeSha256": "ae1+t6Zl2iGFqwNUX//kldLjUq3A4Eq03FsiWVLrOqM="
       }
     },
-    "GetUserLambdaVersioneSDvhQQsIN9JjC3qCMghhRsTsH7y49IgwotGIKTynY4": {
+    "GetUserLambdaVersionc8UM5yZWeiglIXOj9OqWO4TZq1PpDDS6d2FV1jgLpCI": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetUserLambdaFunction"
         },
-        "CodeSha256": "vLqWI1ExgCsoIbfefBkXAhjtf7rJaP9a7Q4mbzqpsxU="
+        "CodeSha256": "ae1+t6Zl2iGFqwNUX//kldLjUq3A4Eq03FsiWVLrOqM="
       }
     },
-    "VerifyDashtokenLambdaVersionThxA0ooDQMsVkykvGlq3yyHBdsdeGU1Y1L0csLyEvM": {
+    "VerifyTokenLambdaVersionhkd8g7EC62pwkmd6CUFGEBCKfsDOdc8b37YllD704K0": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
-          "Ref": "VerifyDashtokenLambdaFunction"
+          "Ref": "VerifyTokenLambdaFunction"
         },
-        "CodeSha256": "vLqWI1ExgCsoIbfefBkXAhjtf7rJaP9a7Q4mbzqpsxU="
+        "CodeSha256": "ae1+t6Zl2iGFqwNUX//kldLjUq3A4Eq03FsiWVLrOqM="
       }
     },
-    "MeLambdaVersion2ujOJ46CQympqMy1ikwoaiEdvPqLjS53OSlZ5TxKXzs": {
+    "MeLambdaVersiongjymaTfpdmfA3up9mnnm2CGMgzWTBhTrYDhmHIs4": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "MeLambdaFunction"
         },
-        "CodeSha256": "vLqWI1ExgCsoIbfefBkXAhjtf7rJaP9a7Q4mbzqpsxU="
+        "CodeSha256": "ae1+t6Zl2iGFqwNUX//kldLjUq3A4Eq03FsiWVLrOqM="
       }
     },
-    "LoginLambdaVersionCQO0GBqvu2AA4F26S47Qilp05dyPh0Mi38DKqYqzSs": {
+    "LoginLambdaVersionZ43nItbqayR6pQXr6tPG0arOug3ruWc9o7wR2ZKM": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "LoginLambdaFunction"
         },
-        "CodeSha256": "vLqWI1ExgCsoIbfefBkXAhjtf7rJaP9a7Q4mbzqpsxU="
+        "CodeSha256": "ae1+t6Zl2iGFqwNUX//kldLjUq3A4Eq03FsiWVLrOqM="
       }
     },
-    "RegisterLambdaVersionoxm7NdDEWntHZj0jzW228xDOLT7DBq14UOD5PzVt5c": {
+    "RegisterLambdaVersionLQhJuxi54lUKYyQ3HoqlaZd6ZkIDdhHlAmabkexGs": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "RegisterLambdaFunction"
         },
-        "CodeSha256": "vLqWI1ExgCsoIbfefBkXAhjtf7rJaP9a7Q4mbzqpsxU="
+        "CodeSha256": "ae1+t6Zl2iGFqwNUX//kldLjUq3A4Eq03FsiWVLrOqM="
       }
     },
-    "CreateQuizLambdaVersionqwGEZTP88w21B1HTwOoaqNbn9nbRSuLc0eS6uBJwUKY": {
+    "CreateQuizLambdaVersion9hLyzxwki0NsouCbd7i6fVjWOtcrpJP29OeqeaM5rc": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "CreateQuizLambdaFunction"
         },
-        "CodeSha256": "vLqWI1ExgCsoIbfefBkXAhjtf7rJaP9a7Q4mbzqpsxU="
+        "CodeSha256": "ae1+t6Zl2iGFqwNUX//kldLjUq3A4Eq03FsiWVLrOqM="
       }
     },
     "ApiGatewayRestApi": {
@@ -556,7 +556,7 @@
         }
       }
     },
-    "ApiGatewayResourceTestvalidatefunction": {
+    "ApiGatewayResourceMe": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
@@ -565,7 +565,7 @@
             "RootResourceId"
           ]
         },
-        "PathPart": "testvalidatefunction",
+        "PathPart": "me",
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
@@ -616,7 +616,7 @@
         }
       }
     },
-    "ApiGatewayMethodTestvalidatefunctionOptions": {
+    "ApiGatewayMethodMeOptions": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "AuthorizationType": "NONE",
@@ -654,7 +654,7 @@
           ]
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceTestvalidatefunction"
+          "Ref": "ApiGatewayResourceMe"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
@@ -837,13 +837,13 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayMethodTestvalidatefunctionGet": {
+    "ApiGatewayMethodMeGet": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "HttpMethod": "GET",
         "RequestParameters": {},
         "ResourceId": {
-          "Ref": "ApiGatewayResourceTestvalidatefunction"
+          "Ref": "ApiGatewayResourceMe"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
@@ -851,7 +851,7 @@
         "ApiKeyRequired": false,
         "AuthorizationType": "CUSTOM",
         "AuthorizerId": {
-          "Ref": "VerifyDashtokenApiGatewayAuthorizer"
+          "Ref": "VerifyTokenApiGatewayAuthorizer"
         },
         "Integration": {
           "IntegrationHttpMethod": "POST",
@@ -882,7 +882,7 @@
         },
         "MethodResponses": []
       },
-      "DependsOn": "VerifyDashtokenApiGatewayAuthorizer"
+      "DependsOn": "VerifyTokenApiGatewayAuthorizer"
     },
     "ApiGatewayMethodLoginPost": {
       "Type": "AWS::ApiGateway::Method",
@@ -1013,12 +1013,12 @@
         "MethodResponses": []
       }
     },
-    "VerifyDashtokenApiGatewayAuthorizer": {
+    "VerifyTokenApiGatewayAuthorizer": {
       "Type": "AWS::ApiGateway::Authorizer",
       "Properties": {
         "AuthorizerResultTtlInSeconds": 3600,
         "IdentitySource": "method.request.header.Authorization",
-        "Name": "verify-token",
+        "Name": "verifyToken",
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         },
@@ -1037,7 +1037,7 @@
               ":lambda:path/2015-03-31/functions/",
               {
                 "Fn::GetAtt": [
-                  "VerifyDashtokenLambdaFunction",
+                  "VerifyTokenLambdaFunction",
                   "Arn"
                 ]
               },
@@ -1048,7 +1048,7 @@
         "Type": "TOKEN"
       }
     },
-    "ApiGatewayDeployment1622343532639": {
+    "ApiGatewayDeployment1622419920334": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -1057,12 +1057,12 @@
         "StageName": "dev"
       },
       "DependsOn": [
-        "ApiGatewayMethodTestvalidatefunctionOptions",
+        "ApiGatewayMethodMeOptions",
         "ApiGatewayMethodLoginOptions",
         "ApiGatewayMethodCreatequizOptions",
         "ApiGatewayMethodUsersPost",
         "ApiGatewayMethodUsersIdVarGet",
-        "ApiGatewayMethodTestvalidatefunctionGet",
+        "ApiGatewayMethodMeGet",
         "ApiGatewayMethodLoginPost",
         "ApiGatewayMethodRegisterPost",
         "ApiGatewayMethodCreatequizPost"
@@ -1179,12 +1179,12 @@
         }
       }
     },
-    "VerifyDashtokenLambdaPermissionApiGateway": {
+    "VerifyTokenLambdaPermissionApiGateway": {
       "Type": "AWS::Lambda::Permission",
       "Properties": {
         "FunctionName": {
           "Fn::GetAtt": [
-            "VerifyDashtokenLambdaFunction",
+            "VerifyTokenLambdaFunction",
             "Arn"
           ]
         },
@@ -1425,7 +1425,7 @@
     "CreateUserLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "CreateUserLambdaVersionYgcXzQ2Fqe8bPG8FpfAFkAZHqYkK8GvN8UQqCbOz6lc"
+        "Ref": "CreateUserLambdaVersion8foOeIVzU5aKnPah4PBJH7VUJwOFp71B7tsppJAiLY"
       },
       "Export": {
         "Name": "sls-awsproject-dev-CreateUserLambdaFunctionQualifiedArn"
@@ -1434,25 +1434,25 @@
     "GetUserLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetUserLambdaVersioneSDvhQQsIN9JjC3qCMghhRsTsH7y49IgwotGIKTynY4"
+        "Ref": "GetUserLambdaVersionc8UM5yZWeiglIXOj9OqWO4TZq1PpDDS6d2FV1jgLpCI"
       },
       "Export": {
         "Name": "sls-awsproject-dev-GetUserLambdaFunctionQualifiedArn"
       }
     },
-    "VerifyDashtokenLambdaFunctionQualifiedArn": {
+    "VerifyTokenLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "VerifyDashtokenLambdaVersionThxA0ooDQMsVkykvGlq3yyHBdsdeGU1Y1L0csLyEvM"
+        "Ref": "VerifyTokenLambdaVersionhkd8g7EC62pwkmd6CUFGEBCKfsDOdc8b37YllD704K0"
       },
       "Export": {
-        "Name": "sls-awsproject-dev-VerifyDashtokenLambdaFunctionQualifiedArn"
+        "Name": "sls-awsproject-dev-VerifyTokenLambdaFunctionQualifiedArn"
       }
     },
     "MeLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "MeLambdaVersion2ujOJ46CQympqMy1ikwoaiEdvPqLjS53OSlZ5TxKXzs"
+        "Ref": "MeLambdaVersiongjymaTfpdmfA3up9mnnm2CGMgzWTBhTrYDhmHIs4"
       },
       "Export": {
         "Name": "sls-awsproject-dev-MeLambdaFunctionQualifiedArn"
@@ -1461,7 +1461,7 @@
     "LoginLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "LoginLambdaVersionCQO0GBqvu2AA4F26S47Qilp05dyPh0Mi38DKqYqzSs"
+        "Ref": "LoginLambdaVersionZ43nItbqayR6pQXr6tPG0arOug3ruWc9o7wR2ZKM"
       },
       "Export": {
         "Name": "sls-awsproject-dev-LoginLambdaFunctionQualifiedArn"
@@ -1470,7 +1470,7 @@
     "RegisterLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "RegisterLambdaVersionoxm7NdDEWntHZj0jzW228xDOLT7DBq14UOD5PzVt5c"
+        "Ref": "RegisterLambdaVersionLQhJuxi54lUKYyQ3HoqlaZd6ZkIDdhHlAmabkexGs"
       },
       "Export": {
         "Name": "sls-awsproject-dev-RegisterLambdaFunctionQualifiedArn"
@@ -1479,7 +1479,7 @@
     "CreateQuizLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "CreateQuizLambdaVersionqwGEZTP88w21B1HTwOoaqNbn9nbRSuLc0eS6uBJwUKY"
+        "Ref": "CreateQuizLambdaVersion9hLyzxwki0NsouCbd7i6fVjWOtcrpJP29OeqeaM5rc"
       },
       "Export": {
         "Name": "sls-awsproject-dev-CreateQuizLambdaFunctionQualifiedArn"

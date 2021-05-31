@@ -122,29 +122,35 @@ const createDbQuiz = async details => {
 
   return { statusCode: 200, body: JSON.stringify(params)}
 } 
-/*
+
 const getUserByEmail = async email => {
-  const params = {
-    TableName: usersTable,
-    Key: {
-      "email" : {"S": email}
+  
+    console.log(email)
+    // console.log(JSON.stringify(email));
+    const params = {
+      TableName: usersTable,
+      Key: {
+        "email" : email 
+      }
     }
-  }
-  await docClient.get(params).promise();
+  const response = await docClient.get(params).promise();
+  console.log(response)
+  return response.Item;
 
-  return params.parse(response);
 };
-*/
 
-const getUserByEmail = (event, context, callback) => {
+
+/* const getUserByEmail = (event, context, callback) => {
+  const package = event.email;
+  console.log(email);
   const params = {
-    TableName: process.env.usersTable,
+    TableName: "usersTable",
     Key: {
-      email: event.pathParameters.email,
+      email: package
     }
   };
 
-  dynamoDb.get(params).promise()
+  docClient.get(params).promise()
     .then(result => {
       const response = {
         statusCode: 200,
@@ -157,7 +163,7 @@ const getUserByEmail = (event, context, callback) => {
       callback(new Error('Could not retrieve this Admin'));
       return;
     });
-};
+}; */
 
 
 module.exports = {

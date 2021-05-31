@@ -26,17 +26,23 @@ function generatePolicyDocument(effect, methodArn) {
   return policyDocument;
 }
 
-module.exports.verifyToken = (event, context, callback) => {
+module.exports.handler = function verifyToken(event, context, callback) {
+  console.log("inside verifyToken");
   const token = event.authorizationToken.replace("Bearer ", "");
   const methodArn = event.methodArn;
 
   if (!token || !methodArn) return callback(null, "Unauthorized");
 
-  const secret = Buffer.from(process.env.JWT_SECRET, "base64");
+  const secret = Buffer.from(process.env.JWT_SECRET, "Base64");
+  // secrets = secret.toString('base64');
+  console.log(token);
+  console.log(secret);
 
+ 
   // verifies token
   const decoded = jwt.verify(token, secret);
-
+  
+  console.log("If you read this we successfully verified!!!");
   if (decoded && decoded.id) {
     return callback(null, generateAuthResponse(decoded.id, "Allow", methodArn));
   } else {

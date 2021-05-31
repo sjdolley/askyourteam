@@ -91,22 +91,22 @@ functions:
           path: users/{id}
           method: get
 
-  verify-token:
+  verifyToken:
     handler: functions/authorize.handler
 
   me:
-    handler: functions/testvalidatefunction.handler
+    handler: functions/me.handler
     events:
           - http:
-              path: testvalidatefunction
+              path: me
               method: get
               cors: true
               authorizer:
-                name: verify-token
+                name: verifyToken
                             # this tells the lambda where to take the information from, 
                             # in our case the HTTP Authorization header
                 identitySource: method.request.header.Authorization 
-                resultTtlInSeconds: 3600 # cache the result for 1 hour
+                resultTtlInSeconds: 3600 # cache the result for 1 hours
   login:
     handler: functions/login.handler
     events:
