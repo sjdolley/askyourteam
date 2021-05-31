@@ -105,15 +105,19 @@ const createDbUser = async details => {
 
 const createDbQuiz = async details => {
   const quizName = details.quizName;
-  const email = details.email
+  const email = details.email;
+
+  const table = process.env.quizTable;
+  console.log(table);
 // add validation to check if quiz already exists with this name
   const params = {
     TableName: quizTable,
     Item:{quizName: quizName,
     email: email,
-    id:uuidv4(),
+    id: uuidv4(),
     created: new Date(),
-    published: false}
+    published: false
+    }
   }
 
   console.log("create quiz with params", params);
