@@ -156,6 +156,13 @@
               "RetentionInDays": 365
             }
           },
+          "PublishQuizLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/awsproject-dev-publishQuiz",
+              "RetentionInDays": 365
+            }
+          },
           "IamRoleLambdaExecution": {
             "Type": "AWS::IAM::Role",
             "Properties": {
@@ -243,7 +250,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/awsproject/dev/1622438338100-2021-05-31T05:18:58.100Z/awsproject.zip"
+                "S3Key": "serverless/awsproject/dev/1622454532703-2021-05-31T09:48:52.703Z/awsproject.zip"
               },
               "Handler": "users/create.create",
               "Runtime": "nodejs12.x",
@@ -277,7 +284,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/awsproject/dev/1622438338100-2021-05-31T05:18:58.100Z/awsproject.zip"
+                "S3Key": "serverless/awsproject/dev/1622454532703-2021-05-31T09:48:52.703Z/awsproject.zip"
               },
               "Handler": "users/get.get",
               "Runtime": "nodejs12.x",
@@ -311,7 +318,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/awsproject/dev/1622438338100-2021-05-31T05:18:58.100Z/awsproject.zip"
+                "S3Key": "serverless/awsproject/dev/1622454532703-2021-05-31T09:48:52.703Z/awsproject.zip"
               },
               "Handler": "functions/authorize.handler",
               "Runtime": "nodejs12.x",
@@ -345,7 +352,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/awsproject/dev/1622438338100-2021-05-31T05:18:58.100Z/awsproject.zip"
+                "S3Key": "serverless/awsproject/dev/1622454532703-2021-05-31T09:48:52.703Z/awsproject.zip"
               },
               "Handler": "functions/me.handler",
               "Runtime": "nodejs12.x",
@@ -379,7 +386,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/awsproject/dev/1622438338100-2021-05-31T05:18:58.100Z/awsproject.zip"
+                "S3Key": "serverless/awsproject/dev/1622454532703-2021-05-31T09:48:52.703Z/awsproject.zip"
               },
               "Handler": "functions/login.handler",
               "Runtime": "nodejs12.x",
@@ -413,7 +420,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/awsproject/dev/1622438338100-2021-05-31T05:18:58.100Z/awsproject.zip"
+                "S3Key": "serverless/awsproject/dev/1622454532703-2021-05-31T09:48:52.703Z/awsproject.zip"
               },
               "Handler": "functions/register.handler",
               "Runtime": "nodejs12.x",
@@ -447,7 +454,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/awsproject/dev/1622438338100-2021-05-31T05:18:58.100Z/awsproject.zip"
+                "S3Key": "serverless/awsproject/dev/1622454532703-2021-05-31T09:48:52.703Z/awsproject.zip"
               },
               "Handler": "quiz/createQuiz.handler",
               "Runtime": "nodejs12.x",
@@ -474,74 +481,118 @@
               "CreateQuizLogGroup"
             ]
           },
-          "CreateUserLambdaVersiontOizG871FugxDTAmrSz6sCcU6T302fF65ajezTgGg": {
+          "PublishQuizLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/awsproject/dev/1622454532703-2021-05-31T09:48:52.703Z/awsproject.zip"
+              },
+              "Handler": "quiz/publishQuiz.handler",
+              "Runtime": "nodejs12.x",
+              "FunctionName": "awsproject-dev-publishQuiz",
+              "MemorySize": 1024,
+              "Timeout": 6,
+              "Environment": {
+                "Variables": {
+                  "usersTable": "usersTable-dev",
+                  "JWT_SECRET": "garfunkal",
+                  "AWS_ID": "510372081928",
+                  "quizTable": "quizTable-dev",
+                  "questionTable": "questionTable-dev"
+                }
+              },
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              }
+            },
+            "DependsOn": [
+              "PublishQuizLogGroup"
+            ]
+          },
+          "CreateUserLambdaVersionGlrSEusEtT0IXC0IcX5VjgOmk845POJrgPtvVQbUic": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "CreateUserLambdaFunction"
               },
-              "CodeSha256": "p6m6jvhrA4DWBLcQaeHLy5bquKmaxtewj/SXv8dd+zA="
+              "CodeSha256": "91nstnQfxL4Pk7mCEqiyzKNpIBuW4b9lLPJKJ/F+8k4="
             }
           },
-          "GetUserLambdaVersionRBZGdhfYeXklO9Fv4r4vGOYknqBcObR5FU0dhnW2c": {
+          "GetUserLambdaVersionIHRqrkuwi7oZcWf3NGdaL59IVgvvcS3LZlrqxRXs": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetUserLambdaFunction"
               },
-              "CodeSha256": "p6m6jvhrA4DWBLcQaeHLy5bquKmaxtewj/SXv8dd+zA="
+              "CodeSha256": "91nstnQfxL4Pk7mCEqiyzKNpIBuW4b9lLPJKJ/F+8k4="
             }
           },
-          "VerifyTokenLambdaVersionjRve4cWHKdvq0hGjG9QbmVVPdliiKsNbqb0rAvAaoE": {
+          "VerifyTokenLambdaVersionp1uxJ0vFhHIPSVi2aS4iWDgusJwyhJDkx8Cj3MkFN7U": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "VerifyTokenLambdaFunction"
               },
-              "CodeSha256": "p6m6jvhrA4DWBLcQaeHLy5bquKmaxtewj/SXv8dd+zA="
+              "CodeSha256": "91nstnQfxL4Pk7mCEqiyzKNpIBuW4b9lLPJKJ/F+8k4="
             }
           },
-          "MeLambdaVersionbfEbPAwE4tSwKmxSIOmYsOOc11VPF9OsWUmRBfa5w": {
+          "MeLambdaVersionuiIbZFJzGGT6SIoZOSSwtIjTkOVOLfPlgDXnBMYjE": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "MeLambdaFunction"
               },
-              "CodeSha256": "p6m6jvhrA4DWBLcQaeHLy5bquKmaxtewj/SXv8dd+zA="
+              "CodeSha256": "91nstnQfxL4Pk7mCEqiyzKNpIBuW4b9lLPJKJ/F+8k4="
             }
           },
-          "LoginLambdaVersionDPm3x7tQccSm9jB44E7sAFNzpETXrbGhK8CREC9Vx4A": {
+          "LoginLambdaVersionJqd3GMRtmAd2lZTCH6zlO953aHIPd8kRUFC6xTMJhAg": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "LoginLambdaFunction"
               },
-              "CodeSha256": "p6m6jvhrA4DWBLcQaeHLy5bquKmaxtewj/SXv8dd+zA="
+              "CodeSha256": "91nstnQfxL4Pk7mCEqiyzKNpIBuW4b9lLPJKJ/F+8k4="
             }
           },
-          "RegisterLambdaVersionkeGTkuML5fdwzZyNzRRGoFSdEneWZXmcQfudz0nNCMI": {
+          "RegisterLambdaVersionAyoTMGJ3QTdJh9QLLDIFTkq6Eck1rHsVWVET2GL0": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "RegisterLambdaFunction"
               },
-              "CodeSha256": "p6m6jvhrA4DWBLcQaeHLy5bquKmaxtewj/SXv8dd+zA="
+              "CodeSha256": "91nstnQfxL4Pk7mCEqiyzKNpIBuW4b9lLPJKJ/F+8k4="
             }
           },
-          "CreateQuizLambdaVersionjOPDqYmm1GX0oLozHuNS5z60W0aovEeFsHF16ZwJyg": {
+          "CreateQuizLambdaVersionQr1tteESfL5PYTTdF7S01kAnkSdC3IZw2zBCrAMfU": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "CreateQuizLambdaFunction"
               },
-              "CodeSha256": "p6m6jvhrA4DWBLcQaeHLy5bquKmaxtewj/SXv8dd+zA="
+              "CodeSha256": "91nstnQfxL4Pk7mCEqiyzKNpIBuW4b9lLPJKJ/F+8k4="
+            }
+          },
+          "PublishQuizLambdaVersionns1LlFbPX7JdfWcIbr8JJLg9KydtGEneEdBJnW4wM": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "PublishQuizLambdaFunction"
+              },
+              "CodeSha256": "91nstnQfxL4Pk7mCEqiyzKNpIBuW4b9lLPJKJ/F+8k4="
             }
           },
           "ApiGatewayRestApi": {
@@ -638,6 +689,21 @@
                 ]
               },
               "PathPart": "createQuiz",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayResourcePublishquiz": {
+            "Type": "AWS::ApiGateway::Resource",
+            "Properties": {
+              "ParentId": {
+                "Fn::GetAtt": [
+                  "ApiGatewayRestApi",
+                  "RootResourceId"
+                ]
+              },
+              "PathPart": "publishQuiz",
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
               }
@@ -772,6 +838,51 @@
               },
               "ResourceId": {
                 "Ref": "ApiGatewayResourceCreatequiz"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayMethodPublishquizOptions": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "AuthorizationType": "NONE",
+              "HttpMethod": "OPTIONS",
+              "MethodResponses": [
+                {
+                  "StatusCode": "200",
+                  "ResponseParameters": {
+                    "method.response.header.Access-Control-Allow-Origin": true,
+                    "method.response.header.Access-Control-Allow-Headers": true,
+                    "method.response.header.Access-Control-Allow-Methods": true
+                  },
+                  "ResponseModels": {}
+                }
+              ],
+              "RequestParameters": {},
+              "Integration": {
+                "Type": "MOCK",
+                "RequestTemplates": {
+                  "application/json": "{statusCode:200}"
+                },
+                "ContentHandling": "CONVERT_TO_TEXT",
+                "IntegrationResponses": [
+                  {
+                    "StatusCode": "200",
+                    "ResponseParameters": {
+                      "method.response.header.Access-Control-Allow-Origin": "'*'",
+                      "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'"
+                    },
+                    "ResponseTemplates": {
+                      "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+                    }
+                  }
+                ]
+              },
+              "ResourceId": {
+                "Ref": "ApiGatewayResourcePublishquiz"
               },
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
@@ -1040,6 +1151,49 @@
               "MethodResponses": []
             }
           },
+          "ApiGatewayMethodPublishquizPost": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "HttpMethod": "POST",
+              "RequestParameters": {},
+              "ResourceId": {
+                "Ref": "ApiGatewayResourcePublishquiz"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "ApiKeyRequired": false,
+              "AuthorizationType": "NONE",
+              "Integration": {
+                "IntegrationHttpMethod": "POST",
+                "Type": "AWS_PROXY",
+                "Uri": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":apigateway:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":lambda:path/2015-03-31/functions/",
+                      {
+                        "Fn::GetAtt": [
+                          "PublishQuizLambdaFunction",
+                          "Arn"
+                        ]
+                      },
+                      "/invocations"
+                    ]
+                  ]
+                }
+              },
+              "MethodResponses": []
+            }
+          },
           "VerifyTokenApiGatewayAuthorizer": {
             "Type": "AWS::ApiGateway::Authorizer",
             "Properties": {
@@ -1075,7 +1229,7 @@
               "Type": "TOKEN"
             }
           },
-          "ApiGatewayDeployment1622438336144": {
+          "ApiGatewayDeployment1622454530794": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -1087,12 +1241,14 @@
               "ApiGatewayMethodMeOptions",
               "ApiGatewayMethodLoginOptions",
               "ApiGatewayMethodCreatequizOptions",
+              "ApiGatewayMethodPublishquizOptions",
               "ApiGatewayMethodUsersPost",
               "ApiGatewayMethodUsersIdVarGet",
               "ApiGatewayMethodMeGet",
               "ApiGatewayMethodLoginPost",
               "ApiGatewayMethodRegisterPost",
-              "ApiGatewayMethodCreatequizPost"
+              "ApiGatewayMethodCreatequizPost",
+              "ApiGatewayMethodPublishquizPost"
             ]
           },
           "CreateUserLambdaPermissionApiGateway": {
@@ -1354,6 +1510,43 @@
               }
             }
           },
+          "PublishQuizLambdaPermissionApiGateway": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "PublishQuizLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "apigateway.amazonaws.com",
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "ApiGatewayRestApi"
+                    },
+                    "/*/*"
+                  ]
+                ]
+              }
+            }
+          },
           "usersTable": {
             "Type": "AWS::DynamoDB::Table",
             "DeletionPolicy": "Retain",
@@ -1452,7 +1645,7 @@
           "CreateUserLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "CreateUserLambdaVersiontOizG871FugxDTAmrSz6sCcU6T302fF65ajezTgGg"
+              "Ref": "CreateUserLambdaVersionGlrSEusEtT0IXC0IcX5VjgOmk845POJrgPtvVQbUic"
             },
             "Export": {
               "Name": "sls-awsproject-dev-CreateUserLambdaFunctionQualifiedArn"
@@ -1461,7 +1654,7 @@
           "GetUserLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetUserLambdaVersionRBZGdhfYeXklO9Fv4r4vGOYknqBcObR5FU0dhnW2c"
+              "Ref": "GetUserLambdaVersionIHRqrkuwi7oZcWf3NGdaL59IVgvvcS3LZlrqxRXs"
             },
             "Export": {
               "Name": "sls-awsproject-dev-GetUserLambdaFunctionQualifiedArn"
@@ -1470,7 +1663,7 @@
           "VerifyTokenLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "VerifyTokenLambdaVersionjRve4cWHKdvq0hGjG9QbmVVPdliiKsNbqb0rAvAaoE"
+              "Ref": "VerifyTokenLambdaVersionp1uxJ0vFhHIPSVi2aS4iWDgusJwyhJDkx8Cj3MkFN7U"
             },
             "Export": {
               "Name": "sls-awsproject-dev-VerifyTokenLambdaFunctionQualifiedArn"
@@ -1479,7 +1672,7 @@
           "MeLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "MeLambdaVersionbfEbPAwE4tSwKmxSIOmYsOOc11VPF9OsWUmRBfa5w"
+              "Ref": "MeLambdaVersionuiIbZFJzGGT6SIoZOSSwtIjTkOVOLfPlgDXnBMYjE"
             },
             "Export": {
               "Name": "sls-awsproject-dev-MeLambdaFunctionQualifiedArn"
@@ -1488,7 +1681,7 @@
           "LoginLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "LoginLambdaVersionDPm3x7tQccSm9jB44E7sAFNzpETXrbGhK8CREC9Vx4A"
+              "Ref": "LoginLambdaVersionJqd3GMRtmAd2lZTCH6zlO953aHIPd8kRUFC6xTMJhAg"
             },
             "Export": {
               "Name": "sls-awsproject-dev-LoginLambdaFunctionQualifiedArn"
@@ -1497,7 +1690,7 @@
           "RegisterLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "RegisterLambdaVersionkeGTkuML5fdwzZyNzRRGoFSdEneWZXmcQfudz0nNCMI"
+              "Ref": "RegisterLambdaVersionAyoTMGJ3QTdJh9QLLDIFTkq6Eck1rHsVWVET2GL0"
             },
             "Export": {
               "Name": "sls-awsproject-dev-RegisterLambdaFunctionQualifiedArn"
@@ -1506,10 +1699,19 @@
           "CreateQuizLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "CreateQuizLambdaVersionjOPDqYmm1GX0oLozHuNS5z60W0aovEeFsHF16ZwJyg"
+              "Ref": "CreateQuizLambdaVersionQr1tteESfL5PYTTdF7S01kAnkSdC3IZw2zBCrAMfU"
             },
             "Export": {
               "Name": "sls-awsproject-dev-CreateQuizLambdaFunctionQualifiedArn"
+            }
+          },
+          "PublishQuizLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "PublishQuizLambdaVersionns1LlFbPX7JdfWcIbr8JJLg9KydtGEneEdBJnW4wM"
+            },
+            "Export": {
+              "Name": "sls-awsproject-dev-PublishQuizLambdaFunctionQualifiedArn"
             }
           },
           "ServiceEndpoint": {
@@ -1650,7 +1852,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "CreateUserLambdaVersiontOizG871FugxDTAmrSz6sCcU6T302fF65ajezTgGg"
+        "versionLogicalId": "CreateUserLambdaVersionGlrSEusEtT0IXC0IcX5VjgOmk845POJrgPtvVQbUic"
       },
       "getUser": {
         "handler": "users/get.get",
@@ -1669,7 +1871,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "GetUserLambdaVersionRBZGdhfYeXklO9Fv4r4vGOYknqBcObR5FU0dhnW2c"
+        "versionLogicalId": "GetUserLambdaVersionIHRqrkuwi7oZcWf3NGdaL59IVgvvcS3LZlrqxRXs"
       },
       "verifyToken": {
         "handler": "functions/authorize.handler",
@@ -1680,7 +1882,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "VerifyTokenLambdaVersionjRve4cWHKdvq0hGjG9QbmVVPdliiKsNbqb0rAvAaoE"
+        "versionLogicalId": "VerifyTokenLambdaVersionp1uxJ0vFhHIPSVi2aS4iWDgusJwyhJDkx8Cj3MkFN7U"
       },
       "me": {
         "handler": "functions/me.handler",
@@ -1728,7 +1930,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "MeLambdaVersionbfEbPAwE4tSwKmxSIOmYsOOc11VPF9OsWUmRBfa5w"
+        "versionLogicalId": "MeLambdaVersionuiIbZFJzGGT6SIoZOSSwtIjTkOVOLfPlgDXnBMYjE"
       },
       "login": {
         "handler": "functions/login.handler",
@@ -1766,7 +1968,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "LoginLambdaVersionDPm3x7tQccSm9jB44E7sAFNzpETXrbGhK8CREC9Vx4A"
+        "versionLogicalId": "LoginLambdaVersionJqd3GMRtmAd2lZTCH6zlO953aHIPd8kRUFC6xTMJhAg"
       },
       "register": {
         "handler": "functions/register.handler",
@@ -1785,7 +1987,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "RegisterLambdaVersionkeGTkuML5fdwzZyNzRRGoFSdEneWZXmcQfudz0nNCMI"
+        "versionLogicalId": "RegisterLambdaVersionAyoTMGJ3QTdJh9QLLDIFTkq6Eck1rHsVWVET2GL0"
       },
       "createQuiz": {
         "handler": "quiz/createQuiz.handler",
@@ -1823,7 +2025,45 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "CreateQuizLambdaVersionjOPDqYmm1GX0oLozHuNS5z60W0aovEeFsHF16ZwJyg"
+        "versionLogicalId": "CreateQuizLambdaVersionQr1tteESfL5PYTTdF7S01kAnkSdC3IZw2zBCrAMfU"
+      },
+      "publishQuiz": {
+        "handler": "quiz/publishQuiz.handler",
+        "events": [
+          {
+            "http": {
+              "path": "publishQuiz",
+              "method": "post",
+              "cors": {
+                "origins": [
+                  "*"
+                ],
+                "origin": "*",
+                "methods": [
+                  "OPTIONS",
+                  "POST"
+                ],
+                "headers": [
+                  "Content-Type",
+                  "X-Amz-Date",
+                  "Authorization",
+                  "X-Api-Key",
+                  "X-Amz-Security-Token",
+                  "X-Amz-User-Agent"
+                ],
+                "allowCredentials": false
+              },
+              "integration": "AWS_PROXY"
+            }
+          }
+        ],
+        "name": "awsproject-dev-publishQuiz",
+        "package": {},
+        "memory": 1024,
+        "timeout": 6,
+        "runtime": "nodejs12.x",
+        "vpc": {},
+        "versionLogicalId": "PublishQuizLambdaVersionns1LlFbPX7JdfWcIbr8JJLg9KydtGEneEdBJnW4wM"
       }
     },
     "resources": {
@@ -1941,7 +2181,7 @@
     "artifact": "C:\\users\\simeon\\askyourteam\\askyourteam-1\\awsproject\\.serverless\\awsproject.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/awsproject/dev/1622438338100-2021-05-31T05:18:58.100Z",
+    "artifactDirectoryName": "serverless/awsproject/dev/1622454532703-2021-05-31T09:48:52.703Z",
     "artifact": "awsproject.zip"
   }
 }

@@ -125,7 +125,7 @@ const createDbQuiz = async details => {
   await docClient.put(params).promise();
 
   return { statusCode: 200, body: JSON.stringify(params)}
-} 
+};
 
 const getUserByEmail = async email => {
   
