@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+//import { Text, View, TextInput, TouchableHighlight } from 'react-native';
+//import { validate } from 'validate.js';
 import './Login.css';
+//import constraints from '../../constraints';
 import headerLogo from '../header/AYT-Logo.png';
 import footerLogo from '../footer/footer-logo.PNG';
 
@@ -18,13 +21,14 @@ async function loginUser(credentials) {
 }
 
 export default function Login({ setToken }) {
-  const [username, setUserName] = useState();
+  const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
+  //Submit Form
   const handleSubmit = async e => {
     e.preventDefault();
     const token = await loginUser({
-      username,
+      email,
       password
     });
     setToken(token);
@@ -50,8 +54,8 @@ export default function Login({ setToken }) {
 
         <form onSubmit={handleSubmit}>
           <label>
-            <p>Username</p>
-            <input type="text" onChange={e => setUserName(e.target.value)} />
+            <p>Email Address</p>
+            <input type="text" onChange={e => setEmail(e.target.value)} />
           </label>
           
           <label>
