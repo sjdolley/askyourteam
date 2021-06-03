@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../src/App.css';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import Dashboard from '../src/components/dashboard/Dashboard';
 import Login from '../src/components/login/Login';
 import Preferences from '../src/components/preferences/Preferences';
@@ -20,9 +20,10 @@ function App() {
       <BrowserRouter>
         <Header />
         <Switch>
-          <Route path="/dashboard">
-            <Dashboard />
-          </Route>
+          <Redirect exact from="/" to="/dashboard" />
+            <Route path="/dashboard">
+              <Dashboard />
+            </Route>
 
           <Route path="/preferences">
             <Preferences />
