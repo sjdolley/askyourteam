@@ -4,12 +4,12 @@ import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import Dashboard from '../src/components/dashboard/Dashboard';
 import Login from '../src/components/login/Login';
 import Preferences from '../src/components/preferences/Preferences';
-//import useToken from '../src/useToken';
+import useToken from './useToken';
 import Header from "../src/components/header/Header"
 import Footer from "../src/components/footer/Footer"
 
 function App() {
-  const [token, setToken] = useState();
+  const { token, setToken } = useToken();
 
   if(!token) {
     return <Login setToken={setToken} />
