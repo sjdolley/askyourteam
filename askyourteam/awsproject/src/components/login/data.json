@@ -1,0 +1,20 @@
+[
+    {
+        "quiz_title": "Dummy Quiz 1",
+        "quiz_creation_date": "dd/mm/yyyy",
+        "quiz_status": "Draft"
+    },
+    {
+        "quiz_title": "Dummy Quiz 2",
+        "quiz_creation_date": "dd/mm/yyyy",
+        "quiz_published_date": "dd/mm/yyyy",
+        "quiz_status": "Published"
+    },
+    {
+        "quiz_title": "Dummy Quiz 3",
+        "quiz_creation_date": "dd/mm/yyyy",
+        "quiz_published_date": "dd/mm/yyyy",
+        "quiz_closed_date": "dd/mm/yyyy",
+        "quiz_status": "Closed"
+    }
+]
