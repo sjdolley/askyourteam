@@ -19,10 +19,7 @@ async function loginUser(credentials) {
 
 export default function Login({ setToken }) {
   const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-
-  //Client Side Validation for email
-  
+  const [password, setPassword] = useState();  
 
   //Submit Form
   const handleSubmit = async e => {

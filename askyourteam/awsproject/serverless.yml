@@ -120,10 +120,10 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1  
-#    NewResource:
-#      Type: AWS::S3::Bucket
-#      Properties:
-#        BucketName: my-new-bucket
+   NewResource:
+     Type: AWS::S3::Bucket
+     Properties:
+       BucketName: quizproject-dev
 #  Outputs:
 #     NewOutput:
 #       Description: "Description for the output"
