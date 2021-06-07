@@ -235,34 +235,11 @@ resources:
         TableName: quizTable-${self:provider.stage}   
         ProvisionedThroughput:
           ReadCapacityUnits: 1
-          WriteCapacityUnits: 1
-    questionTable:
-      Type: 'AWS::DynamoDB::Table'
-      DeletionPolicy: Retain
-      Properties:
-        AttributeDefinitions:
-          -
-            AttributeName: questionName
-            AttributeType: S
-          -
-            AttributeName: quizName
-            AttributeType: S
-        KeySchema:
-          -
-            AttributeName: questionName
-            KeyType: HASH
-          - 
-            AttributeName: quizName
-            KeyType: RANGE
-        ProvisionedThroughput:
-          ReadCapacityUnits: 1
-          WriteCapacityUnits: 1
-        TableName: questionTable-${self:provider.stage}
-
-        
-#      Type: AWS::S3::Bucket
-#      Properties:
-#        BucketName: my-new-bucket
+          WriteCapacityUnits: 1  
+   NewResource:
+     Type: AWS::S3::Bucket
+     Properties:
+       BucketName: quizproject-dev
 #  Outputs:
 #     NewOutput:
 #       Description: "Description for the output"
