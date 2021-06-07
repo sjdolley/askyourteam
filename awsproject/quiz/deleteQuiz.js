@@ -1,4 +1,4 @@
-const deleteDbQuiz = require ("../lib/quizDb");
+const { deleteDbQuiz } = require ("../lib/quizDb");
 
 module.exports.handler = async function deleteQuiz(event) {
     console.log(event.body);
