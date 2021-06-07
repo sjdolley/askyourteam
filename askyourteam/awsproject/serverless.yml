@@ -134,6 +134,27 @@ functions:
           path: publishQuiz
           method: post
           cors: true
+  deleteQuiz:
+    handler: quiz/deleteQuiz.handler
+    events:
+      - http:
+          path: deleteQuiz
+          method: delete
+          cors: true
+  getAllQuizByEmail:
+    handler: quiz/getAllQuizByEmail.handler
+    events:
+      - http:
+          path: getAllQuizByEmail
+          method: get
+          cors: true
+  getQuizByName:
+    handler: quiz/getQuizByName.handler
+    events:
+      - http:
+          path: getQuizByName
+          method: get
+          cors: true
 
           
 #    The following are a few example events you can configure
