@@ -20,6 +20,27 @@
             "creationDate": "dd/mm/yyyy",
             "publishDate": "dd/mm/yyyy",
             "closingDate": "dd/mm/yyyy"
-        }           
+        },
+        {
+            "id": 4,
+            "title": "Example draft quiz",
+            "status": "Draft",
+            "creationDate": "dd/mm/yyyy"
+        },
+        {
+            "id": 5,
+            "title": "Example published quiz",
+            "status": "Published",
+            "creationDate": "dd/mm/yyyy",
+            "publishDate": "dd/mm/yyyy"
+        },
+        {
+            "id": 6,
+            "title": "Example closed quiz",
+            "status": "Closed",
+            "creationDate": "dd/mm/yyyy",
+            "publishDate": "dd/mm/yyyy",
+            "closingDate": "dd/mm/yyyy"
+        }                      
     ]
 }
