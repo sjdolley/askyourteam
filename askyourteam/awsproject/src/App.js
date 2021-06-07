@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import '../src/App.css';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import Dashboard from '../src/components/dashboard/Dashboard';
