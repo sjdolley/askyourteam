@@ -37,8 +37,47 @@ const publishDbQuiz = async (details) => {
     return { statusCode: 200, body: JSON.stringify(param) } 
 };
   
- 
+const deleteDbQuiz = async details => {
+  const quizName = details.quizName;
+
+  const table = process.env.quizTable;
+  console.log(table);
+// add validation to check if quiz already exists with this name
+  const params = {
+    TableName: table,
+    Key:{quizName: quizName,
+    },
+  }
+
+  console.log("delete this quiz :-", params);
+
+  await docClient.delete(params).promise();
+
+  return { statusCode: 200, body: JSON.stringify(params)}
+};
   
+const getAllQuizByEmailDb = async details => {
+  
+  const email = detail.email;
+  const table = process.env.quizTable;
+  console.log(table);
+  
+  const params = {
+    TableName: table,
+    KeyConditionExpression: 'searchEmail = :searchEmail',
+    ExpressionAttributeValues: {
+      ':searchEmail': email
+    },
+  }
+  console.log("search by these parameters :-", params);
+
+  await docClient.query(params).promise();
+
+  return { statusCode: 200, body: JSON.stringify(params)}
+};
+
 module.exports = {
-    publishDbQuiz
+    publishDbQuiz,
+    deleteDbQuiz,
+    getAllQuizByEmailDb
 };
