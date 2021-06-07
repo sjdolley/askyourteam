@@ -235,11 +235,11 @@ resources:
         TableName: quizTable-${self:provider.stage}   
         ProvisionedThroughput:
           ReadCapacityUnits: 1
-          WriteCapacityUnits: 1  
-   NewResource:
-     Type: AWS::S3::Bucket
-     Properties:
-       BucketName: quizproject-dev
+          WriteCapacityUnits: 1        
+    quizhost:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: quizproject-dev2
 #  Outputs:
 #     NewOutput:
 #       Description: "Description for the output"
