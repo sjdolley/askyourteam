@@ -76,8 +76,26 @@ const getAllQuizByEmailDb = async details => {
   return { statusCode: 200, body: JSON.stringify(params)}
 };
 
+  const getQuizByNameDb = async details => {
+
+    const quizName = details.quizName;
+    const table = process.env.quizTable;
+
+    const params = {
+      TableName: table,
+      Key: {
+        "quizName": quizName,
+      },
+    }
+
+    await docClient.get(params).promise();
+
+    return { statusCode: 200, body: JSON.stringify(params)}
+  };
+
 module.exports = {
     publishDbQuiz,
     deleteDbQuiz,
-    getAllQuizByEmailDb
+    getAllQuizByEmailDb,
+    getQuizByNameDb
 };
