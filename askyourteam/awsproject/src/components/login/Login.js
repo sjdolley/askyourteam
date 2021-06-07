@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import '../../App.css';
 import './Login.css';
 import headerLogo from '../header/AYT-Logo.png';
 import footerLogo from '../footer/footer-logo.PNG';

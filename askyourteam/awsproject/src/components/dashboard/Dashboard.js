@@ -34,62 +34,46 @@ export default function Dashboard() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setQuizzes(quizInput)
-      .then(() => {
-        if(mounted.current) {
-          setQuizInput('');
-          setAlert(true);
-        }        
-      })
+
+    setQuizzes()
+      // .then(() => {
+      //   if(mounted.current) {
+      //     setQuizInput('');
+      //     setAlert(true);
+      //   }        
+      // })
   };
 
   return(
     <div className="App dashboard-wrapper">
       <p>Dashboard/</p>
-      <h2>Quiz Dashboard</h2>
-
+      <div className="title-line">
+        <h1 id="dashboard-title">Quiz Dashboard</h1>
+        <form onSubmit={handleSubmit}>
+          <button type="submit" className="new-quiz-btn" onClick="handleSubmit">Create New Quiz</button>
+        </form>
+      </div>      
       <div className="dashboard-grid">
-        {quizzes.map(quiz =>
-            
-              <div className="grid-item">
-                <h3 key={quiz.id}>{quiz.title}</h3>
-                <p key={quiz.id}>Status: {quiz.status}</p>
-                <p key={quiz.id}>Created: {quiz.creationDate}</p>
+        {quizzes.map(quiz =>            
+          <div className="grid-item">
+            <h3 key={quiz.id}>{quiz.title}</h3>
+            <p key={quiz.id}>Status: {quiz.status}</p>
+            <p key={quiz.id}>Created: {quiz.creationDate}</p>
 
-                {quiz.status === "Published" ? 
-                  <Fragment>
-                    <p key={quiz.id}>Published: {quiz.publishDate}</p>
-                    <button>Results Report</button>
-                  </Fragment> : null}
+            {quiz.status === "Published" ? 
+              <Fragment>
+                <p key={quiz.id}>Published: {quiz.publishDate}</p>
+                <button className="report-btn">Results Report</button>
+              </Fragment> : null}
 
-                {quiz.status === "Closed" ? 
-                  <Fragment>
-                    <p key={quiz.id}>Published: {quiz.publishDate}</p>
-                    <p key={quiz.id}>Closed: {quiz.closingDate}</p>
-                    <button>Results Report</button>
-                  </Fragment> : null}
-              </div>)}
-            </div>
-        
-      {/* <div className="dashboard-grid">
-        <div className="grid-item item1">
-          {quizzes.map(quiz => <div className="grid-title" key={quiz.id}>{quiz.title}</div>)}
-        </div>
-      </div> */}
-
-      {/* <div className="dashboard-grid">
-        <div className="grid-item item1">
-          <p className="grid-title">Quiz Title</p>
-          <p>Status: Draft</p>
-          <p className="quiz-creation-date">Created: dd/mm/yyyy</p>
-        </div>
-        <div className="grid-item">2</div>
-        <div className="grid-item">3</div>
-        <div className="grid-item">4</div>
-        <div className="grid-item">5</div>
-        <div className="grid-item">6</div>
-      </div> */}
-      <button type="submit">Create New Quiz</button>
+            {quiz.status === "Closed" ? 
+              <Fragment>
+                <p key={quiz.id}>Published: {quiz.publishDate}</p>
+                <p key={quiz.id}>Closed: {quiz.closingDate}</p>
+                <button className="report-btn">Results Report</button>
+              </Fragment> : null}
+          </div>)}
+      </div>
     </div>
   );
 }
