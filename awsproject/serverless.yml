@@ -148,6 +148,10 @@ functions:
           path: getAllQuizByEmail/{email}
           method: get
           cors: true
+          request:
+            parameters:
+              paths:
+                email: true
   getQuizByName:
     handler: quiz/getQuizByName.handler
     events:
@@ -155,6 +159,10 @@ functions:
           path: getQuizByName/{quizName}
           method: get
           cors: true
+          request:
+            parameters:
+              paths:
+                quizName: true
 
           
 #    The following are a few example events you can configure
