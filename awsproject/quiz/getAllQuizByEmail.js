@@ -3,7 +3,7 @@ const { getAllQuizByEmailDb } = require("../lib/quizDb");
 module.exports.handler = async function getAllQuizByEmail(event) {
     console.log(event.body);
     
-    const body = JSON.parse(event.body);
+        const body = JSON.parse(event.body);
         console.log(event.body);
         return getAllQuizByEmail(body)
         .then(user => ({

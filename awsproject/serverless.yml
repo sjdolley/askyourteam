@@ -145,14 +145,14 @@ functions:
     handler: quiz/getAllQuizByEmail.handler
     events:
       - http:
-          path: getAllQuizByEmail
+          path: getAllQuizByEmail/{email}
           method: get
           cors: true
   getQuizByName:
     handler: quiz/getQuizByName.handler
     events:
       - http:
-          path: getQuizByName
+          path: getQuizByName/{quizName}
           method: get
           cors: true
 

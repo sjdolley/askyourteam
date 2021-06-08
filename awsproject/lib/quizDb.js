@@ -22,7 +22,6 @@ const publishDbQuiz = async (details) => {
     const params = {
       TableName: table,
       Key: {
-          email: email,
           quizName: theQuiz,
       },
       UpdateExpression: "SET published = :published",
@@ -69,11 +68,10 @@ const getAllQuizByEmailDb = async details => {
       ':searchEmail': email
     },
   }
-  console.log("search by these parameters :-", params);
+  const response = await docClient.get(params).promise();
+  console.log(response);
 
-  await docClient.query(params).promise();
-
-  return { statusCode: 200, body: JSON.stringify(params)}
+  return { statusCode: 200, body: response };
 };
 
   const getQuizByNameDb = async details => {
@@ -88,7 +86,7 @@ const getAllQuizByEmailDb = async details => {
       },
     }
 
-    await docClient.get(params).promise();
+    await docClient.query(params).promise();
 
     return { statusCode: 200, body: JSON.stringify(params)}
   };
