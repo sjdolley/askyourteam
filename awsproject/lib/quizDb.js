@@ -60,11 +60,12 @@ const deleteDbQuiz = async details => {
 const getAllQuizByEmailDb = async details => {
   
   const email = detail.email;
+  console.log(email);
   const table = process.env.quizTable;
   console.log(table);
   
   const params = {
-    TableName: table,
+    TableName: quizTable,
     KeyConditionExpression: 'searchEmail = :searchEmail',
     ExpressionAttributeValues: {
       ':searchEmail': email

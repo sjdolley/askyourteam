@@ -146,23 +146,17 @@ functions:
     events:
       - http:
           path: getAllQuizByEmail/{email}
-          method: get
+          method: post
           cors: true
-          request:
-            parameters:
-              paths:
-                email: true
+        
   getQuizByName:
     handler: quiz/getQuizByName.handler
     events:
       - http:
           path: getQuizByName/{quizName}
-          method: get
+          method: post
           cors: true
-          request:
-            parameters:
-              paths:
-                quizName: true
+         
 
           
 #    The following are a few example events you can configure

@@ -32,6 +32,7 @@
         "quizTable": "quizTable-dev",
         "questionTable": "questionTable-dev"
       },
+      "variableSyntax": "\\${([^{}:]+?(?:\\(|:)(?:[^:{}][^{}]*?)?)}",
       "versionFunctions": true,
       "compiledCloudFormationTemplate": {
         "AWSTemplateFormatVersion": "2010-09-09",
@@ -270,7 +271,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/awsproject/dev/1623139666452-2021-06-08T08:07:46.452Z/awsproject.zip"
+                "S3Key": "serverless/awsproject/dev/1623192837879-2021-06-08T22:53:57.879Z/awsproject.zip"
               },
               "Handler": "users/create.create",
               "Runtime": "nodejs12.x",
@@ -304,7 +305,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/awsproject/dev/1623139666452-2021-06-08T08:07:46.452Z/awsproject.zip"
+                "S3Key": "serverless/awsproject/dev/1623192837879-2021-06-08T22:53:57.879Z/awsproject.zip"
               },
               "Handler": "users/get.get",
               "Runtime": "nodejs12.x",
@@ -338,7 +339,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/awsproject/dev/1623139666452-2021-06-08T08:07:46.452Z/awsproject.zip"
+                "S3Key": "serverless/awsproject/dev/1623192837879-2021-06-08T22:53:57.879Z/awsproject.zip"
               },
               "Handler": "functions/authorize.handler",
               "Runtime": "nodejs12.x",
@@ -372,7 +373,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/awsproject/dev/1623139666452-2021-06-08T08:07:46.452Z/awsproject.zip"
+                "S3Key": "serverless/awsproject/dev/1623192837879-2021-06-08T22:53:57.879Z/awsproject.zip"
               },
               "Handler": "functions/me.handler",
               "Runtime": "nodejs12.x",
@@ -406,7 +407,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/awsproject/dev/1623139666452-2021-06-08T08:07:46.452Z/awsproject.zip"
+                "S3Key": "serverless/awsproject/dev/1623192837879-2021-06-08T22:53:57.879Z/awsproject.zip"
               },
               "Handler": "functions/login.handler",
               "Runtime": "nodejs12.x",
@@ -440,11 +441,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-<<<<<<< HEAD
-                "S3Key": "serverless/awsproject/dev/1623139666452-2021-06-08T08:07:46.452Z/awsproject.zip"
-=======
-                "S3Key": "serverless/awsproject/dev/1623102083214-2021-06-07T21:41:23.214Z/awsproject.zip"
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+                "S3Key": "serverless/awsproject/dev/1623192837879-2021-06-08T22:53:57.879Z/awsproject.zip"
               },
               "Handler": "functions/register.handler",
               "Runtime": "nodejs12.x",
@@ -478,11 +475,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-<<<<<<< HEAD
-                "S3Key": "serverless/awsproject/dev/1623139666452-2021-06-08T08:07:46.452Z/awsproject.zip"
-=======
-                "S3Key": "serverless/awsproject/dev/1623102083214-2021-06-07T21:41:23.214Z/awsproject.zip"
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+                "S3Key": "serverless/awsproject/dev/1623192837879-2021-06-08T22:53:57.879Z/awsproject.zip"
               },
               "Handler": "quiz/createQuiz.handler",
               "Runtime": "nodejs12.x",
@@ -516,11 +509,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-<<<<<<< HEAD
-                "S3Key": "serverless/awsproject/dev/1623139666452-2021-06-08T08:07:46.452Z/awsproject.zip"
-=======
-                "S3Key": "serverless/awsproject/dev/1623102083214-2021-06-07T21:41:23.214Z/awsproject.zip"
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+                "S3Key": "serverless/awsproject/dev/1623192837879-2021-06-08T22:53:57.879Z/awsproject.zip"
               },
               "Handler": "quiz/publishQuiz.handler",
               "Runtime": "nodejs12.x",
@@ -554,11 +543,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-<<<<<<< HEAD
-                "S3Key": "serverless/awsproject/dev/1623139666452-2021-06-08T08:07:46.452Z/awsproject.zip"
-=======
-                "S3Key": "serverless/awsproject/dev/1623102083214-2021-06-07T21:41:23.214Z/awsproject.zip"
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+                "S3Key": "serverless/awsproject/dev/1623192837879-2021-06-08T22:53:57.879Z/awsproject.zip"
               },
               "Handler": "quiz/deleteQuiz.handler",
               "Runtime": "nodejs12.x",
@@ -592,11 +577,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-<<<<<<< HEAD
-                "S3Key": "serverless/awsproject/dev/1623139666452-2021-06-08T08:07:46.452Z/awsproject.zip"
-=======
-                "S3Key": "serverless/awsproject/dev/1623102083214-2021-06-07T21:41:23.214Z/awsproject.zip"
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+                "S3Key": "serverless/awsproject/dev/1623192837879-2021-06-08T22:53:57.879Z/awsproject.zip"
               },
               "Handler": "quiz/getAllQuizByEmail.handler",
               "Runtime": "nodejs12.x",
@@ -630,11 +611,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-<<<<<<< HEAD
-                "S3Key": "serverless/awsproject/dev/1623139666452-2021-06-08T08:07:46.452Z/awsproject.zip"
-=======
-                "S3Key": "serverless/awsproject/dev/1623102083214-2021-06-07T21:41:23.214Z/awsproject.zip"
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+                "S3Key": "serverless/awsproject/dev/1623192837879-2021-06-08T22:53:57.879Z/awsproject.zip"
               },
               "Handler": "quiz/getQuizByName.handler",
               "Runtime": "nodejs12.x",
@@ -661,192 +638,114 @@
               "GetQuizByNameLogGroup"
             ]
           },
-<<<<<<< HEAD
-          "CreateUserLambdaVersion5gLU8easAvUZMto7RBsKB55gFcDIRSxM5PpUpLYxc": {
-=======
-          "CreateUserLambdaVersionr58ruveMlLOd6nuoN55hqzy8ss4BjSgPwqLUsOondxE": {
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+          "CreateUserLambdaVersionILDHcsjTSoA8b0gJhacSN8HNP6gceL6UZ0cnKRLh50": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "CreateUserLambdaFunction"
               },
-<<<<<<< HEAD
-              "CodeSha256": "yykO+bC6oIyFeSA2mEfylGfEJsIiipV9t/ebCA26hZc="
+              "CodeSha256": "/jF4FrRw/nw0JhsB66aDolfQyDtWVCVOtOueelhq8G0="
             }
           },
-          "GetUserLambdaVersionoJeiv3BKF40cj1fUtsc9g1SF3Xdi8c1wjpAP6js": {
-=======
-              "CodeSha256": "RuOiqriMPYMaHpgS9bAgyXhBB3/EwqAe4pZqqa++9H8="
-            }
-          },
-          "GetUserLambdaVersionBsNoWt9tlY1zUFhQrOXrNquzyctrdBL6ikYFTNUWw": {
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+          "GetUserLambdaVersionusUDkDKXgOpBuW0DMMj49OY1CvxByTFiwHvgOSJ94": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetUserLambdaFunction"
               },
-<<<<<<< HEAD
-              "CodeSha256": "yykO+bC6oIyFeSA2mEfylGfEJsIiipV9t/ebCA26hZc="
+              "CodeSha256": "/jF4FrRw/nw0JhsB66aDolfQyDtWVCVOtOueelhq8G0="
             }
           },
-          "VerifyTokenLambdaVersionVd0S8BI4HSaDJVdeQckoM6ZCjlC9mfQTkWn8K0sXQ": {
-=======
-              "CodeSha256": "RuOiqriMPYMaHpgS9bAgyXhBB3/EwqAe4pZqqa++9H8="
-            }
-          },
-          "VerifyTokenLambdaVersionqe2MDnUwWaQUF0jtRtGlclKm0UgrE8i1uR1IcXwT548": {
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+          "VerifyTokenLambdaVersion91UbX2YRH5t7iUqF5XfxAYIMMaEpTSgV41uD2yrRvQ": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "VerifyTokenLambdaFunction"
               },
-<<<<<<< HEAD
-              "CodeSha256": "yykO+bC6oIyFeSA2mEfylGfEJsIiipV9t/ebCA26hZc="
+              "CodeSha256": "/jF4FrRw/nw0JhsB66aDolfQyDtWVCVOtOueelhq8G0="
             }
           },
-          "MeLambdaVersionAcwHTiFbFvXNpKaXPEM8oZMkKeNSre5QbHxn3Xg0": {
-=======
-              "CodeSha256": "RuOiqriMPYMaHpgS9bAgyXhBB3/EwqAe4pZqqa++9H8="
-            }
-          },
-          "MeLambdaVersion7WXAZ8EBZOfajtxYbOnh0Qwv2anZZ8GOLSHs7aXqE": {
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+          "MeLambdaVersionG372oWeTqnySIb6vToJH49cMDn6FpWK90s4CHQMeY": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "MeLambdaFunction"
               },
-<<<<<<< HEAD
-              "CodeSha256": "yykO+bC6oIyFeSA2mEfylGfEJsIiipV9t/ebCA26hZc="
+              "CodeSha256": "/jF4FrRw/nw0JhsB66aDolfQyDtWVCVOtOueelhq8G0="
             }
           },
-          "LoginLambdaVersionAHMbV3UVOuEf0eHbNy3NcIyMnrDjPLuR1W9OayIk": {
-=======
-              "CodeSha256": "RuOiqriMPYMaHpgS9bAgyXhBB3/EwqAe4pZqqa++9H8="
-            }
-          },
-          "LoginLambdaVersioniHATMxwhDNHixJmZtAMYqnfrxL21mfFHA2biVcITVA": {
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+          "LoginLambdaVersion7h4wpJWBsmytzDqm0Fi4vijsDhQkkZU6snFcMmJmqE": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "LoginLambdaFunction"
               },
-<<<<<<< HEAD
-              "CodeSha256": "yykO+bC6oIyFeSA2mEfylGfEJsIiipV9t/ebCA26hZc="
+              "CodeSha256": "/jF4FrRw/nw0JhsB66aDolfQyDtWVCVOtOueelhq8G0="
             }
           },
-          "RegisterLambdaVersionoKznO1lhFMM19IhE9YHVnBoG28Dw9V9ZVfma6NzME": {
-=======
-              "CodeSha256": "RuOiqriMPYMaHpgS9bAgyXhBB3/EwqAe4pZqqa++9H8="
-            }
-          },
-          "RegisterLambdaVersionFvLopshWxN2vHkmxWxg3LxgBTXAIogkMH3wl43ow": {
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+          "RegisterLambdaVersion5qC9XvBupBfWTf9XvMgVleFc8q20Kr114WfsR5J0E4": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "RegisterLambdaFunction"
               },
-<<<<<<< HEAD
-              "CodeSha256": "yykO+bC6oIyFeSA2mEfylGfEJsIiipV9t/ebCA26hZc="
+              "CodeSha256": "/jF4FrRw/nw0JhsB66aDolfQyDtWVCVOtOueelhq8G0="
             }
           },
-          "CreateQuizLambdaVersionOaUMeRiYK3wnRmxcTOAhoFkM3ffPQePes4OagZEugmI": {
-=======
-              "CodeSha256": "RuOiqriMPYMaHpgS9bAgyXhBB3/EwqAe4pZqqa++9H8="
-            }
-          },
-          "CreateQuizLambdaVersion5jqjS3ilvnBePydXTmOqg78hDIAPfT532DDdcIqLy1M": {
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+          "CreateQuizLambdaVersioneyDpQrMkrMUGFeNkTeqODeLui9cyCWDiiKcK0qyKEA": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "CreateQuizLambdaFunction"
               },
-<<<<<<< HEAD
-              "CodeSha256": "yykO+bC6oIyFeSA2mEfylGfEJsIiipV9t/ebCA26hZc="
+              "CodeSha256": "/jF4FrRw/nw0JhsB66aDolfQyDtWVCVOtOueelhq8G0="
             }
           },
-          "PublishQuizLambdaVersion3buj6yoe5H6Xpum8FBpedUoBAsnt9CZmBpBvikw": {
-=======
-              "CodeSha256": "RuOiqriMPYMaHpgS9bAgyXhBB3/EwqAe4pZqqa++9H8="
-            }
-          },
-          "PublishQuizLambdaVersionKto9D7a8cdej1GA2btlvDINth6IPVrt4Hphdtb6no": {
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+          "PublishQuizLambdaVersionXFmiDxBOfGVNY7hZIcy6MEpmHQMDEx4Rz4icBfPZ0": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "PublishQuizLambdaFunction"
               },
-<<<<<<< HEAD
-              "CodeSha256": "yykO+bC6oIyFeSA2mEfylGfEJsIiipV9t/ebCA26hZc="
+              "CodeSha256": "/jF4FrRw/nw0JhsB66aDolfQyDtWVCVOtOueelhq8G0="
             }
           },
-          "DeleteQuizLambdaVersion0VWu8Wpng2yfst788RHUMxYYm2kwLNK37defnJKbL0o": {
-=======
-              "CodeSha256": "RuOiqriMPYMaHpgS9bAgyXhBB3/EwqAe4pZqqa++9H8="
-            }
-          },
-          "DeleteQuizLambdaVersionBUJumV4Y8YfDMhQ5aYdfcf0kuM1ei7ExlznD8LwMg": {
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+          "DeleteQuizLambdaVersionwWGrGhOG2rW4OYbEGuhyeYmSJOPqM2maUSSDFhZhVzU": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "DeleteQuizLambdaFunction"
               },
-<<<<<<< HEAD
-              "CodeSha256": "yykO+bC6oIyFeSA2mEfylGfEJsIiipV9t/ebCA26hZc="
+              "CodeSha256": "/jF4FrRw/nw0JhsB66aDolfQyDtWVCVOtOueelhq8G0="
             }
           },
-          "GetAllQuizByEmailLambdaVersionwUjveTWFpdAJ16y2PUxArIT6EvH3vLnSPcNPmAOlFPU": {
-=======
-              "CodeSha256": "RuOiqriMPYMaHpgS9bAgyXhBB3/EwqAe4pZqqa++9H8="
-            }
-          },
-          "GetAllQuizByEmailLambdaVersionOsBPtDHeHEEVvJ5gbAmL6i4sTuuYiHLygUjloq0": {
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+          "GetAllQuizByEmailLambdaVersion3PSwdRuv0qqS61XtrA9rnPkN3IxiTaqxGjVOBAABdko": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetAllQuizByEmailLambdaFunction"
               },
-<<<<<<< HEAD
-              "CodeSha256": "yykO+bC6oIyFeSA2mEfylGfEJsIiipV9t/ebCA26hZc="
+              "CodeSha256": "/jF4FrRw/nw0JhsB66aDolfQyDtWVCVOtOueelhq8G0="
             }
           },
-          "GetQuizByNameLambdaVersionF8iHHub9F8mNEFLNPgRpVAxBlMJ2GHaVGKI1hwZh8c": {
-=======
-              "CodeSha256": "RuOiqriMPYMaHpgS9bAgyXhBB3/EwqAe4pZqqa++9H8="
-            }
-          },
-          "GetQuizByNameLambdaVersionrgGodRjrY3slj7pTRGZCfS8YPcJ1FzawzNbn9gNTQ": {
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+          "GetQuizByNameLambdaVersionLV6Hi0MPnCEaBXEYmK0kcfYh08B1GFWPUhHw2s": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetQuizByNameLambdaFunction"
               },
-<<<<<<< HEAD
-              "CodeSha256": "yykO+bC6oIyFeSA2mEfylGfEJsIiipV9t/ebCA26hZc="
-=======
-              "CodeSha256": "RuOiqriMPYMaHpgS9bAgyXhBB3/EwqAe4pZqqa++9H8="
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+              "CodeSha256": "/jF4FrRw/nw0JhsB66aDolfQyDtWVCVOtOueelhq8G0="
             }
           },
           "ApiGatewayRestApi": {
@@ -993,7 +892,6 @@
               }
             }
           },
-<<<<<<< HEAD
           "ApiGatewayResourceGetallquizbyemailEmailVar": {
             "Type": "AWS::ApiGateway::Resource",
             "Properties": {
@@ -1006,8 +904,6 @@
               }
             }
           },
-=======
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
           "ApiGatewayResourceGetquizbyname": {
             "Type": "AWS::ApiGateway::Resource",
             "Properties": {
@@ -1018,6 +914,18 @@
                 ]
               },
               "PathPart": "getQuizByName",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayResourceGetquizbynameQuiznameVar": {
+            "Type": "AWS::ApiGateway::Resource",
+            "Properties": {
+              "ParentId": {
+                "Ref": "ApiGatewayResourceGetquizbyname"
+              },
+              "PathPart": "{quizName}",
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
               }
@@ -1248,11 +1156,7 @@
               }
             }
           },
-<<<<<<< HEAD
           "ApiGatewayMethodGetallquizbyemailEmailVarOptions": {
-=======
-          "ApiGatewayMethodGetallquizbyemailOptions": {
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
             "Type": "AWS::ApiGateway::Method",
             "Properties": {
               "AuthorizationType": "NONE",
@@ -1281,7 +1185,7 @@
                     "ResponseParameters": {
                       "method.response.header.Access-Control-Allow-Origin": "'*'",
                       "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
-                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'"
+                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'"
                     },
                     "ResponseTemplates": {
                       "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
@@ -1290,18 +1194,14 @@
                 ]
               },
               "ResourceId": {
-<<<<<<< HEAD
                 "Ref": "ApiGatewayResourceGetallquizbyemailEmailVar"
-=======
-                "Ref": "ApiGatewayResourceGetallquizbyemail"
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
               },
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
               }
             }
           },
-          "ApiGatewayMethodGetquizbynameOptions": {
+          "ApiGatewayMethodGetquizbynameQuiznameVarOptions": {
             "Type": "AWS::ApiGateway::Method",
             "Properties": {
               "AuthorizationType": "NONE",
@@ -1330,7 +1230,7 @@
                     "ResponseParameters": {
                       "method.response.header.Access-Control-Allow-Origin": "'*'",
                       "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
-                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'"
+                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'"
                     },
                     "ResponseTemplates": {
                       "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
@@ -1339,7 +1239,7 @@
                 ]
               },
               "ResourceId": {
-                "Ref": "ApiGatewayResourceGetquizbyname"
+                "Ref": "ApiGatewayResourceGetquizbynameQuiznameVar"
               },
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
@@ -1571,142 +1471,6 @@
               "HttpMethod": "POST",
               "RequestParameters": {},
               "ResourceId": {
-<<<<<<< HEAD
-=======
-                "Ref": "ApiGatewayResourceMe"
-              },
-              "RestApiId": {
-                "Ref": "ApiGatewayRestApi"
-              },
-              "ApiKeyRequired": false,
-              "AuthorizationType": "CUSTOM",
-              "AuthorizerId": {
-                "Ref": "VerifyTokenApiGatewayAuthorizer"
-              },
-              "Integration": {
-                "IntegrationHttpMethod": "POST",
-                "Type": "AWS_PROXY",
-                "Uri": {
-                  "Fn::Join": [
-                    "",
-                    [
-                      "arn:",
-                      {
-                        "Ref": "AWS::Partition"
-                      },
-                      ":apigateway:",
-                      {
-                        "Ref": "AWS::Region"
-                      },
-                      ":lambda:path/2015-03-31/functions/",
-                      {
-                        "Fn::GetAtt": [
-                          "MeLambdaFunction",
-                          "Arn"
-                        ]
-                      },
-                      "/invocations"
-                    ]
-                  ]
-                }
-              },
-              "MethodResponses": []
-            },
-            "DependsOn": "VerifyTokenApiGatewayAuthorizer"
-          },
-          "ApiGatewayMethodLoginPost": {
-            "Type": "AWS::ApiGateway::Method",
-            "Properties": {
-              "HttpMethod": "POST",
-              "RequestParameters": {},
-              "ResourceId": {
-                "Ref": "ApiGatewayResourceLogin"
-              },
-              "RestApiId": {
-                "Ref": "ApiGatewayRestApi"
-              },
-              "ApiKeyRequired": false,
-              "AuthorizationType": "NONE",
-              "Integration": {
-                "IntegrationHttpMethod": "POST",
-                "Type": "AWS_PROXY",
-                "Uri": {
-                  "Fn::Join": [
-                    "",
-                    [
-                      "arn:",
-                      {
-                        "Ref": "AWS::Partition"
-                      },
-                      ":apigateway:",
-                      {
-                        "Ref": "AWS::Region"
-                      },
-                      ":lambda:path/2015-03-31/functions/",
-                      {
-                        "Fn::GetAtt": [
-                          "LoginLambdaFunction",
-                          "Arn"
-                        ]
-                      },
-                      "/invocations"
-                    ]
-                  ]
-                }
-              },
-              "MethodResponses": []
-            }
-          },
-          "ApiGatewayMethodRegisterPost": {
-            "Type": "AWS::ApiGateway::Method",
-            "Properties": {
-              "HttpMethod": "POST",
-              "RequestParameters": {},
-              "ResourceId": {
-                "Ref": "ApiGatewayResourceRegister"
-              },
-              "RestApiId": {
-                "Ref": "ApiGatewayRestApi"
-              },
-              "ApiKeyRequired": false,
-              "AuthorizationType": "NONE",
-              "Integration": {
-                "IntegrationHttpMethod": "POST",
-                "Type": "AWS_PROXY",
-                "Uri": {
-                  "Fn::Join": [
-                    "",
-                    [
-                      "arn:",
-                      {
-                        "Ref": "AWS::Partition"
-                      },
-                      ":apigateway:",
-                      {
-                        "Ref": "AWS::Region"
-                      },
-                      ":lambda:path/2015-03-31/functions/",
-                      {
-                        "Fn::GetAtt": [
-                          "RegisterLambdaFunction",
-                          "Arn"
-                        ]
-                      },
-                      "/invocations"
-                    ]
-                  ]
-                }
-              },
-              "MethodResponses": []
-            }
-          },
-          "ApiGatewayMethodCreatequizPost": {
-            "Type": "AWS::ApiGateway::Method",
-            "Properties": {
-              "HttpMethod": "POST",
-              "RequestParameters": {},
-              "ResourceId": {
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
                 "Ref": "ApiGatewayResourceCreatequiz"
               },
               "RestApiId": {
@@ -1830,21 +1594,13 @@
               "MethodResponses": []
             }
           },
-<<<<<<< HEAD
-          "ApiGatewayMethodGetallquizbyemailEmailVarGet": {
-=======
-          "ApiGatewayMethodGetallquizbyemailGet": {
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+          "ApiGatewayMethodGetallquizbyemailEmailVarPost": {
             "Type": "AWS::ApiGateway::Method",
             "Properties": {
-              "HttpMethod": "GET",
+              "HttpMethod": "POST",
               "RequestParameters": {},
               "ResourceId": {
-<<<<<<< HEAD
                 "Ref": "ApiGatewayResourceGetallquizbyemailEmailVar"
-=======
-                "Ref": "ApiGatewayResourceGetallquizbyemail"
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
               },
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
@@ -1881,13 +1637,13 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayMethodGetquizbynameGet": {
+          "ApiGatewayMethodGetquizbynameQuiznameVarPost": {
             "Type": "AWS::ApiGateway::Method",
             "Properties": {
-              "HttpMethod": "GET",
+              "HttpMethod": "POST",
               "RequestParameters": {},
               "ResourceId": {
-                "Ref": "ApiGatewayResourceGetquizbyname"
+                "Ref": "ApiGatewayResourceGetquizbynameQuiznameVar"
               },
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
@@ -1959,11 +1715,7 @@
               "Type": "TOKEN"
             }
           },
-<<<<<<< HEAD
-          "ApiGatewayDeployment1623139664542": {
-=======
-          "ApiGatewayDeployment1623102080643": {
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+          "ApiGatewayDeployment1623192834700": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -1977,12 +1729,8 @@
               "ApiGatewayMethodCreatequizOptions",
               "ApiGatewayMethodPublishquizOptions",
               "ApiGatewayMethodDeletequizOptions",
-<<<<<<< HEAD
               "ApiGatewayMethodGetallquizbyemailEmailVarOptions",
-=======
-              "ApiGatewayMethodGetallquizbyemailOptions",
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
-              "ApiGatewayMethodGetquizbynameOptions",
+              "ApiGatewayMethodGetquizbynameQuiznameVarOptions",
               "ApiGatewayMethodUsersPost",
               "ApiGatewayMethodUsersIdVarGet",
               "ApiGatewayMethodMeGet",
@@ -1991,12 +1739,8 @@
               "ApiGatewayMethodCreatequizPost",
               "ApiGatewayMethodPublishquizPost",
               "ApiGatewayMethodDeletequizDelete",
-<<<<<<< HEAD
-              "ApiGatewayMethodGetallquizbyemailEmailVarGet",
-=======
-              "ApiGatewayMethodGetallquizbyemailGet",
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
-              "ApiGatewayMethodGetquizbynameGet"
+              "ApiGatewayMethodGetallquizbyemailEmailVarPost",
+              "ApiGatewayMethodGetquizbynameQuiznameVarPost"
             ]
           },
           "CreateUserLambdaPermissionApiGateway": {
@@ -2501,150 +2245,67 @@
           "CreateUserLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-<<<<<<< HEAD
-              "Ref": "CreateUserLambdaVersion5gLU8easAvUZMto7RBsKB55gFcDIRSxM5PpUpLYxc"
-            },
-            "Export": {
-              "Name": "sls-awsproject-dev-CreateUserLambdaFunctionQualifiedArn"
-=======
-              "Ref": "CreateUserLambdaVersionr58ruveMlLOd6nuoN55hqzy8ss4BjSgPwqLUsOondxE"
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+              "Ref": "CreateUserLambdaVersionILDHcsjTSoA8b0gJhacSN8HNP6gceL6UZ0cnKRLh50"
             }
           },
           "GetUserLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-<<<<<<< HEAD
-              "Ref": "GetUserLambdaVersionoJeiv3BKF40cj1fUtsc9g1SF3Xdi8c1wjpAP6js"
-            },
-            "Export": {
-              "Name": "sls-awsproject-dev-GetUserLambdaFunctionQualifiedArn"
-=======
-              "Ref": "GetUserLambdaVersionBsNoWt9tlY1zUFhQrOXrNquzyctrdBL6ikYFTNUWw"
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+              "Ref": "GetUserLambdaVersionusUDkDKXgOpBuW0DMMj49OY1CvxByTFiwHvgOSJ94"
             }
           },
           "VerifyTokenLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-<<<<<<< HEAD
-              "Ref": "VerifyTokenLambdaVersionVd0S8BI4HSaDJVdeQckoM6ZCjlC9mfQTkWn8K0sXQ"
-            },
-            "Export": {
-              "Name": "sls-awsproject-dev-VerifyTokenLambdaFunctionQualifiedArn"
-=======
-              "Ref": "VerifyTokenLambdaVersionqe2MDnUwWaQUF0jtRtGlclKm0UgrE8i1uR1IcXwT548"
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+              "Ref": "VerifyTokenLambdaVersion91UbX2YRH5t7iUqF5XfxAYIMMaEpTSgV41uD2yrRvQ"
             }
           },
           "MeLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-<<<<<<< HEAD
-              "Ref": "MeLambdaVersionAcwHTiFbFvXNpKaXPEM8oZMkKeNSre5QbHxn3Xg0"
-            },
-            "Export": {
-              "Name": "sls-awsproject-dev-MeLambdaFunctionQualifiedArn"
-=======
-              "Ref": "MeLambdaVersion7WXAZ8EBZOfajtxYbOnh0Qwv2anZZ8GOLSHs7aXqE"
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+              "Ref": "MeLambdaVersionG372oWeTqnySIb6vToJH49cMDn6FpWK90s4CHQMeY"
             }
           },
           "LoginLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-<<<<<<< HEAD
-              "Ref": "LoginLambdaVersionAHMbV3UVOuEf0eHbNy3NcIyMnrDjPLuR1W9OayIk"
-            },
-            "Export": {
-              "Name": "sls-awsproject-dev-LoginLambdaFunctionQualifiedArn"
-=======
-              "Ref": "LoginLambdaVersioniHATMxwhDNHixJmZtAMYqnfrxL21mfFHA2biVcITVA"
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+              "Ref": "LoginLambdaVersion7h4wpJWBsmytzDqm0Fi4vijsDhQkkZU6snFcMmJmqE"
             }
           },
           "RegisterLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-<<<<<<< HEAD
-              "Ref": "RegisterLambdaVersionoKznO1lhFMM19IhE9YHVnBoG28Dw9V9ZVfma6NzME"
-            },
-            "Export": {
-              "Name": "sls-awsproject-dev-RegisterLambdaFunctionQualifiedArn"
-=======
-              "Ref": "RegisterLambdaVersionFvLopshWxN2vHkmxWxg3LxgBTXAIogkMH3wl43ow"
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+              "Ref": "RegisterLambdaVersion5qC9XvBupBfWTf9XvMgVleFc8q20Kr114WfsR5J0E4"
             }
           },
           "CreateQuizLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-<<<<<<< HEAD
-              "Ref": "CreateQuizLambdaVersionOaUMeRiYK3wnRmxcTOAhoFkM3ffPQePes4OagZEugmI"
-            },
-            "Export": {
-              "Name": "sls-awsproject-dev-CreateQuizLambdaFunctionQualifiedArn"
-=======
-              "Ref": "CreateQuizLambdaVersion5jqjS3ilvnBePydXTmOqg78hDIAPfT532DDdcIqLy1M"
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+              "Ref": "CreateQuizLambdaVersioneyDpQrMkrMUGFeNkTeqODeLui9cyCWDiiKcK0qyKEA"
             }
           },
           "PublishQuizLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-<<<<<<< HEAD
-              "Ref": "PublishQuizLambdaVersion3buj6yoe5H6Xpum8FBpedUoBAsnt9CZmBpBvikw"
-            },
-            "Export": {
-              "Name": "sls-awsproject-dev-PublishQuizLambdaFunctionQualifiedArn"
-=======
-              "Ref": "PublishQuizLambdaVersionKto9D7a8cdej1GA2btlvDINth6IPVrt4Hphdtb6no"
+              "Ref": "PublishQuizLambdaVersionXFmiDxBOfGVNY7hZIcy6MEpmHQMDEx4Rz4icBfPZ0"
             }
           },
           "DeleteQuizLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "DeleteQuizLambdaVersionBUJumV4Y8YfDMhQ5aYdfcf0kuM1ei7ExlznD8LwMg"
+              "Ref": "DeleteQuizLambdaVersionwWGrGhOG2rW4OYbEGuhyeYmSJOPqM2maUSSDFhZhVzU"
             }
           },
           "GetAllQuizByEmailLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetAllQuizByEmailLambdaVersionOsBPtDHeHEEVvJ5gbAmL6i4sTuuYiHLygUjloq0"
+              "Ref": "GetAllQuizByEmailLambdaVersion3PSwdRuv0qqS61XtrA9rnPkN3IxiTaqxGjVOBAABdko"
             }
           },
           "GetQuizByNameLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetQuizByNameLambdaVersionrgGodRjrY3slj7pTRGZCfS8YPcJ1FzawzNbn9gNTQ"
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
-            }
-          },
-          "DeleteQuizLambdaFunctionQualifiedArn": {
-            "Description": "Current Lambda function version",
-            "Value": {
-              "Ref": "DeleteQuizLambdaVersion0VWu8Wpng2yfst788RHUMxYYm2kwLNK37defnJKbL0o"
-            },
-            "Export": {
-              "Name": "sls-awsproject-dev-DeleteQuizLambdaFunctionQualifiedArn"
-            }
-          },
-          "GetAllQuizByEmailLambdaFunctionQualifiedArn": {
-            "Description": "Current Lambda function version",
-            "Value": {
-              "Ref": "GetAllQuizByEmailLambdaVersionwUjveTWFpdAJ16y2PUxArIT6EvH3vLnSPcNPmAOlFPU"
-            },
-            "Export": {
-              "Name": "sls-awsproject-dev-GetAllQuizByEmailLambdaFunctionQualifiedArn"
-            }
-          },
-          "GetQuizByNameLambdaFunctionQualifiedArn": {
-            "Description": "Current Lambda function version",
-            "Value": {
-              "Ref": "GetQuizByNameLambdaVersionF8iHHub9F8mNEFLNPgRpVAxBlMJ2GHaVGKI1hwZh8c"
-            },
-            "Export": {
-              "Name": "sls-awsproject-dev-GetQuizByNameLambdaFunctionQualifiedArn"
+              "Ref": "GetQuizByNameLambdaVersionLV6Hi0MPnCEaBXEYmK0kcfYh08B1GFWPUhHw2s"
             }
           },
           "ServiceEndpoint": {
@@ -2782,11 +2443,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-<<<<<<< HEAD
-        "versionLogicalId": "CreateUserLambdaVersion5gLU8easAvUZMto7RBsKB55gFcDIRSxM5PpUpLYxc"
-=======
-        "versionLogicalId": "CreateUserLambdaVersionr58ruveMlLOd6nuoN55hqzy8ss4BjSgPwqLUsOondxE"
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+        "versionLogicalId": "CreateUserLambdaVersionILDHcsjTSoA8b0gJhacSN8HNP6gceL6UZ0cnKRLh50"
       },
       "getUser": {
         "handler": "users/get.get",
@@ -2805,11 +2462,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-<<<<<<< HEAD
-        "versionLogicalId": "GetUserLambdaVersionoJeiv3BKF40cj1fUtsc9g1SF3Xdi8c1wjpAP6js"
-=======
-        "versionLogicalId": "GetUserLambdaVersionBsNoWt9tlY1zUFhQrOXrNquzyctrdBL6ikYFTNUWw"
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+        "versionLogicalId": "GetUserLambdaVersionusUDkDKXgOpBuW0DMMj49OY1CvxByTFiwHvgOSJ94"
       },
       "verifyToken": {
         "handler": "functions/authorize.handler",
@@ -2820,11 +2473,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-<<<<<<< HEAD
-        "versionLogicalId": "VerifyTokenLambdaVersionVd0S8BI4HSaDJVdeQckoM6ZCjlC9mfQTkWn8K0sXQ"
-=======
-        "versionLogicalId": "VerifyTokenLambdaVersionqe2MDnUwWaQUF0jtRtGlclKm0UgrE8i1uR1IcXwT548"
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+        "versionLogicalId": "VerifyTokenLambdaVersion91UbX2YRH5t7iUqF5XfxAYIMMaEpTSgV41uD2yrRvQ"
       },
       "me": {
         "handler": "functions/me.handler",
@@ -2872,11 +2521,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-<<<<<<< HEAD
-        "versionLogicalId": "MeLambdaVersionAcwHTiFbFvXNpKaXPEM8oZMkKeNSre5QbHxn3Xg0"
-=======
-        "versionLogicalId": "MeLambdaVersion7WXAZ8EBZOfajtxYbOnh0Qwv2anZZ8GOLSHs7aXqE"
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+        "versionLogicalId": "MeLambdaVersionG372oWeTqnySIb6vToJH49cMDn6FpWK90s4CHQMeY"
       },
       "login": {
         "handler": "functions/login.handler",
@@ -2914,11 +2559,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-<<<<<<< HEAD
-        "versionLogicalId": "LoginLambdaVersionAHMbV3UVOuEf0eHbNy3NcIyMnrDjPLuR1W9OayIk"
-=======
-        "versionLogicalId": "LoginLambdaVersioniHATMxwhDNHixJmZtAMYqnfrxL21mfFHA2biVcITVA"
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+        "versionLogicalId": "LoginLambdaVersion7h4wpJWBsmytzDqm0Fi4vijsDhQkkZU6snFcMmJmqE"
       },
       "register": {
         "handler": "functions/register.handler",
@@ -2937,11 +2578,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-<<<<<<< HEAD
-        "versionLogicalId": "RegisterLambdaVersionoKznO1lhFMM19IhE9YHVnBoG28Dw9V9ZVfma6NzME"
-=======
-        "versionLogicalId": "RegisterLambdaVersionFvLopshWxN2vHkmxWxg3LxgBTXAIogkMH3wl43ow"
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+        "versionLogicalId": "RegisterLambdaVersion5qC9XvBupBfWTf9XvMgVleFc8q20Kr114WfsR5J0E4"
       },
       "createQuiz": {
         "handler": "quiz/createQuiz.handler",
@@ -2979,11 +2616,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-<<<<<<< HEAD
-        "versionLogicalId": "CreateQuizLambdaVersionOaUMeRiYK3wnRmxcTOAhoFkM3ffPQePes4OagZEugmI"
-=======
-        "versionLogicalId": "CreateQuizLambdaVersion5jqjS3ilvnBePydXTmOqg78hDIAPfT532DDdcIqLy1M"
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+        "versionLogicalId": "CreateQuizLambdaVersioneyDpQrMkrMUGFeNkTeqODeLui9cyCWDiiKcK0qyKEA"
       },
       "publishQuiz": {
         "handler": "quiz/publishQuiz.handler",
@@ -3021,11 +2654,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-<<<<<<< HEAD
-        "versionLogicalId": "PublishQuizLambdaVersion3buj6yoe5H6Xpum8FBpedUoBAsnt9CZmBpBvikw"
-=======
-        "versionLogicalId": "PublishQuizLambdaVersionKto9D7a8cdej1GA2btlvDINth6IPVrt4Hphdtb6no"
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+        "versionLogicalId": "PublishQuizLambdaVersionXFmiDxBOfGVNY7hZIcy6MEpmHQMDEx4Rz4icBfPZ0"
       },
       "deleteQuiz": {
         "handler": "quiz/deleteQuiz.handler",
@@ -3063,23 +2692,15 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-<<<<<<< HEAD
-        "versionLogicalId": "DeleteQuizLambdaVersion0VWu8Wpng2yfst788RHUMxYYm2kwLNK37defnJKbL0o"
-=======
-        "versionLogicalId": "DeleteQuizLambdaVersionBUJumV4Y8YfDMhQ5aYdfcf0kuM1ei7ExlznD8LwMg"
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+        "versionLogicalId": "DeleteQuizLambdaVersionwWGrGhOG2rW4OYbEGuhyeYmSJOPqM2maUSSDFhZhVzU"
       },
       "getAllQuizByEmail": {
         "handler": "quiz/getAllQuizByEmail.handler",
         "events": [
           {
             "http": {
-<<<<<<< HEAD
               "path": "getAllQuizByEmail/{email}",
-=======
-              "path": "getAllQuizByEmail",
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
-              "method": "get",
+              "method": "post",
               "cors": {
                 "origins": [
                   "*"
@@ -3087,7 +2708,7 @@
                 "origin": "*",
                 "methods": [
                   "OPTIONS",
-                  "GET"
+                  "POST"
                 ],
                 "headers": [
                   "Content-Type",
@@ -3109,19 +2730,15 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-<<<<<<< HEAD
-        "versionLogicalId": "GetAllQuizByEmailLambdaVersionwUjveTWFpdAJ16y2PUxArIT6EvH3vLnSPcNPmAOlFPU"
-=======
-        "versionLogicalId": "GetAllQuizByEmailLambdaVersionOsBPtDHeHEEVvJ5gbAmL6i4sTuuYiHLygUjloq0"
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+        "versionLogicalId": "GetAllQuizByEmailLambdaVersion3PSwdRuv0qqS61XtrA9rnPkN3IxiTaqxGjVOBAABdko"
       },
       "getQuizByName": {
         "handler": "quiz/getQuizByName.handler",
         "events": [
           {
             "http": {
-              "path": "getQuizByName",
-              "method": "get",
+              "path": "getQuizByName/{quizName}",
+              "method": "post",
               "cors": {
                 "origins": [
                   "*"
@@ -3129,7 +2746,7 @@
                 "origin": "*",
                 "methods": [
                   "OPTIONS",
-                  "GET"
+                  "POST"
                 ],
                 "headers": [
                   "Content-Type",
@@ -3151,11 +2768,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-<<<<<<< HEAD
-        "versionLogicalId": "GetQuizByNameLambdaVersionF8iHHub9F8mNEFLNPgRpVAxBlMJ2GHaVGKI1hwZh8c"
-=======
-        "versionLogicalId": "GetQuizByNameLambdaVersionrgGodRjrY3slj7pTRGZCfS8YPcJ1FzawzNbn9gNTQ"
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+        "versionLogicalId": "GetQuizByNameLambdaVersionLV6Hi0MPnCEaBXEYmK0kcfYh08B1GFWPUhHw2s"
       }
     },
     "resources": {
@@ -3270,17 +2883,10 @@
       }
     },
     "isDashboardMonitoringPreconfigured": false,
-<<<<<<< HEAD
-    "artifact": "C:\\Users\\Simeon\\Askyourteam\\askyourteam-1\\awsproject\\.serverless\\awsproject.zip"
-  },
-  "package": {
-    "artifactDirectoryName": "serverless/awsproject/dev/1623139666452-2021-06-08T08:07:46.452Z",
-=======
     "artifact": "C:\\Users\\garfu\\askyourteam\\askyourteam\\awsproject\\.serverless\\awsproject.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/awsproject/dev/1623102083214-2021-06-07T21:41:23.214Z",
->>>>>>> f0e2d46f3ff460100a297d773ee69e7d20a5f76c
+    "artifactDirectoryName": "serverless/awsproject/dev/1623192837879-2021-06-08T22:53:57.879Z",
     "artifact": "awsproject.zip"
   }
 }
