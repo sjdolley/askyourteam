@@ -38,6 +38,7 @@ const publishDbQuiz = async (details) => {
   
 const deleteDbQuiz = async details => {
   const quizName = details.quizName;
+  const email = details.email;
 
   const table = process.env.quizTable;
   console.log(table);
@@ -45,6 +46,7 @@ const deleteDbQuiz = async details => {
   const params = {
     TableName: table,
     Key:{quizName: quizName,
+        email: email,
     },
   }
 
@@ -88,7 +90,9 @@ const getAllQuizByEmailDb = async details => {
 
     await docClient.query(params).promise();
 
-    return { statusCode: 200, body: JSON.stringify(params)}
+    console.log(data.Item);
+
+    return data.Item;
   };
 
 module.exports = {

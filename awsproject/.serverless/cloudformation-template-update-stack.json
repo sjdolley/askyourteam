@@ -2201,9 +2201,6 @@
     "ServerlessDeploymentBucketName": {
       "Value": {
         "Ref": "ServerlessDeploymentBucket"
-      },
-      "Export": {
-        "Name": "sls-awsproject-dev-ServerlessDeploymentBucketName"
       }
     },
     "CreateUserLambdaFunctionQualifiedArn": {
@@ -2326,9 +2323,6 @@
             "/dev"
           ]
         ]
-      },
-      "Export": {
-        "Name": "sls-awsproject-dev-ServiceEndpoint"
       }
     }
   }
