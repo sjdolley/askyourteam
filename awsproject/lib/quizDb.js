@@ -58,23 +58,26 @@ const deleteDbQuiz = async details => {
 };
   
 const getAllQuizByEmailDb = async details => {
+  console.log("Entering getallquizbyemailDB");
+  const frank = details.email;
+  console.log(frank);
   
-  const email = detail.email;
-  console.log(email);
-  const table = process.env.quizTable;
-  console.log(table);
+  // need to fix environment variables in stage to fix this
+  // const table = process.env.quizTable;
+  
   
   const params = {
     TableName: quizTable,
-    KeyConditionExpression: 'searchEmail = :searchEmail',
+    KeyConditionExpression: "email = :email",
     ExpressionAttributeValues: {
-      ':searchEmail': email
+      ":email": frank
     },
   }
-  const response = await docClient.get(params).promise();
-  console.log(response);
-
-  return { statusCode: 200, body: response };
+ 
+  const data = await docClient.query(params).promise();
+  console.log(data);
+  return data;
+ 
 };
 
   const getQuizByNameDb = async details => {

@@ -47,7 +47,7 @@ provider:
     usersTable: ${self:custom.tableName}
     JWT_SECRET: ${self:custom.secrets.JWT_SECRET}
     AWS_ID: ${self:custom.secrets.AWS_ID}
-    quizTable: quizTable-${opt:stage, self:provider.stage, dev}
+    quizTable: quizTable-${opt:stage, self:provider.stage}
     questionTable: questionTable-${opt:stage, self:provider.stage, dev}
 #  environment:
 #    userTable: ${self:custom.tableName}
@@ -145,8 +145,8 @@ functions:
     handler: quiz/getAllQuizByEmail.handler
     events:
       - http:
-          path: getAllQuizByEmail/{email}
-          method: post
+          path: getAllQuizByEmail
+          method: get
           cors: true
         
   getQuizByName:
@@ -222,17 +222,17 @@ resources:
       Properties:
         AttributeDefinitions:
           -
-            AttributeName: quizName
+            AttributeName: email
             AttributeType: S
           -
-            AttributeName: email
+            AttributeName: quizName
             AttributeType: S
         KeySchema:
           -
-            AttributeName: quizName
+            AttributeName: email
             KeyType: HASH
           - 
-            AttributeName: email
+            AttributeName: quizName
             KeyType: RANGE
         TableName: quizTable-${self:provider.stage}   
         ProvisionedThroughput:
