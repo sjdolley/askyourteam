@@ -40,9 +40,9 @@ const publishDbQuiz = async (details) => {
       ReturnValues:"UPDATED_NEW"
     };
    
-    await docClient.update(params).promise();
+    const output = await docClient.update(params).promise();
     
-    return { statusCode: 200, body: JSON.stringify(params) } 
+    return { statusCode: 200, body: JSON.stringify(output) } 
 };
   
 const deleteDbQuiz = async details => {
