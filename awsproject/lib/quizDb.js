@@ -11,29 +11,38 @@ const docClient = new AWS.DynamoDB.DocumentClient();
 
 
 const publishDbQuiz = async (details) => {
-    const email = details.email;
-    console.log(email);
     const theQuiz = details.quizName;
     console.log(theQuiz);
+    const theEmail = details.email;
+    const endDate = details.endDate;
     const table = process.env.quizTable;
+    const pubDate = Date();
     console.log(table);
+    console.log
 
   // add validation to check if quiz already exists with this name
     const params = {
       TableName: table,
       Key: {
           quizName: theQuiz,
+          email: theEmail,
       },
-      UpdateExpression: "SET published = :published",
+      UpdateExpression: "SET published = :published, #endDate = :endDate, #publishedDate = :publishedDate",
+      ExpressionAttributeNames: {
+        "#publishedDate": "publishedDate",
+        "#endDate": "endDate"
+      },
       ExpressionAttributeValues: {
           ":published": true,
+          ":endDate": endDate,
+          ":publishedDate": pubDate
       },
       ReturnValues:"UPDATED_NEW"
     };
    
     await docClient.update(params).promise();
     
-    return { statusCode: 200, body: JSON.stringify(param) } 
+    return { statusCode: 200, body: JSON.stringify(params) } 
 };
   
 const deleteDbQuiz = async details => {
@@ -68,6 +77,7 @@ const getAllQuizByEmailDb = async details => {
   
   const params = {
     TableName: quizTable,
+    IndexName: "emailIndex",
     KeyConditionExpression: "email = :email",
     ExpressionAttributeValues: {
       ":email": frank
@@ -82,17 +92,19 @@ const getAllQuizByEmailDb = async details => {
 
   const getQuizByNameDb = async details => {
 
-    const quizName = details.quizName;
-    const table = process.env.quizTable;
+    const theName = details.quizName;
+    const theUser = details.email;
+    // const table = process.env.quizTable;
 
     const params = {
-      TableName: table,
+      TableName: quizTable,
       Key: {
-        "quizName": quizName,
+        quizName: theName,
+        email: theUser
       },
     }
 
-    await docClient.query(params).promise();
+    const data = await docClient.get(params).promise();
 
     console.log(data.Item);
 

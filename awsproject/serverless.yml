@@ -48,7 +48,7 @@ provider:
     JWT_SECRET: ${self:custom.secrets.JWT_SECRET}
     AWS_ID: ${self:custom.secrets.AWS_ID}
     quizTable: quizTable-${opt:stage, self:provider.stage}
-    questionTable: questionTable-${opt:stage, self:provider.stage, dev}
+    questionTable: questionTable-${opt:stage, self:provider.stage}
 #  environment:
 #    userTable: ${self:custom.tableName}
 #        - "s3:ListBucket"
@@ -153,8 +153,8 @@ functions:
     handler: quiz/getQuizByName.handler
     events:
       - http:
-          path: getQuizByName/{quizName}
-          method: post
+          path: getQuizByName
+          method: get
           cors: true
          
 
@@ -222,22 +222,33 @@ resources:
       Properties:
         AttributeDefinitions:
           -
-            AttributeName: email
+            AttributeName: quizName
             AttributeType: S
           -
-            AttributeName: quizName
+            AttributeName: email
             AttributeType: S
         KeySchema:
           -
-            AttributeName: email
+            AttributeName: quizName
             KeyType: HASH
           - 
-            AttributeName: quizName
+            AttributeName: email
             KeyType: RANGE
-        TableName: quizTable-${self:provider.stage}   
+        GlobalSecondaryIndexes:
+          - IndexName: emailIndex
+            KeySchema:
+              - AttributeName: email
+                KeyType: HASH
+            Projection:
+              ProjectionType: 'ALL'   
+            ProvisionedThroughput:
+              ReadCapacityUnits: 1
+              WriteCapacityUnits: 1
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
+        TableName: quizTable-${self:provider.stage}
+           
     questionTable:
       Type: 'AWS::DynamoDB::Table'
       DeletionPolicy: Retain

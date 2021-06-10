@@ -1,10 +1,9 @@
 const { getQuizByNameDb } = require("../lib/quizDb");
 
 module.exports.handler = async function getQuizByName(event) {
-    console.log(event.body);
-    
-    const body = JSON.parse(event.body);
-        console.log(event.body);
+
+        body = event.queryStringParameters;
+        console.log(body);
         return getQuizByNameDb(body)
         .then(user => ({
           statusCode: 200,
