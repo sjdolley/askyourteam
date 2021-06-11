@@ -12,10 +12,10 @@ const docClient = new AWS.DynamoDB.DocumentClient();
 const createDbQuestion = async details => {
     // const quizName = details.quizName;
     // const email = details.email;
-    const quizName = details.quizName;
-    const questionID = details.questionID;
-    const question_type = details.question_type;
-    const question_body = details.question_body;
+    let quizName = details.quizName;
+    let questionID = details.questionID;
+    let question_type = details.question_type;
+    let question_body = details.question_body;
     let answer1_body = "";
     let answer2_body = "";
     let answer3_body = "";
@@ -113,9 +113,50 @@ const createDbQuestion = async details => {
 
     return data.Item;
   };
+
+  const updateQuestionDb = async (details) => {
+    var quizName = details.quizName;
+    var questionID = details.questionID;
+    var question_type = details.question_type;
+    var question_body = details.question_body;
+    var question_type = details.question_type;
+    var correctAnswer = details.correctAnswer;
+    var answer1_body = details.answer1_body;
+    var answer2_body = details.answer2_body;
+    var answer3_body = details.answer3_body;
+    var answer4_body = details.answer4_body;
+    var answer5_body = details.answer5_body;    
+     
+  // add validation to check if quiz already exists with this name
+    const params = {
+      TableName: questionTable,
+      Key: {
+          quizName: quizName,
+          questionID: questionID,
+      },
+      UpdateExpression: "SET question_type = :question_type, question_body = :question_body, answer1_body = :answer1_body, answer2_body = :answer2_body, answer3_body = :answer3_body, answer4_body = :answer4_body, answer5_body = :answer5_body, correctAnswer = :correctAnswer",
+      ExpressionAttributeValues: {
+          ":question_type": question_type,
+          ":question_body": question_body,
+          ":correctAnswer": correctAnswer,
+          ":answer1_body": answer1_body,
+          ":answer2_body": answer2_body,
+          ":answer3_body": answer3_body,
+          ":answer4_body": answer4_body,
+          ":answer5_body": answer5_body
+      },
+      ReturnValues:"UPDATED_NEW"
+    };
+   
+    const output = await docClient.update(params).promise();
+    
+    return { statusCode: 200, body: JSON.stringify(output) } 
+};
+
   module.exports = {
     createDbQuestion,
     deleteDbQuestion,
     getAllQuestionswithQuizNameDb,
-    getQuestionbyIDDb
+    getQuestionbyIDDb,
+    updateQuestionDb
 };
