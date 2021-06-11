@@ -120,6 +120,7 @@ functions:
       - http:
           path: register
           method: post
+          cors: true
   createQuiz:
     handler: quiz/createQuiz.handler
     events:
@@ -155,6 +156,14 @@ functions:
       - http:
           path: getQuizByName
           method: get
+          cors: true
+
+  createQuestion:
+    handler: questions/createQuestion.handler
+    events:
+      - http:
+          path: createQuestion
+          method: post
           cors: true
          
 
@@ -255,17 +264,17 @@ resources:
       Properties:
         AttributeDefinitions:
           -
-            AttributeName: questionName
+            AttributeName: quizName
             AttributeType: S
           -
-            AttributeName: quizName
+            AttributeName: questionID
             AttributeType: S
         KeySchema:
           -
-            AttributeName: questionName
+            AttributeName: quizName
             KeyType: HASH
           - 
-            AttributeName: quizName
+            AttributeName: questionID
             KeyType: RANGE
         ProvisionedThroughput:
           ReadCapacityUnits: 1
