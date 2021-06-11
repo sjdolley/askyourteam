@@ -74,8 +74,27 @@ const createDbQuestion = async details => {
     return { statusCode: 200, body: JSON.stringify(params)}
   };
     
+  const getAllQuestionswithQuizNameDb = async details => {
+    console.log("Entering getallquizbyemailDB");
+    const quizName = details.quizName;
+    console.log(quizName);
+    
+    const params = {
+      TableName: questionTable,
+      KeyConditionExpression: "quizName = :quizName",
+      ExpressionAttributeValues: {
+        ":quizName": quizName
+      },
+    }
+   
+    const data = await docClient.query(params).promise();
+    console.log(data);
+    return data;
+   
+  };
 
   module.exports = {
     createDbQuestion,
-    deleteDbQuestion
+    deleteDbQuestion,
+    getAllQuestionswithQuizNameDb
 };
