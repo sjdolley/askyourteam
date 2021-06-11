@@ -55,6 +55,27 @@ const createDbQuestion = async details => {
     return { statusCode: 200, body: JSON.stringify(params)}
   };
 
+  const deleteDbQuestion = async details => {
+    const quizName = details.quizName;
+    const questionID = details.questionID;
+  
+  
+    const params = {
+      TableName: questionTable,
+      Key:{quizName: quizName,
+          questionID: questionID,
+      },
+    }
+  
+    console.log("delete this quiz :-", params);
+  
+    await docClient.delete(params).promise();
+  
+    return { statusCode: 200, body: JSON.stringify(params)}
+  };
+    
+
   module.exports = {
-    createDbQuestion
+    createDbQuestion,
+    deleteDbQuestion
 };
