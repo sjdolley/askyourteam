@@ -93,8 +93,29 @@ const createDbQuestion = async details => {
    
   };
 
+  const getQuestionbyIDDb = async details => {
+
+    const theName = details.quizName;
+    const theID = details.questionID;
+    // const table = process.env.quizTable;
+
+    const params = {
+      TableName: questionTable,
+      Key: {
+        quizName: theName,
+        questionID: theID,
+      },
+    }
+
+    const data = await docClient.get(params).promise();
+
+    console.log(data.Item);
+
+    return data.Item;
+  };
   module.exports = {
     createDbQuestion,
     deleteDbQuestion,
-    getAllQuestionswithQuizNameDb
+    getAllQuestionswithQuizNameDb,
+    getQuestionbyIDDb
 };
