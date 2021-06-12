@@ -47,7 +47,11 @@ export default function Dashboard() {
 
   return(
     <div className="App dashboard-wrapper">
-      <p>Dashboard/</p>
+      
+      <ul class="breadcrumbs">
+        <li><a href="/dashboard">Dashboard</a></li>
+      </ul>
+
       <div className="title-line">
         <h1 id="dashboard-title">Quiz Dashboard</h1>
       </div>
