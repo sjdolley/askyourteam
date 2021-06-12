@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import '../../App.css';
-import './Login.css';
 import headerLogo from '../header/AYT-Logo.png';
 import footerLogo from '../footer/footer-logo.PNG';
 
@@ -29,17 +28,18 @@ export default function Login({ setToken }) {
       email,
       password
     });
-    setToken(token);
+
+    setToken(token);    
   }
 
   return(
     <div className="wrapper app">    
       <div className="header">
               <footer>
-                  <div class="app-header">                   
-                      <img src={headerLogo} alt="Ask Your Team Logo" class="logo header-logo" />
-                      <p class="horizontal-rule"> | </p>                    
-                      <p class="running-text">
+                  <div className="app-header">                   
+                      <img src={headerLogo} alt="Ask Your Team Logo" className="logo header-logo" />
+                      <p className="horizontal-rule"> | </p>                    
+                      <p className="running-text">
                           Quiz  
                       </p> 
                   </div>
@@ -61,17 +61,17 @@ export default function Login({ setToken }) {
             <input type="password" onChange={e => setPassword(e.target.value)} required/>
           </label>
           <div>
-            <button type="submit" className="form-btn">Submit</button>
+            <button type="submit" id="create-quiz-btn">Submit</button>
           </div>
         </form>
       </div>
 
       <div className="footer">
         <footer>
-            <div class="app-footer">                   
-                <img src={footerLogo} alt="Ask Your Team Logo" class="logo" />
-                {/* <p class="horizontal-rule"> | </p>                    
-                <p class="running-text">
+            <div className="app-footer">                   
+                <img src={footerLogo} alt="Ask Your Team Logo" className="logo" />
+                {/* <p className="horizontal-rule"> | </p>                    
+                <p className="running-text">
                     Quiz
                 </p>                     */}
             </div>

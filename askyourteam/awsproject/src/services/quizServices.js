@@ -5,16 +5,22 @@ export function getQuizzes() {
         .then(data => data.json())
 }
 
-export function setQuizzes() {
+export function setQuizzes(newQuiz) { 
     return fetch('http://localhost:3333/quizzes', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ 
-            "title": "New draft quiz",
+        body: JSON.stringify({  
+            "title": newQuiz,
             "status": "Draft"
-         })
+
+        })
+        // body: { 
+        //     "title": "New draft quiz",
+        //     "status": "Draft",
+        //     "creationDate": "dd/mm/yyyy"
+        // }
     })
     .then(data => data.json())
 } //In production applications, you’ll need to add error handling and checking

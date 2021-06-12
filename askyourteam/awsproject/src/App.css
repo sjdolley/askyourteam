@@ -193,5 +193,29 @@ input {
   margin-right: 2em;
 }
 
+#create-quiz-form {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: left;
+}
+
+#successful-alert {
+  display: block;
+  float: left;
+  color: black;
+  /* background-color: green; */
+}
+
+#create-quiz-btn {
+  display: inline;
+  float: right;
+  width: 12em;
+  height: 3em;
+  background-color: var(--ayt-orange);
+  font-weight: bolder;
+  font-size: medium;
+  margin-right: 2em;
+}
+
 
 

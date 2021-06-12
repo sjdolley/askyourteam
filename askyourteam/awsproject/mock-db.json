@@ -1,46 +1,56 @@
 {
-    "quizzes": [
-        {
-            "id": 1,
-            "title": "Example draft quiz",
-            "status": "Draft",
-            "creationDate": "dd/mm/yyyy"
-        },
-        {
-            "id": 2,
-            "title": "Example published quiz",
-            "status": "Published",
-            "creationDate": "dd/mm/yyyy",
-            "publishDate": "dd/mm/yyyy"
-        },
-        {
-            "id": 3,
-            "title": "Example closed quiz",
-            "status": "Closed",
-            "creationDate": "dd/mm/yyyy",
-            "publishDate": "dd/mm/yyyy",
-            "closingDate": "dd/mm/yyyy"
-        },
-        {
-            "id": 4,
-            "title": "Example draft quiz",
-            "status": "Draft",
-            "creationDate": "dd/mm/yyyy"
-        },
-        {
-            "id": 5,
-            "title": "Example published quiz",
-            "status": "Published",
-            "creationDate": "dd/mm/yyyy",
-            "publishDate": "dd/mm/yyyy"
-        },
-        {
-            "id": 6,
-            "title": "Example closed quiz",
-            "status": "Closed",
-            "creationDate": "dd/mm/yyyy",
-            "publishDate": "dd/mm/yyyy",
-            "closingDate": "dd/mm/yyyy"
-        }                      
-    ]
+  "quizzes": [
+    {
+      "id": 1,
+      "title": "Example draft quiz",
+      "status": "Draft",
+      "creationDate": "dd/mm/yyyy"
+    },
+    {
+      "id": 2,
+      "title": "Example published quiz",
+      "status": "Published",
+      "creationDate": "dd/mm/yyyy",
+      "publishDate": "dd/mm/yyyy"
+    },
+    {
+      "id": 3,
+      "title": "Example closed quiz",
+      "status": "Closed",
+      "creationDate": "dd/mm/yyyy",
+      "publishDate": "dd/mm/yyyy",
+      "closingDate": "dd/mm/yyyy"
+    },
+    {
+      "id": 4,
+      "title": "Test Draft",
+      "status": "Draft",
+      "creationDate": "dd/mm/yyyy"
+    },
+    {
+      "id": 5,
+      "title": "Test published quiz",
+      "status": "Published",
+      "creationDate": "dd/mm/yyyy",
+      "publishDate": "dd/mm/yyyy"
+    },
+    {
+      "id": 6,
+      "title": "test closed quiz",
+      "status": "Closed",
+      "creationDate": "dd/mm/yyyy",
+      "publishDate": "dd/mm/yyyy",
+      "closingDate": "dd/mm/yyyy"
+    },
+    {
+      "title": "new test quiz",
+      "status": "Draft",
+      "id": 7
+    },
+    {
+      "title": "unbelievable",
+      "status": "Draft",
+      "id": 8
+    }
+  ]
 }
