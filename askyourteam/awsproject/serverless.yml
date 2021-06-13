@@ -47,8 +47,9 @@ provider:
     usersTable: ${self:custom.tableName}
     JWT_SECRET: ${self:custom.secrets.JWT_SECRET}
     AWS_ID: ${self:custom.secrets.AWS_ID}
-    quizTable: quizTable-${opt:stage, self:provider.stage, dev}
-    questionTable: questionTable-${opt:stage, self:provider.stage, dev}
+    quizTable: quizTable-${opt:stage, self:provider.stage}
+    questionTable: questionTable-${opt:stage, self:provider.stage}
+    demoQuestionTable: demoQuestionTable-${opt:stage, self:provider.stage}
 #  environment:
 #    userTable: ${self:custom.tableName}
 #        - "s3:ListBucket"
@@ -120,6 +121,7 @@ functions:
       - http:
           path: register
           method: post
+          cors: true
   createQuiz:
     handler: quiz/createQuiz.handler
     events:
@@ -148,6 +150,7 @@ functions:
           path: getAllQuizByEmail
           method: get
           cors: true
+        
   getQuizByName:
     handler: quiz/getQuizByName.handler
     events:
@@ -156,7 +159,77 @@ functions:
           method: get
           cors: true
 
+  createQuestion:
+    handler: questions/createQuestion.handler
+    events:
+      - http:
+          path: createQuestion
+          method: post
+          cors: true
+   
+  deleteQuestion:
+    handler: questions/deleteQuestion.handler
+    events:
+      - http:
+          path: deleteQuestion
+          method: delete
+          cors: true
+
+  getAllQuestionswithQuizName:
+    handler: questions/getAllQuestionswithQuizName.handler
+    events:
+      - http:
+          path: getAllQuestionswithQuizName
+          method: get
+          cors: true
+
+  getQuestionbyID:
+    handler: questions/getQuestionbyID.handler
+    events:
+      - http:
+          path: getQuestionbyID
+          method: get
+          cors: true
           
+  updateQuestion:
+    handler: questions/updateQuestion.handler
+    events:
+      - http:
+          path: updateQuestion
+          method: post
+          cors: true
+
+  createDemoQuestion:
+    handler: demoQuestions/createDemoQuestion.handler
+    events:
+      - http:
+          path: createDemoQuestion
+          method: post
+          cors: true
+
+  deleteDemoQuestion:
+    handler: demoQuestions/deleteDemoQuestion.handler
+    events:
+      - http:
+          path: deleteDemoQuestion
+          method: post
+          cors: true
+
+  updateDemographics:
+    handler: quiz/updateDemographics.handler
+    events:
+      - http:
+          path: updateDemographics
+          method: post
+          cors: true
+  
+  getAllDemographicQuestions:
+    handler: demoQuestions/getAllDemographicQuestions.handler
+    events:
+      - http:
+          path: getAllDemographicQuestions
+          method: get
+          cors: true
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
@@ -232,14 +305,63 @@ resources:
           - 
             AttributeName: email
             KeyType: RANGE
-        TableName: quizTable-${self:provider.stage}   
+        GlobalSecondaryIndexes:
+          - IndexName: emailIndex
+            KeySchema:
+              - AttributeName: email
+                KeyType: HASH
+            Projection:
+              ProjectionType: 'ALL'   
+            ProvisionedThroughput:
+              ReadCapacityUnits: 1
+              WriteCapacityUnits: 1
         ProvisionedThroughput:
           ReadCapacityUnits: 1
-          WriteCapacityUnits: 1        
-    quizhost:
-      Type: AWS::S3::Bucket
+          WriteCapacityUnits: 1
+        TableName: quizTable-${self:provider.stage}
+           
+    questionTable:
+      Type: 'AWS::DynamoDB::Table'
+      DeletionPolicy: Retain
       Properties:
-        BucketName: quizproject-dev2
+        AttributeDefinitions:
+          -
+            AttributeName: quizName
+            AttributeType: S
+          -
+            AttributeName: questionID
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: quizName
+            KeyType: HASH
+          - 
+            AttributeName: questionID
+            KeyType: RANGE
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: questionTable-${self:provider.stage}
+
+    demoQuestionTable:
+      Type: 'AWS::DynamoDB::Table'
+      DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: questionID
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: questionID
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: demoQuestionTable-${self:provider.stage}
+#      Type: AWS::S3::Bucket
+#      Properties:
+#        BucketName: my-new-bucket
 #  Outputs:
 #     NewOutput:
 #       Description: "Description for the output"

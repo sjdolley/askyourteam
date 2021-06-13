@@ -7,6 +7,7 @@ module.exports.handler = async function me(event) {
   console.log(userObj);
   const dbUser = await getUserByEmail(userObj.email);
   console.log(dbUser);
+  console.log(JSON.stringify(dbUser));
   return {
     statusCode: 200,
     headers: {},

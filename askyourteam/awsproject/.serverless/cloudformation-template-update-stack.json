@@ -244,7 +244,11 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
+<<<<<<< HEAD:askyourteam/awsproject/.serverless/cloudformation-template-update-stack.json
           "S3Key": "serverless/awsproject/dev/1623108195505-2021-06-07T23:23:15.505Z/awsproject.zip"
+=======
+          "S3Key": "serverless/awsproject/dev/1623192837879-2021-06-08T22:53:57.879Z/awsproject.zip"
+>>>>>>> origin/back-end:awsproject/.serverless/cloudformation-template-update-stack.json
         },
         "Handler": "users/create.create",
         "Runtime": "nodejs12.x",
@@ -278,7 +282,11 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
+<<<<<<< HEAD:askyourteam/awsproject/.serverless/cloudformation-template-update-stack.json
           "S3Key": "serverless/awsproject/dev/1623108195505-2021-06-07T23:23:15.505Z/awsproject.zip"
+=======
+          "S3Key": "serverless/awsproject/dev/1623192837879-2021-06-08T22:53:57.879Z/awsproject.zip"
+>>>>>>> origin/back-end:awsproject/.serverless/cloudformation-template-update-stack.json
         },
         "Handler": "users/get.get",
         "Runtime": "nodejs12.x",
@@ -312,7 +320,11 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
+<<<<<<< HEAD:askyourteam/awsproject/.serverless/cloudformation-template-update-stack.json
           "S3Key": "serverless/awsproject/dev/1623108195505-2021-06-07T23:23:15.505Z/awsproject.zip"
+=======
+          "S3Key": "serverless/awsproject/dev/1623192837879-2021-06-08T22:53:57.879Z/awsproject.zip"
+>>>>>>> origin/back-end:awsproject/.serverless/cloudformation-template-update-stack.json
         },
         "Handler": "functions/authorize.handler",
         "Runtime": "nodejs12.x",
@@ -346,7 +358,11 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
+<<<<<<< HEAD:askyourteam/awsproject/.serverless/cloudformation-template-update-stack.json
           "S3Key": "serverless/awsproject/dev/1623108195505-2021-06-07T23:23:15.505Z/awsproject.zip"
+=======
+          "S3Key": "serverless/awsproject/dev/1623192837879-2021-06-08T22:53:57.879Z/awsproject.zip"
+>>>>>>> origin/back-end:awsproject/.serverless/cloudformation-template-update-stack.json
         },
         "Handler": "functions/me.handler",
         "Runtime": "nodejs12.x",
@@ -380,7 +396,11 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
+<<<<<<< HEAD:askyourteam/awsproject/.serverless/cloudformation-template-update-stack.json
           "S3Key": "serverless/awsproject/dev/1623108195505-2021-06-07T23:23:15.505Z/awsproject.zip"
+=======
+          "S3Key": "serverless/awsproject/dev/1623192837879-2021-06-08T22:53:57.879Z/awsproject.zip"
+>>>>>>> origin/back-end:awsproject/.serverless/cloudformation-template-update-stack.json
         },
         "Handler": "functions/login.handler",
         "Runtime": "nodejs12.x",
@@ -414,7 +434,11 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
+<<<<<<< HEAD:askyourteam/awsproject/.serverless/cloudformation-template-update-stack.json
           "S3Key": "serverless/awsproject/dev/1623108195505-2021-06-07T23:23:15.505Z/awsproject.zip"
+=======
+          "S3Key": "serverless/awsproject/dev/1623192837879-2021-06-08T22:53:57.879Z/awsproject.zip"
+>>>>>>> origin/back-end:awsproject/.serverless/cloudformation-template-update-stack.json
         },
         "Handler": "functions/register.handler",
         "Runtime": "nodejs12.x",
@@ -448,7 +472,11 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
+<<<<<<< HEAD:askyourteam/awsproject/.serverless/cloudformation-template-update-stack.json
           "S3Key": "serverless/awsproject/dev/1623108195505-2021-06-07T23:23:15.505Z/awsproject.zip"
+=======
+          "S3Key": "serverless/awsproject/dev/1623192837879-2021-06-08T22:53:57.879Z/awsproject.zip"
+>>>>>>> origin/back-end:awsproject/.serverless/cloudformation-template-update-stack.json
         },
         "Handler": "quiz/createQuiz.handler",
         "Runtime": "nodejs12.x",
@@ -482,7 +510,11 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
+<<<<<<< HEAD:askyourteam/awsproject/.serverless/cloudformation-template-update-stack.json
           "S3Key": "serverless/awsproject/dev/1623108195505-2021-06-07T23:23:15.505Z/awsproject.zip"
+=======
+          "S3Key": "serverless/awsproject/dev/1623192837879-2021-06-08T22:53:57.879Z/awsproject.zip"
+>>>>>>> origin/back-end:awsproject/.serverless/cloudformation-template-update-stack.json
         },
         "Handler": "quiz/publishQuiz.handler",
         "Runtime": "nodejs12.x",
@@ -516,7 +548,11 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
+<<<<<<< HEAD:askyourteam/awsproject/.serverless/cloudformation-template-update-stack.json
           "S3Key": "serverless/awsproject/dev/1623108195505-2021-06-07T23:23:15.505Z/awsproject.zip"
+=======
+          "S3Key": "serverless/awsproject/dev/1623192837879-2021-06-08T22:53:57.879Z/awsproject.zip"
+>>>>>>> origin/back-end:awsproject/.serverless/cloudformation-template-update-stack.json
         },
         "Handler": "quiz/deleteQuiz.handler",
         "Runtime": "nodejs12.x",
@@ -550,7 +586,11 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
+<<<<<<< HEAD:askyourteam/awsproject/.serverless/cloudformation-template-update-stack.json
           "S3Key": "serverless/awsproject/dev/1623108195505-2021-06-07T23:23:15.505Z/awsproject.zip"
+=======
+          "S3Key": "serverless/awsproject/dev/1623192837879-2021-06-08T22:53:57.879Z/awsproject.zip"
+>>>>>>> origin/back-end:awsproject/.serverless/cloudformation-template-update-stack.json
         },
         "Handler": "quiz/getAllQuizByEmail.handler",
         "Runtime": "nodejs12.x",
@@ -584,7 +624,11 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
+<<<<<<< HEAD:askyourteam/awsproject/.serverless/cloudformation-template-update-stack.json
           "S3Key": "serverless/awsproject/dev/1623108195505-2021-06-07T23:23:15.505Z/awsproject.zip"
+=======
+          "S3Key": "serverless/awsproject/dev/1623192837879-2021-06-08T22:53:57.879Z/awsproject.zip"
+>>>>>>> origin/back-end:awsproject/.serverless/cloudformation-template-update-stack.json
         },
         "Handler": "quiz/getQuizByName.handler",
         "Runtime": "nodejs12.x",
@@ -611,114 +655,192 @@
         "GetQuizByNameLogGroup"
       ]
     },
+<<<<<<< HEAD:askyourteam/awsproject/.serverless/cloudformation-template-update-stack.json
     "CreateUserLambdaVersion1jlmUkLQxztrq1URcP5lshxOUsfcywlEwQNGy9vAmI": {
+=======
+    "CreateUserLambdaVersionILDHcsjTSoA8b0gJhacSN8HNP6gceL6UZ0cnKRLh50": {
+>>>>>>> origin/back-end:awsproject/.serverless/cloudformation-template-update-stack.json
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "CreateUserLambdaFunction"
         },
+<<<<<<< HEAD:askyourteam/awsproject/.serverless/cloudformation-template-update-stack.json
         "CodeSha256": "ZmdpqIBBP83sMKbzahyHIkKUlcVIAmCaGlgBT4Dxz1g="
       }
     },
     "GetUserLambdaVersioncgYkFQFXFMkyxUz80czpMxt5Hy3bJk0D9zMtjR7s": {
+=======
+        "CodeSha256": "/jF4FrRw/nw0JhsB66aDolfQyDtWVCVOtOueelhq8G0="
+      }
+    },
+    "GetUserLambdaVersionusUDkDKXgOpBuW0DMMj49OY1CvxByTFiwHvgOSJ94": {
+>>>>>>> origin/back-end:awsproject/.serverless/cloudformation-template-update-stack.json
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetUserLambdaFunction"
         },
+<<<<<<< HEAD:askyourteam/awsproject/.serverless/cloudformation-template-update-stack.json
         "CodeSha256": "ZmdpqIBBP83sMKbzahyHIkKUlcVIAmCaGlgBT4Dxz1g="
       }
     },
     "VerifyTokenLambdaVersionmfVk1sb0rQoS7PGf7YXMcbOSuXq9BPtaKvy4hHUTswg": {
+=======
+        "CodeSha256": "/jF4FrRw/nw0JhsB66aDolfQyDtWVCVOtOueelhq8G0="
+      }
+    },
+    "VerifyTokenLambdaVersion91UbX2YRH5t7iUqF5XfxAYIMMaEpTSgV41uD2yrRvQ": {
+>>>>>>> origin/back-end:awsproject/.serverless/cloudformation-template-update-stack.json
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "VerifyTokenLambdaFunction"
         },
+<<<<<<< HEAD:askyourteam/awsproject/.serverless/cloudformation-template-update-stack.json
         "CodeSha256": "ZmdpqIBBP83sMKbzahyHIkKUlcVIAmCaGlgBT4Dxz1g="
       }
     },
     "MeLambdaVersion9GuMInpUTf9tXTK8AYBWxgMiOZB9cEuurf4Lg2FgMg": {
+=======
+        "CodeSha256": "/jF4FrRw/nw0JhsB66aDolfQyDtWVCVOtOueelhq8G0="
+      }
+    },
+    "MeLambdaVersionG372oWeTqnySIb6vToJH49cMDn6FpWK90s4CHQMeY": {
+>>>>>>> origin/back-end:awsproject/.serverless/cloudformation-template-update-stack.json
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "MeLambdaFunction"
         },
+<<<<<<< HEAD:askyourteam/awsproject/.serverless/cloudformation-template-update-stack.json
         "CodeSha256": "ZmdpqIBBP83sMKbzahyHIkKUlcVIAmCaGlgBT4Dxz1g="
       }
     },
     "LoginLambdaVersioncrMKOzU0sEwVDhhLwhc2Z6HEUjfvYWHzx9P04Y0ZXW0": {
+=======
+        "CodeSha256": "/jF4FrRw/nw0JhsB66aDolfQyDtWVCVOtOueelhq8G0="
+      }
+    },
+    "LoginLambdaVersion7h4wpJWBsmytzDqm0Fi4vijsDhQkkZU6snFcMmJmqE": {
+>>>>>>> origin/back-end:awsproject/.serverless/cloudformation-template-update-stack.json
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "LoginLambdaFunction"
         },
+<<<<<<< HEAD:askyourteam/awsproject/.serverless/cloudformation-template-update-stack.json
         "CodeSha256": "ZmdpqIBBP83sMKbzahyHIkKUlcVIAmCaGlgBT4Dxz1g="
       }
     },
     "RegisterLambdaVersionVafoHiZLSZS9GYPahXegWUGEMpVwKnQtWRIrLMvZc": {
+=======
+        "CodeSha256": "/jF4FrRw/nw0JhsB66aDolfQyDtWVCVOtOueelhq8G0="
+      }
+    },
+    "RegisterLambdaVersion5qC9XvBupBfWTf9XvMgVleFc8q20Kr114WfsR5J0E4": {
+>>>>>>> origin/back-end:awsproject/.serverless/cloudformation-template-update-stack.json
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "RegisterLambdaFunction"
         },
+<<<<<<< HEAD:askyourteam/awsproject/.serverless/cloudformation-template-update-stack.json
         "CodeSha256": "ZmdpqIBBP83sMKbzahyHIkKUlcVIAmCaGlgBT4Dxz1g="
       }
     },
     "CreateQuizLambdaVersionbDqob2x1LT7bkcIWeuQyBsOq8NoUSHRjp6588MVf8": {
+=======
+        "CodeSha256": "/jF4FrRw/nw0JhsB66aDolfQyDtWVCVOtOueelhq8G0="
+      }
+    },
+    "CreateQuizLambdaVersioneyDpQrMkrMUGFeNkTeqODeLui9cyCWDiiKcK0qyKEA": {
+>>>>>>> origin/back-end:awsproject/.serverless/cloudformation-template-update-stack.json
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "CreateQuizLambdaFunction"
         },
+<<<<<<< HEAD:askyourteam/awsproject/.serverless/cloudformation-template-update-stack.json
         "CodeSha256": "ZmdpqIBBP83sMKbzahyHIkKUlcVIAmCaGlgBT4Dxz1g="
       }
     },
     "PublishQuizLambdaVersionTiKnK43o9ZtHslJ6vPN09RmLrmWr6kjcMiscmkXayk": {
+=======
+        "CodeSha256": "/jF4FrRw/nw0JhsB66aDolfQyDtWVCVOtOueelhq8G0="
+      }
+    },
+    "PublishQuizLambdaVersionXFmiDxBOfGVNY7hZIcy6MEpmHQMDEx4Rz4icBfPZ0": {
+>>>>>>> origin/back-end:awsproject/.serverless/cloudformation-template-update-stack.json
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "PublishQuizLambdaFunction"
         },
+<<<<<<< HEAD:askyourteam/awsproject/.serverless/cloudformation-template-update-stack.json
         "CodeSha256": "ZmdpqIBBP83sMKbzahyHIkKUlcVIAmCaGlgBT4Dxz1g="
       }
     },
     "DeleteQuizLambdaVersionBRI1fVj26p6ZIYQf2Vr3STukstxos47wfboeavbFdU": {
+=======
+        "CodeSha256": "/jF4FrRw/nw0JhsB66aDolfQyDtWVCVOtOueelhq8G0="
+      }
+    },
+    "DeleteQuizLambdaVersionwWGrGhOG2rW4OYbEGuhyeYmSJOPqM2maUSSDFhZhVzU": {
+>>>>>>> origin/back-end:awsproject/.serverless/cloudformation-template-update-stack.json
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "DeleteQuizLambdaFunction"
         },
+<<<<<<< HEAD:askyourteam/awsproject/.serverless/cloudformation-template-update-stack.json
         "CodeSha256": "ZmdpqIBBP83sMKbzahyHIkKUlcVIAmCaGlgBT4Dxz1g="
       }
     },
     "GetAllQuizByEmailLambdaVersionhXBVagncocrHwApIJTENhvoxFLO5bf6OTZQLArA6ME": {
+=======
+        "CodeSha256": "/jF4FrRw/nw0JhsB66aDolfQyDtWVCVOtOueelhq8G0="
+      }
+    },
+    "GetAllQuizByEmailLambdaVersion3PSwdRuv0qqS61XtrA9rnPkN3IxiTaqxGjVOBAABdko": {
+>>>>>>> origin/back-end:awsproject/.serverless/cloudformation-template-update-stack.json
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetAllQuizByEmailLambdaFunction"
         },
+<<<<<<< HEAD:askyourteam/awsproject/.serverless/cloudformation-template-update-stack.json
         "CodeSha256": "ZmdpqIBBP83sMKbzahyHIkKUlcVIAmCaGlgBT4Dxz1g="
       }
     },
     "GetQuizByNameLambdaVersionXa75EDNac60OyoR6GeOgFYtS9A6KsaeQmc7rEfYrxk": {
+=======
+        "CodeSha256": "/jF4FrRw/nw0JhsB66aDolfQyDtWVCVOtOueelhq8G0="
+      }
+    },
+    "GetQuizByNameLambdaVersionLV6Hi0MPnCEaBXEYmK0kcfYh08B1GFWPUhHw2s": {
+>>>>>>> origin/back-end:awsproject/.serverless/cloudformation-template-update-stack.json
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetQuizByNameLambdaFunction"
         },
+<<<<<<< HEAD:askyourteam/awsproject/.serverless/cloudformation-template-update-stack.json
         "CodeSha256": "ZmdpqIBBP83sMKbzahyHIkKUlcVIAmCaGlgBT4Dxz1g="
+=======
+        "CodeSha256": "/jF4FrRw/nw0JhsB66aDolfQyDtWVCVOtOueelhq8G0="
+>>>>>>> origin/back-end:awsproject/.serverless/cloudformation-template-update-stack.json
       }
     },
     "ApiGatewayRestApi": {
@@ -865,6 +987,18 @@
         }
       }
     },
+    "ApiGatewayResourceGetallquizbyemailEmailVar": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Ref": "ApiGatewayResourceGetallquizbyemail"
+        },
+        "PathPart": "{email}",
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
     "ApiGatewayResourceGetquizbyname": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
@@ -875,6 +1009,18 @@
           ]
         },
         "PathPart": "getQuizByName",
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
+    "ApiGatewayResourceGetquizbynameQuiznameVar": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Ref": "ApiGatewayResourceGetquizbyname"
+        },
+        "PathPart": "{quizName}",
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
@@ -1105,7 +1251,7 @@
         }
       }
     },
-    "ApiGatewayMethodGetallquizbyemailOptions": {
+    "ApiGatewayMethodGetallquizbyemailEmailVarOptions": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "AuthorizationType": "NONE",
@@ -1134,7 +1280,7 @@
               "ResponseParameters": {
                 "method.response.header.Access-Control-Allow-Origin": "'*'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
-                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'"
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'"
               },
               "ResponseTemplates": {
                 "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
@@ -1143,14 +1289,14 @@
           ]
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceGetallquizbyemail"
+          "Ref": "ApiGatewayResourceGetallquizbyemailEmailVar"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
       }
     },
-    "ApiGatewayMethodGetquizbynameOptions": {
+    "ApiGatewayMethodGetquizbynameQuiznameVarOptions": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "AuthorizationType": "NONE",
@@ -1179,7 +1325,7 @@
               "ResponseParameters": {
                 "method.response.header.Access-Control-Allow-Origin": "'*'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
-                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'"
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'"
               },
               "ResponseTemplates": {
                 "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
@@ -1188,7 +1334,7 @@
           ]
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceGetquizbyname"
+          "Ref": "ApiGatewayResourceGetquizbynameQuiznameVar"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
@@ -1543,13 +1689,13 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayMethodGetallquizbyemailGet": {
+    "ApiGatewayMethodGetallquizbyemailEmailVarPost": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
-        "HttpMethod": "GET",
+        "HttpMethod": "POST",
         "RequestParameters": {},
         "ResourceId": {
-          "Ref": "ApiGatewayResourceGetallquizbyemail"
+          "Ref": "ApiGatewayResourceGetallquizbyemailEmailVar"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
@@ -1586,13 +1732,13 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayMethodGetquizbynameGet": {
+    "ApiGatewayMethodGetquizbynameQuiznameVarPost": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
-        "HttpMethod": "GET",
+        "HttpMethod": "POST",
         "RequestParameters": {},
         "ResourceId": {
-          "Ref": "ApiGatewayResourceGetquizbyname"
+          "Ref": "ApiGatewayResourceGetquizbynameQuiznameVar"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
@@ -1664,7 +1810,11 @@
         "Type": "TOKEN"
       }
     },
+<<<<<<< HEAD:askyourteam/awsproject/.serverless/cloudformation-template-update-stack.json
     "ApiGatewayDeployment1623108164945": {
+=======
+    "ApiGatewayDeployment1623192834700": {
+>>>>>>> origin/back-end:awsproject/.serverless/cloudformation-template-update-stack.json
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -1678,8 +1828,8 @@
         "ApiGatewayMethodCreatequizOptions",
         "ApiGatewayMethodPublishquizOptions",
         "ApiGatewayMethodDeletequizOptions",
-        "ApiGatewayMethodGetallquizbyemailOptions",
-        "ApiGatewayMethodGetquizbynameOptions",
+        "ApiGatewayMethodGetallquizbyemailEmailVarOptions",
+        "ApiGatewayMethodGetquizbynameQuiznameVarOptions",
         "ApiGatewayMethodUsersPost",
         "ApiGatewayMethodUsersIdVarGet",
         "ApiGatewayMethodMeGet",
@@ -1688,8 +1838,8 @@
         "ApiGatewayMethodCreatequizPost",
         "ApiGatewayMethodPublishquizPost",
         "ApiGatewayMethodDeletequizDelete",
-        "ApiGatewayMethodGetallquizbyemailGet",
-        "ApiGatewayMethodGetquizbynameGet"
+        "ApiGatewayMethodGetallquizbyemailEmailVarPost",
+        "ApiGatewayMethodGetquizbynameQuiznameVarPost"
       ]
     },
     "CreateUserLambdaPermissionApiGateway": {
@@ -2169,67 +2319,111 @@
     "CreateUserLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
+<<<<<<< HEAD:askyourteam/awsproject/.serverless/cloudformation-template-update-stack.json
         "Ref": "CreateUserLambdaVersion1jlmUkLQxztrq1URcP5lshxOUsfcywlEwQNGy9vAmI"
+=======
+        "Ref": "CreateUserLambdaVersionILDHcsjTSoA8b0gJhacSN8HNP6gceL6UZ0cnKRLh50"
+>>>>>>> origin/back-end:awsproject/.serverless/cloudformation-template-update-stack.json
       }
     },
     "GetUserLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
+<<<<<<< HEAD:askyourteam/awsproject/.serverless/cloudformation-template-update-stack.json
         "Ref": "GetUserLambdaVersioncgYkFQFXFMkyxUz80czpMxt5Hy3bJk0D9zMtjR7s"
+=======
+        "Ref": "GetUserLambdaVersionusUDkDKXgOpBuW0DMMj49OY1CvxByTFiwHvgOSJ94"
+>>>>>>> origin/back-end:awsproject/.serverless/cloudformation-template-update-stack.json
       }
     },
     "VerifyTokenLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
+<<<<<<< HEAD:askyourteam/awsproject/.serverless/cloudformation-template-update-stack.json
         "Ref": "VerifyTokenLambdaVersionmfVk1sb0rQoS7PGf7YXMcbOSuXq9BPtaKvy4hHUTswg"
+=======
+        "Ref": "VerifyTokenLambdaVersion91UbX2YRH5t7iUqF5XfxAYIMMaEpTSgV41uD2yrRvQ"
+>>>>>>> origin/back-end:awsproject/.serverless/cloudformation-template-update-stack.json
       }
     },
     "MeLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
+<<<<<<< HEAD:askyourteam/awsproject/.serverless/cloudformation-template-update-stack.json
         "Ref": "MeLambdaVersion9GuMInpUTf9tXTK8AYBWxgMiOZB9cEuurf4Lg2FgMg"
+=======
+        "Ref": "MeLambdaVersionG372oWeTqnySIb6vToJH49cMDn6FpWK90s4CHQMeY"
+>>>>>>> origin/back-end:awsproject/.serverless/cloudformation-template-update-stack.json
       }
     },
     "LoginLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
+<<<<<<< HEAD:askyourteam/awsproject/.serverless/cloudformation-template-update-stack.json
         "Ref": "LoginLambdaVersioncrMKOzU0sEwVDhhLwhc2Z6HEUjfvYWHzx9P04Y0ZXW0"
+=======
+        "Ref": "LoginLambdaVersion7h4wpJWBsmytzDqm0Fi4vijsDhQkkZU6snFcMmJmqE"
+>>>>>>> origin/back-end:awsproject/.serverless/cloudformation-template-update-stack.json
       }
     },
     "RegisterLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
+<<<<<<< HEAD:askyourteam/awsproject/.serverless/cloudformation-template-update-stack.json
         "Ref": "RegisterLambdaVersionVafoHiZLSZS9GYPahXegWUGEMpVwKnQtWRIrLMvZc"
+=======
+        "Ref": "RegisterLambdaVersion5qC9XvBupBfWTf9XvMgVleFc8q20Kr114WfsR5J0E4"
+>>>>>>> origin/back-end:awsproject/.serverless/cloudformation-template-update-stack.json
       }
     },
     "CreateQuizLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
+<<<<<<< HEAD:askyourteam/awsproject/.serverless/cloudformation-template-update-stack.json
         "Ref": "CreateQuizLambdaVersionbDqob2x1LT7bkcIWeuQyBsOq8NoUSHRjp6588MVf8"
+=======
+        "Ref": "CreateQuizLambdaVersioneyDpQrMkrMUGFeNkTeqODeLui9cyCWDiiKcK0qyKEA"
+>>>>>>> origin/back-end:awsproject/.serverless/cloudformation-template-update-stack.json
       }
     },
     "PublishQuizLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
+<<<<<<< HEAD:askyourteam/awsproject/.serverless/cloudformation-template-update-stack.json
         "Ref": "PublishQuizLambdaVersionTiKnK43o9ZtHslJ6vPN09RmLrmWr6kjcMiscmkXayk"
+=======
+        "Ref": "PublishQuizLambdaVersionXFmiDxBOfGVNY7hZIcy6MEpmHQMDEx4Rz4icBfPZ0"
+>>>>>>> origin/back-end:awsproject/.serverless/cloudformation-template-update-stack.json
       }
     },
     "DeleteQuizLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
+<<<<<<< HEAD:askyourteam/awsproject/.serverless/cloudformation-template-update-stack.json
         "Ref": "DeleteQuizLambdaVersionBRI1fVj26p6ZIYQf2Vr3STukstxos47wfboeavbFdU"
+=======
+        "Ref": "DeleteQuizLambdaVersionwWGrGhOG2rW4OYbEGuhyeYmSJOPqM2maUSSDFhZhVzU"
+>>>>>>> origin/back-end:awsproject/.serverless/cloudformation-template-update-stack.json
       }
     },
     "GetAllQuizByEmailLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
+<<<<<<< HEAD:askyourteam/awsproject/.serverless/cloudformation-template-update-stack.json
         "Ref": "GetAllQuizByEmailLambdaVersionhXBVagncocrHwApIJTENhvoxFLO5bf6OTZQLArA6ME"
+=======
+        "Ref": "GetAllQuizByEmailLambdaVersion3PSwdRuv0qqS61XtrA9rnPkN3IxiTaqxGjVOBAABdko"
+>>>>>>> origin/back-end:awsproject/.serverless/cloudformation-template-update-stack.json
       }
     },
     "GetQuizByNameLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
+<<<<<<< HEAD:askyourteam/awsproject/.serverless/cloudformation-template-update-stack.json
         "Ref": "GetQuizByNameLambdaVersionXa75EDNac60OyoR6GeOgFYtS9A6KsaeQmc7rEfYrxk"
+=======
+        "Ref": "GetQuizByNameLambdaVersionLV6Hi0MPnCEaBXEYmK0kcfYh08B1GFWPUhHw2s"
+>>>>>>> origin/back-end:awsproject/.serverless/cloudformation-template-update-stack.json
       }
     },
     "ServiceEndpoint": {

@@ -892,6 +892,18 @@
               }
             }
           },
+          "ApiGatewayResourceGetallquizbyemailEmailVar": {
+            "Type": "AWS::ApiGateway::Resource",
+            "Properties": {
+              "ParentId": {
+                "Ref": "ApiGatewayResourceGetallquizbyemail"
+              },
+              "PathPart": "{email}",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
           "ApiGatewayResourceGetquizbyname": {
             "Type": "AWS::ApiGateway::Resource",
             "Properties": {
@@ -902,6 +914,18 @@
                 ]
               },
               "PathPart": "getQuizByName",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayResourceGetquizbynameQuiznameVar": {
+            "Type": "AWS::ApiGateway::Resource",
+            "Properties": {
+              "ParentId": {
+                "Ref": "ApiGatewayResourceGetquizbyname"
+              },
+              "PathPart": "{quizName}",
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
               }
@@ -1132,7 +1156,7 @@
               }
             }
           },
-          "ApiGatewayMethodGetallquizbyemailOptions": {
+          "ApiGatewayMethodGetallquizbyemailEmailVarOptions": {
             "Type": "AWS::ApiGateway::Method",
             "Properties": {
               "AuthorizationType": "NONE",
@@ -1161,7 +1185,7 @@
                     "ResponseParameters": {
                       "method.response.header.Access-Control-Allow-Origin": "'*'",
                       "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
-                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'"
+                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'"
                     },
                     "ResponseTemplates": {
                       "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
@@ -1170,14 +1194,14 @@
                 ]
               },
               "ResourceId": {
-                "Ref": "ApiGatewayResourceGetallquizbyemail"
+                "Ref": "ApiGatewayResourceGetallquizbyemailEmailVar"
               },
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
               }
             }
           },
-          "ApiGatewayMethodGetquizbynameOptions": {
+          "ApiGatewayMethodGetquizbynameQuiznameVarOptions": {
             "Type": "AWS::ApiGateway::Method",
             "Properties": {
               "AuthorizationType": "NONE",
@@ -1206,7 +1230,7 @@
                     "ResponseParameters": {
                       "method.response.header.Access-Control-Allow-Origin": "'*'",
                       "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
-                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'"
+                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'"
                     },
                     "ResponseTemplates": {
                       "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
@@ -1215,7 +1239,7 @@
                 ]
               },
               "ResourceId": {
-                "Ref": "ApiGatewayResourceGetquizbyname"
+                "Ref": "ApiGatewayResourceGetquizbynameQuiznameVar"
               },
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
@@ -1570,13 +1594,13 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayMethodGetallquizbyemailGet": {
+          "ApiGatewayMethodGetallquizbyemailEmailVarPost": {
             "Type": "AWS::ApiGateway::Method",
             "Properties": {
-              "HttpMethod": "GET",
+              "HttpMethod": "POST",
               "RequestParameters": {},
               "ResourceId": {
-                "Ref": "ApiGatewayResourceGetallquizbyemail"
+                "Ref": "ApiGatewayResourceGetallquizbyemailEmailVar"
               },
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
@@ -1613,13 +1637,13 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayMethodGetquizbynameGet": {
+          "ApiGatewayMethodGetquizbynameQuiznameVarPost": {
             "Type": "AWS::ApiGateway::Method",
             "Properties": {
-              "HttpMethod": "GET",
+              "HttpMethod": "POST",
               "RequestParameters": {},
               "ResourceId": {
-                "Ref": "ApiGatewayResourceGetquizbyname"
+                "Ref": "ApiGatewayResourceGetquizbynameQuiznameVar"
               },
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
@@ -1705,8 +1729,8 @@
               "ApiGatewayMethodCreatequizOptions",
               "ApiGatewayMethodPublishquizOptions",
               "ApiGatewayMethodDeletequizOptions",
-              "ApiGatewayMethodGetallquizbyemailOptions",
-              "ApiGatewayMethodGetquizbynameOptions",
+              "ApiGatewayMethodGetallquizbyemailEmailVarOptions",
+              "ApiGatewayMethodGetquizbynameQuiznameVarOptions",
               "ApiGatewayMethodUsersPost",
               "ApiGatewayMethodUsersIdVarGet",
               "ApiGatewayMethodMeGet",
@@ -1715,8 +1739,8 @@
               "ApiGatewayMethodCreatequizPost",
               "ApiGatewayMethodPublishquizPost",
               "ApiGatewayMethodDeletequizDelete",
-              "ApiGatewayMethodGetallquizbyemailGet",
-              "ApiGatewayMethodGetquizbynameGet"
+              "ApiGatewayMethodGetallquizbyemailEmailVarPost",
+              "ApiGatewayMethodGetquizbynameQuiznameVarPost"
             ]
           },
           "CreateUserLambdaPermissionApiGateway": {
@@ -2650,8 +2674,8 @@
         "events": [
           {
             "http": {
-              "path": "getAllQuizByEmail",
-              "method": "get",
+              "path": "getAllQuizByEmail/{email}",
+              "method": "post",
               "cors": {
                 "origins": [
                   "*"
@@ -2659,7 +2683,7 @@
                 "origin": "*",
                 "methods": [
                   "OPTIONS",
-                  "GET"
+                  "POST"
                 ],
                 "headers": [
                   "Content-Type",
@@ -2688,8 +2712,8 @@
         "events": [
           {
             "http": {
-              "path": "getQuizByName",
-              "method": "get",
+              "path": "getQuizByName/{quizName}",
+              "method": "post",
               "cors": {
                 "origins": [
                   "*"
@@ -2697,7 +2721,7 @@
                 "origin": "*",
                 "methods": [
                   "OPTIONS",
-                  "GET"
+                  "POST"
                 ],
                 "headers": [
                   "Content-Type",

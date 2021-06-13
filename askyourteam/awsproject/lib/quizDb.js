@@ -11,30 +11,38 @@ const docClient = new AWS.DynamoDB.DocumentClient();
 
 
 const publishDbQuiz = async (details) => {
-    const email = details.email;
-    console.log(email);
     const theQuiz = details.quizName;
     console.log(theQuiz);
+    const theEmail = details.email;
+    const endDate = details.endDate;
     const table = process.env.quizTable;
+    const pubDate = Date();
     console.log(table);
+    console.log
 
   // add validation to check if quiz already exists with this name
     const params = {
       TableName: table,
       Key: {
-          email: email,
           quizName: theQuiz,
+          email: theEmail,
       },
-      UpdateExpression: "SET published = :published",
+      UpdateExpression: "SET published = :published, #endDate = :endDate, #publishedDate = :publishedDate",
+      ExpressionAttributeNames: {
+        "#publishedDate": "publishedDate",
+        "#endDate": "endDate"
+      },
       ExpressionAttributeValues: {
           ":published": true,
+          ":endDate": endDate,
+          ":publishedDate": pubDate
       },
       ReturnValues:"UPDATED_NEW"
     };
    
-    await docClient.update(params).promise();
+    const output = await docClient.update(params).promise();
     
-    return { statusCode: 200, body: JSON.stringify(param) } 
+    return { statusCode: 200, body: JSON.stringify(output) } 
 };
   
 const deleteDbQuiz = async details => {
@@ -59,47 +67,77 @@ const deleteDbQuiz = async details => {
 };
   
 const getAllQuizByEmailDb = async details => {
+  console.log("Entering getallquizbyemailDB");
+  const frank = details.email;
+  console.log(frank);
   
-  const email = detail.email;
-  const table = process.env.quizTable;
-  console.log(table);
+  // need to fix environment variables in stage to fix this
+  // const table = process.env.quizTable;
+  
   
   const params = {
-    TableName: table,
-    KeyConditionExpression: 'searchEmail = :searchEmail',
+    TableName: quizTable,
+    IndexName: "emailIndex",
+    KeyConditionExpression: "email = :email",
     ExpressionAttributeValues: {
-      ':searchEmail': email
+      ":email": frank
     },
   }
-  console.log("search by these parameters :-", params);
-
-  await docClient.query(params).promise();
-
-  return data.Items;
+ 
+  const data = await docClient.query(params).promise();
+  console.log(data);
+  return data;
+ 
 };
 
   const getQuizByNameDb = async details => {
 
-    const quizName = details.quizName;
-    const table = process.env.quizTable;
+    const theName = details.quizName;
+    const theUser = details.email;
+    // const table = process.env.quizTable;
 
     const params = {
-      TableName: table,
+      TableName: quizTable,
       Key: {
-        "quizName": quizName,
+        quizName: theName,
+        email: theUser
       },
     }
 
-    await docClient.get(params).promise();
+    const data = await docClient.get(params).promise();
 
     console.log(data.Item);
 
     return data.Item;
   };
 
+  const updateDemographicsDb = async (details) => {
+    const demographics = details.demographics;   
+    const quizName = details.quizName; 
+    const email = details.email;
+    // add validation to check if quiz already exists with this name
+    const params = {
+      TableName: quizTable,
+      Key: {
+          quizName: quizName,
+          email: email
+      },
+      UpdateExpression: "SET demographics = :demographics",
+      ExpressionAttributeValues: {
+          ":demographics": demographics,
+      },
+      ReturnValues:"UPDATED_NEW"
+    };
+   
+    const output = await docClient.update(params).promise();
+    
+    return { statusCode: 200, body: JSON.stringify(output) } 
+};
+
 module.exports = {
     publishDbQuiz,
     deleteDbQuiz,
     getAllQuizByEmailDb,
-    getQuizByNameDb
+    getQuizByNameDb,
+    updateDemographicsDb
 };
