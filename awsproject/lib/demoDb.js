@@ -61,7 +61,24 @@ const createDbDemoQuestion = async details => {
     return { statusCode: 200, body: JSON.stringify(params)}
   };
   
+
+  const getAllDemographicQuestionsDb = async  ()=> {
+    
+    // need to fix environment variables in stage to fix this
+    // const table = process.env.quizTable;
+    
+    
+    const params = {
+      TableName: demoQuestionTable,
+    }
+   
+    const data = await docClient.scan(params).promise();
+    console.log(data);
+    return data;
+   
+  };
   module.exports = {
+      getAllDemographicQuestionsDb,
       createDbDemoQuestion,
       deleteDbDemoQuestion
   };
