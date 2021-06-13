@@ -49,6 +49,7 @@ provider:
     AWS_ID: ${self:custom.secrets.AWS_ID}
     quizTable: quizTable-${opt:stage, self:provider.stage}
     questionTable: questionTable-${opt:stage, self:provider.stage}
+    demoQuestionTable: demoQuestionTable-${opt:stage, self:provider.stage}
 #  environment:
 #    userTable: ${self:custom.tableName}
 #        - "s3:ListBucket"
@@ -197,6 +198,24 @@ functions:
           path: updateQuestion
           method: post
           cors: true
+
+  createDemoQuestion:
+    handler: demoQuestions/createDemoQuestion.handler
+    events:
+      - http:
+          path: createDemoQuestion
+          method: post
+          cors: true
+
+  deleteDemoQuestion:
+    handler: demoQuestions/deleteDemoQuestion.handler
+    events:
+      - http:
+          path: deleteDemoQuestion
+          method: post
+          cors: true
+
+  
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
@@ -310,7 +329,22 @@ resources:
           WriteCapacityUnits: 1
         TableName: questionTable-${self:provider.stage}
 
-        
+    demoQuestionTable:
+      Type: 'AWS::DynamoDB::Table'
+      DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: questionID
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: questionID
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: demoQuestionTable-${self:provider.stage}
 #      Type: AWS::S3::Bucket
 #      Properties:
 #        BucketName: my-new-bucket
