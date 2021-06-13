@@ -28,33 +28,33 @@ h1 {
 
 /* Breadcrumb styles */
 /* Style the list */
-ul.breadcrumb {
+ul.breadcrumbs {
   padding: 10px 16px;
   list-style: none;
   background-color: #eee;
 }
 
 /* Display list items side by side */
-ul.breadcrumb li {
+ul.breadcrumbs li {
   display: inline;
   font-size: 18px;
 }
 
 /* Add a slash symbol (/) before/behind each list item */
-ul.breadcrumb li+li:before {
+ul.breadcrumbs li+li:before {
   padding: 8px;
   color: black;
   content: "/\00a0";
 }
 
 /* Add a color to all links inside the list */
-ul.breadcrumb li a {
+ul.breadcrumbs li a {
   color: #0275d8;
   text-decoration: none;
 }
 
 /* Add a color on mouse-over */
-ul.breadcrumb li a:hover {
+ul.breadcrumbs li a:hover {
   color: #01447e;
   text-decoration: underline;
 }
@@ -210,26 +210,9 @@ input {
 
 #dashboard-title {
   display: inline-block;
-  text-align: center;
+  text-align: left;
   padding: 0;
-  margin-left: 2em;
-}
-
-.new-quiz-btn {
-  display: inline-block;
-  float: right;
-  width: 12em;
-  height: 3em;
-  background-color: var(--ayt-orange);
-  font-weight: bolder;
-  font-size: medium;
-  margin-right: 2em;
-}
-
-#create-quiz-form {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: left;
+  margin: 0;
 }
 
 #successful-alert {
@@ -239,16 +222,34 @@ input {
   /* background-color: green; */
 }
 
-#create-quiz-btn {
-  display: inline;
+#create-quiz-form {
+  display: flex;
   float: right;
+  /* flex-flow: row wrap; */
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+#create-quiz-input {
+  width: 20em;
+  height: 2.5em;
+  margin: 0;
+  padding: 0;
+  float: right;
+}
+
+.new-quiz-btn {
   width: 12em;
-  height: 3em;
+  height: 2.5em;
   background-color: var(--ayt-orange);
   font-weight: bolder;
   font-size: medium;
-  margin-right: 2em;
+  margin-left: 1em;
+  padding: 0;
+  float: right;
 }
 
-
-
+.new-quiz-btn:hover {
+  background-color: #f8a273;
+}

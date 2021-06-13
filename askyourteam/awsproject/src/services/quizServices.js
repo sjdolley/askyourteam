@@ -5,6 +5,11 @@ export function getQuizzes() {
         .then(data => data.json())
 }
 
+export function getQuizByName() {
+    return fetch('http://localhost:3333/quizzes')
+        .then(data => data.json())
+}
+
 export function setQuizzes(newQuiz) { 
     return fetch('http://localhost:3333/quizzes', {
         method: 'POST',
@@ -16,11 +21,6 @@ export function setQuizzes(newQuiz) {
             "status": "Draft"
 
         })
-        // body: { 
-        //     "title": "New draft quiz",
-        //     "status": "Draft",
-        //     "creationDate": "dd/mm/yyyy"
-        // }
     })
     .then(data => data.json())
-} //In production applications, you’ll need to add error handling and checking
+} 
