@@ -67,7 +67,7 @@ export default function Dashboard() {
                 
       <div className="dashboard-grid">
           {quizList.map((quiz) =>   (         
-            <a href="/report"><div className="grid-item" key={quiz.id}>
+            <a href="/report" className="grid-item-link"><div className="grid-item" key={quiz.id}>
               <h3>{quiz.title}</h3>
               <p>Status: {quiz.status}</p>
               <p>Created: {quiz.creationDate}</p>

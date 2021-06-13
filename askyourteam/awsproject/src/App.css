@@ -193,7 +193,18 @@ input {
   background-color: rgb(209, 203, 203);
   position: relative;
   align-items: center;
+  border-color: var(--ayt-grey);
+  color: var(--ayt-grey);
 }
+
+.grid-item:hover {
+  background-color: orange;
+}
+
+.grid-item-link {
+  text-decoration: none;
+}
+
 
 .report-btn {
   width: 80%;
