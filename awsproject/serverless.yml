@@ -215,6 +215,13 @@ functions:
           method: post
           cors: true
 
+  updateDemographics:
+    handler: quiz/updateDemographics.handler
+    events:
+      - http:
+          path: updateDemographics
+          method: post
+          cors: true
   
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events

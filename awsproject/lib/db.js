@@ -116,7 +116,8 @@ const createDbQuiz = async details => {
     email: email,
     id: uuidv4(),
     created: new Date(),
-    published: false
+    published: false,
+    demographics: false,
     }
   }
 

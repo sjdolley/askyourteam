@@ -111,9 +111,33 @@ const getAllQuizByEmailDb = async details => {
     return data.Item;
   };
 
+  const updateDemographicsDb = async (details) => {
+    const demographics = details.demographics;   
+    const quizName = details.quizName; 
+    const email = details.email;
+    // add validation to check if quiz already exists with this name
+    const params = {
+      TableName: quizTable,
+      Key: {
+          quizName: quizName,
+          email: email
+      },
+      UpdateExpression: "SET demographics = :demographics",
+      ExpressionAttributeValues: {
+          ":demographics": demographics,
+      },
+      ReturnValues:"UPDATED_NEW"
+    };
+   
+    const output = await docClient.update(params).promise();
+    
+    return { statusCode: 200, body: JSON.stringify(output) } 
+};
+
 module.exports = {
     publishDbQuiz,
     deleteDbQuiz,
     getAllQuizByEmailDb,
-    getQuizByNameDb
+    getQuizByNameDb,
+    updateDemographicsDb
 };
