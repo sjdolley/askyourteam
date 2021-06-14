@@ -230,6 +230,15 @@ functions:
           path: getAllDemographicQuestions
           method: get
           cors: true
+
+  markQuiz:
+    handler: analytics/markQuiz.handler
+    events:
+      - http:
+          path: markQuiz
+          method: post
+          cors: true
+          
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
