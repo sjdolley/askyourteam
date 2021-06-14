@@ -1,7 +1,7 @@
 //Any actions that occur on the /quizzes endpoint.
 
 export function getQuizzes() {
-    return fetch('http://localhost:3333/quizzes')
+    return fetch('/dev/getAllQuizByEmail')
         .then(data => data.json())
 }
 
@@ -11,7 +11,7 @@ export function getQuizByName() {
 }
 
 export function setQuizzes(newQuiz) { 
-    return fetch('http://localhost:3333/quizzes', {
+    return fetch('/dev/createQuiz', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -19,7 +19,6 @@ export function setQuizzes(newQuiz) {
         body: JSON.stringify({  
             "title": newQuiz,
             "status": "Draft"
-
         })
     })
     .then(data => data.json())
