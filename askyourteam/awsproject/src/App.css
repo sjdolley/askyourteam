@@ -89,7 +89,6 @@ ul.breadcrumbs li a:hover {
 
 .app > main {
   grid-area: main;
-  overflow: auto;
   padding: 15px 5px 10px 5px;
 }
 
@@ -195,6 +194,7 @@ input {
   align-items: center;
   border-color: var(--ayt-grey);
   color: var(--ayt-grey);
+  text-decoration: none;
 }
 
 .grid-item:hover {
@@ -263,4 +263,27 @@ input {
 
 .new-quiz-btn:hover {
   background-color: #f8a273;
+}
+
+/************ Edit Page ************/
+.new-question-wrapper {
+  width: 80%;
+  margin: 5% 10%;
+}
+
+#answers {
+  width: 100%;
+}
+
+.an-answer {
+  width: 50%;
+  background-color: grey;
+}
+
+#answer-input {
+  float: left
+}
+
+#answer-radio {
+  float: right;
 }

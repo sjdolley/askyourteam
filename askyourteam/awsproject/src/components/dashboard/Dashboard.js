@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect,  useRef, useState } from 'react';
 import { getQuizzes, setQuizzes } from '../../services/quizServices';
+import { Link } from 'react-router-dom';
 
 export default function Dashboard() {
   const [alert, setAlert] = useState(false);
@@ -53,8 +54,7 @@ export default function Dashboard() {
 
       <div className="title-line">
         <h1 id="dashboard-title">Quiz Dashboard</h1>
-      
-      
+
         {alert && <h2 id="successful-alert"> * Quiz Creation Successful </h2>}
         <form id="create-quiz-form" onSubmit={handleSubmit}>
           <label>
@@ -66,8 +66,18 @@ export default function Dashboard() {
       </div>
                 
       <div className="dashboard-grid">
-          {quizList.map((quiz) =>   (         
-            <a href="/report" className="grid-item-link"><div className="grid-item" key={quiz.id}>
+          {quizList.map((quiz) =>   (      
+            <Link to={{pathname: "/report", 
+              state:{
+                quizId: quiz.id,
+                quizName: quiz.title,
+                quizStatus: quiz.status,
+                quizCreationDate: quiz.creationDate,
+                quizPublishDate: quiz.publishDate,
+                quizClosedDate: quiz.closingDate
+              }}}
+            >            
+            <div className="grid-item" key={quiz.id}>
               <h3>{quiz.title}</h3>
               <p>Status: {quiz.status}</p>
               <p>Created: {quiz.creationDate}</p>
@@ -90,7 +100,7 @@ export default function Dashboard() {
                 </Fragment> : null
               }
 
-            </div></a>
+            </div></Link>
           ))} 
       </div>
     </div>
