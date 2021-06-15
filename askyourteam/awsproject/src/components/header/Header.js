@@ -5,10 +5,10 @@ function Header() {
     return (
         <div className="header">
             <footer>
-                <div class="app-header">                   
-                    <img src={aytLogo} alt="Ask Your Team Logo" class="logo header-logo" />
-                    <p class="horizontal-rule"> | </p>                    
-                    <p class="running-text">
+                <div className="app-header">                   
+                    <img src={aytLogo} alt="Ask Your Team Logo" className="logo header-logo" />
+                    <p className="horizontal-rule"> | </p>                    
+                    <p className="running-text">
                         Quiz  
                     </p> 
                 </div>

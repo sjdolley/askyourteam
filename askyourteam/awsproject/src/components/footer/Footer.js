@@ -5,8 +5,8 @@ function Footer() {
     return (
         <div className="footer">
             <footer>
-                <div class="app-footer">                   
-                    <img src={aytLogo} alt="Ask Your Team Logo" class="logo" />
+                <div className="app-footer">                   
+                    <img src={aytLogo} alt="Ask Your Team Logo" className="logo" />
                     {/* <p class="horizontal-rule"> | </p>                    
                     <p class="running-text">
                         Quiz

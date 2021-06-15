@@ -1,20 +1,25 @@
 //Any actions that occur on the /quizzes endpoint.
 
 export function getQuizzes() {
+    return fetch('/dev/getAllQuizByEmail')
+        .then(data => data.json())
+}
+
+export function getQuizByName() {
     return fetch('http://localhost:3333/quizzes')
         .then(data => data.json())
 }
 
-export function setQuizzes() {
-    return fetch('http://localhost:3333/quizzes', {
+export function setQuizzes(newQuiz) { 
+    return fetch('/dev/createQuiz', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ 
-            "title": "New draft quiz",
+        body: JSON.stringify({  
+            "title": newQuiz,
             "status": "Draft"
-         })
+        })
     })
     .then(data => data.json())
-} //In production applications, you’ll need to add error handling and checking
+} 

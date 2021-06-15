@@ -4,6 +4,9 @@ export default function useToken() {
   const getToken = () => {
     const tokenString = sessionStorage.getItem('token');
     const userToken = JSON.parse(tokenString);
+    // if(!userToken?.token){
+    //   <p>This login attempt was unsuccsessful</p>
+    // }
     return userToken?.token
   };
   const [token, setToken] = useState(getToken());
