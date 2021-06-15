@@ -41,6 +41,9 @@ const docClient = new AWS.DynamoDB.DocumentClient();
 
 const markQuizDb2 = async details => {
     // var obj = JSON.parse(details);
+    const quizName = details.quizName;
+    delete details[quizName]; // remove the quiz name from the data just leaving the answers
+
     var questionArray = Object.keys(details);
     console.log("In the function");
     let marks = 0;
@@ -92,7 +95,7 @@ const compareLists = function compare(listA, listB) {
         } else {
             return listA < listB ?  -1 : listA > listB ? + 1 : 0;
         }
-    } //should answer 0 if the lists are the same. any other result (-1,1) chould get 0 marks
+    } //should answer 0 if the lists are the same. any other result (-1,1) should get 0 marks
 };
 
 module.exports = { 
