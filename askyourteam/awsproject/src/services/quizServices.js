@@ -1,12 +1,28 @@
-//Any actions that occur on the /quizzes endpoint.
+import useToken from '../useToken';
 
-export function getQuizzes() {
-    return fetch('/dev/getAllQuizByEmail')
-        .then(data => data.json())
+//Any actions that occur on the /quizzes endpoint.
+export function getUserEmail(useToken) {
+    return fetch('/dev/me', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }, body: useToken
+    })
+    .then(data => data.json())
+}
+
+export function getQuizzes(userEmail) {
+    return fetch('/dev/getAllQuizByEmail', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }, body: userEmail
+    })
+    .then(data => data.json())
 }
 
 export function getQuizByName() {
-    return fetch('http://localhost:3333/quizzes')
+    return fetch('/dev/getQuizByName')
         .then(data => data.json())
 }
 
