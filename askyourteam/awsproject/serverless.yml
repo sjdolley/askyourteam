@@ -171,6 +171,54 @@ functions:
           cors: true
 
           
+  updateQuestion:
+    handler: questions/updateQuestion.handler
+    events:
+      - http:
+          path: updateQuestion
+          method: post
+          cors: true
+
+  createDemoQuestion:
+    handler: demoQuestions/createDemoQuestion.handler
+    events:
+      - http:
+          path: createDemoQuestion
+          method: post
+          cors: true
+
+  deleteDemoQuestion:
+    handler: demoQuestions/deleteDemoQuestion.handler
+    events:
+      - http:
+          path: deleteDemoQuestion
+          method: post
+          cors: true
+
+  updateDemographics:
+    handler: quiz/updateDemographics.handler
+    events:
+      - http:
+          path: updateDemographics
+          method: post
+          cors: true
+  
+  getAllDemographicQuestions:
+    handler: demoQuestions/getAllDemographicQuestions.handler
+    events:
+      - http:
+          path: getAllDemographicQuestions
+          method: get
+          cors: true
+
+  markQuiz:
+    handler: analytics/markQuiz.handler
+    events:
+      - http:
+          path: markQuiz
+          method: post
+          cors: true
+          
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
