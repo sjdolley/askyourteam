@@ -286,21 +286,6 @@ resources:
       Type: 'AWS::DynamoDB::Table'
       DeletionPolicy: Retain
       Properties:
-<<<<<<< HEAD
-        TableName: usersTable
-        AttributeDefinitions:
-          -
-            AttributeName: "email"
-            AttributeType: "S"
-        KeySchema:
-          -
-            AttributeName: "email"
-            KeyType:  "HASH"
-        ProvisionedThroughput:
-          ReadCapacityUnits: 1
-          WriteCapacityUnits: 1  
-#    NewResource:
-=======
         AttributeDefinitions:
           - AttributeName: email
             AttributeType: S
@@ -383,7 +368,6 @@ resources:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
         TableName: demoQuestionTable-${self:provider.stage}
->>>>>>> origin/back-end
 #      Type: AWS::S3::Bucket
 #      Properties:
 #        BucketName: my-new-bucket
