@@ -1,4 +1,5 @@
 const AWS = require("aws-sdk");
+const { arrayToList, normalizeData } = require("../lib/utils");
 
 const quizTable = process.env.quizTable
 const questionTable = process.env.questionTable
@@ -75,7 +76,7 @@ const createDbQuestion = async details => {
   };
     
   const getAllQuestionswithQuizNameDb = async details => {
-    console.log("Entering getallquizbyemailDB");
+    console.log("Entering getallquizbynameDB");
     const quizName = details.quizName;
     console.log(quizName);
     
@@ -153,10 +154,42 @@ const createDbQuestion = async details => {
     return { statusCode: 200, body: JSON.stringify(output) } 
 };
 
+
+
+const getAnswersByQuizName = async details => {
+  quizName = details.quizName;
+
+  // query the table with quizname to get all the questions
+  data = await getAllQuestionswithQuizNameDb(details);
+
+  const correctAnswers = data.Items.map((value) => value.correctAnswer);
+  console.log(correctAnswers, "CORRECT ANSWERS"); 
+
+  return normalizeData(correctAnswers)
+  // [["a","D"],["a"],]
+
+  
+  // let correctAnswerArray = [];
+  // // convert the returned object to an array
+  // const questions = data
+  // console.log("Questions", questions);
+
+  // // iterate through each question in the object and add the correctAnswer to the array
+  // for (i=0; i<questions.length; i++) {
+  //   correctAnswerArray[i] = questions[i].correctAnswer; 
+  // }
+
+  // // now we have an array turn it into a list so it can be used
+  // let correctAnswerList = arrayToList(correctAnswerArray);
+  // console.log(correctAnswerList, "correctanswerlist");
+  // return correctAnswerList;
+}
+
   module.exports = {
     createDbQuestion,
     deleteDbQuestion,
     getAllQuestionswithQuizNameDb,
     getQuestionbyIDDb,
-    updateQuestionDb
+    updateQuestionDb,
+    getAnswersByQuizName
 };
