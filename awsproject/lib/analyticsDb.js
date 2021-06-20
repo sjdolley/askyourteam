@@ -11,6 +11,7 @@ AWS.config.update({
 
 const docClient = new AWS.DynamoDB.DocumentClient();
 
+const answerTable = process.env.answerTable;
 // const markQuizDb = async details => {
 //     // validation for package
 //     let question = [];
@@ -70,6 +71,7 @@ const markQuizDb2 = async details => {
     return { statusCode: 200, body: mark }
 }
 
+// upon revision of marking compare lists is no longer a required function
 const compareLists = function compare(listA, listB) {
     if (Array.isArray(listA)) {
         if (Array.isArray(listB)) {
@@ -125,10 +127,27 @@ function mark (correctAnswers, answers) {
     }
     let mark = Math.round((marks/total)*100);
     return mark;
+}
 
+const leaderboardDb = async details => {
+    const quizName = details.quizName;
+    console.log(quizName);
+    params = {
+        TableName: answerTable,
+        KeyConditionExpression: ":n = quizName",
+        ExpressionAttributeValues: {
+            ":n": quizName
+        },
+        ScanIndexForward: false,
+        Limit: 10
+    };
+
+    let data = await docClient.query(params).promise();
+    return {statusCode: 200, body: JSON.stringify(data)}
 }
 
 module.exports = { 
     markQuizDb2,
-    mark
+    mark,
+    leaderboardDb
 };

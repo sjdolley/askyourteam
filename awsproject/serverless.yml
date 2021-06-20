@@ -33,7 +33,7 @@ provider:
   region: us-east-1
 
 # you can add statements to the Lambda function's IAM Role here
-  iam.role.Statements:
+  iamRoleStatements:
     - Effect: "Allow"
       Action:
         - dynamodb:Query
@@ -79,20 +79,6 @@ provider:
 #    - exclude-me-dir/**
 
 functions:
-  createUser:
-    handler: users/create.create
-    events:
-      - http:
-          path: users
-          method: post
-
-  getUser:
-    handler: users/get.get
-    events:
-      - http:
-          path: users/{id}
-          method: get
-
   verifyToken:
     handler: functions/authorize.handler
 
@@ -247,7 +233,16 @@ functions:
           path: logQuizAnswers
           method: post
           cors: true  
-          
+
+  leaderboard:
+    handler: analytics/leaderboard.handler
+    events:
+      - http:
+          path: leaderboard
+          method: get
+          cors: true
+
+
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
