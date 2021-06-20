@@ -33,7 +33,7 @@ provider:
   region: us-east-1
 
 # you can add statements to the Lambda function's IAM Role here
-  iamRoleStatements:
+  iam.role.Statements:
     - Effect: "Allow"
       Action:
         - dynamodb:Query
@@ -386,10 +386,16 @@ resources:
           -
             AttributeName: quizName
             AttributeType: S
+          -
+            AttributeName: mark
+            AttributeType: N
         KeySchema:
           -
             AttributeName: quizName
             KeyType: HASH
+          -
+            AttributeName: mark
+            KeyType: RANGE
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
