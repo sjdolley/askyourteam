@@ -59,6 +59,10 @@ ul.breadcrumbs li a:hover {
   text-decoration: underline;
 }
 
+.error-page {
+  margin: 1em;
+}
+
 /************ Page Layout - Header, Main, Footer ************/
 .app {
   height: 100vh;
@@ -265,25 +269,100 @@ input {
   background-color: #f8a273;
 }
 
+/************ Report Page ************/
+.display-quiz {
+  text-align: center;
+}
+
+.quiz-name {
+  text-align: center;
+  text-decoration: underline;
+  margin-bottom: 1em;
+}
+
+
+.display-quiz-answers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  /* grid-template-rows: repeat(2, 12em); */
+  /* grid-template-rows: repeat(auto-fit, minmax(12em, auto-fit)); */
+  grid-gap: 0.5rem;
+  grid-auto-flow: dense;
+  margin: 1em 20% 3em 20% ; 
+}
+
+.answer-btn {
+  height: 2.5em;
+  font-size: medium;
+  background-color: unset !important;
+  color: unset !important;
+}
+
+.answer-btn:active {
+  box-shadow: none;
+  outline: none;
+}
+
 /************ Edit Page ************/
 .new-question-wrapper {
   width: 80%;
-  margin: 5% 10%;
+  margin: 2em 10% 5% 10%;
+  border-style: dashed;
+  border-width: 0.1em;
+}
+
+.new-question-wrapper > h3 {
+  margin-top: 1em;
+  margin-left: 2em;
+}
+
+.new-question-form {
+  height: auto;
+  position: relative;
+  margin: 0;
+  border: none;
+  width: 70%;
+}
+
+#question_input {
+  margin-bottom: 2em;
+  height: 2.5em;
 }
 
 #answers {
   width: 100%;
+  position: relative;
 }
 
 .an-answer {
-  width: 50%;
-  background-color: grey;
+  width: 100%;
+  display: flex;
+  float: left;
+  margin: 0;
 }
 
 #answer-input {
-  float: left
+  height: 2em;
+  margin-bottom: 1em;
+  margin-right: 0;
 }
 
-#answer-radio {
-  float: right;
+#answer-checkbox {
+  height: 2em;
+  margin-bottom: 1em;
+  margin-left: 0;
+}
+
+#new-question-submit-btn {
+  width: 12em;
+  height: 3em;
+  font-weight: bolder;
+  font-size: medium;
+  background-color: var(--ayt-orange);
+  bottom: 0;
+}
+
+#new-question-submit-btn:hover {
+  background-color: #f8a273;
 }

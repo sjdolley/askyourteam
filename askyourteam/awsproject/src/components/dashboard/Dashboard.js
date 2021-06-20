@@ -1,8 +1,10 @@
-import React, { Fragment, useEffect,  useRef, useState } from 'react';
+import React, { Fragment, useEffect,  useRef, useState, ChangeEvent } from 'react';
 import { getQuizzes, setQuizzes } from '../../services/quizServices';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+export const Report_Route = (quizName) => `/report/:${quizName}/`;
 
-export default function Dashboard() {
+
+export default function Dashboard(){
   const [alert, setAlert] = useState(false);
   const [quizInput, setQuizInput] = useState('');
   const [quizList, setQuizList] = useState([]);
@@ -32,8 +34,8 @@ export default function Dashboard() {
     }
   }, [alert])
 
+
   const handleSubmit = (e) => {
-    <p>I've been clicked</p>
     e.preventDefault();
 
     setQuizzes(quizInput)
@@ -57,28 +59,18 @@ export default function Dashboard() {
 
         {alert && <h2 id="successful-alert"> * Quiz Creation Successful </h2>}
         <form id="create-quiz-form" onSubmit={handleSubmit}>
-          <label>
-            <input type="text" id="create-quiz-input" onChange={event => setQuizInput(event.target.value)} value={quizInput} />
-          </label>
+          <input type="text" id="create-quiz-input" onChange={event => setQuizInput(event.target.value)} value={quizInput} />
           <button type="submit" className="new-quiz-btn" onClick={handleSubmit}>Create New Quiz</button>
         </form>
       
       </div>
                 
       <div className="dashboard-grid">
-          {quizList.map((quiz) =>   (      
-            <Link to={{pathname: "/report", 
-              state:{
-                quizId: quiz.id,
-                quizName: quiz.title,
-                quizStatus: quiz.status,
-                quizCreationDate: quiz.creationDate,
-                quizPublishDate: quiz.publishDate,
-                quizClosedDate: quiz.closingDate
-              }}}
-            >            
+          {quizList.map((quiz) =>   (   
+            <Link to={Report_Route(quiz.quizName)} params={{quizName: quiz.quizName}}>      
             <div className="grid-item" key={quiz.id}>
-              <h3>{quiz.title}</h3>
+              
+              <h3>{quiz.quizName}</h3>
               <p>Status: {quiz.status}</p>
               <p>Created: {quiz.creationDate}</p>
 

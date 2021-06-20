@@ -12,34 +12,37 @@ export default function Edit() {
       <h2>Edit Quiz</h2>
 
       <hr></hr>
-      <h3>Add a new question</h3>
+      
       <div className="new-question-wrapper">
-          <form>
+        <h3>Create a new quiz question:</h3>
+          <form className="new-question-form">
               <label>
-                  <p>Enter a new quiz question:</p>
-                  <input type="text"></input>
+                  <p></p>
+                  <input type="text" placeholder="Type your question here" id="question_input"></input>
                   <div id="answers">
+                    <label>Type a possible answer in each box and select which answer or answers is correct</label>
                       <div className="an-answer">
                           <input type="text" id="answer-input"></input>
-                          <input type="radio" id="answer-radio" value="answer1"></input>
+                          <input type="checkbox" id="answer-checkbox" value="answer1"></input>
                       </div>
 
                       <div className="an-answer">
                           <input type="text" id="answer-input"></input>
-                          <input type="radio" id="answer-radio" value="answer1"></input>
+                          <input type="checkbox" id="answer-checkbox" value="answer2"></input>
                       </div>
 
                       <div className="an-answer">
                           <input type="text" id="answer-input"></input>
-                          <input type="radio" id="answer-radio" value="answer1"></input>
+                          <input type="checkbox" id="answer-checkbox" value="answer3"></input>
                       </div>
 
                       <div className="an-answer">
                           <input type="text" id="answer-input"></input>
-                          <input type="radio" id="answer-radio" value="answer1"></input>
+                          <input type="checkbox" id="answer-checkbox" value="answer4"></input>
                       </div>
                   </div>
               </label>
+              <button type="submit" id="new-question-submit-btn">Add question to quiz</button>
           </form>
       </div>
 

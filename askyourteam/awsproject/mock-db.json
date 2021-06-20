@@ -2,150 +2,54 @@
   "quizzes": [
     {
       "id": 1,
-      "title": "Example draft quiz",
+      "quizName": "Example draft quiz",
       "status": "Draft",
       "creationDate": "dd/mm/yyyy"
     },
     {
-      "id": 2,
-      "title": "Example published quiz",
-      "status": "Published",
-      "creationDate": "dd/mm/yyyy",
-      "publishDate": "dd/mm/yyyy"
-    },
-    {
-      "id": 3,
-      "title": "Example closed quiz",
-      "status": "Closed",
-      "creationDate": "dd/mm/yyyy",
-      "publishDate": "dd/mm/yyyy",
-      "closingDate": "dd/mm/yyyy"
-    },
-    {
-      "id": 4,
-      "title": "Test Draft",
+      "title": "",
       "status": "Draft",
-      "creationDate": "dd/mm/yyyy"
-    },
-    {
-      "id": 5,
-      "title": "Test published quiz",
-      "status": "Published",
-      "creationDate": "dd/mm/yyyy",
-      "publishDate": "dd/mm/yyyy"
-    },
-    {
-      "id": 6,
-      "title": "test closed quiz",
-      "status": "Closed",
-      "creationDate": "dd/mm/yyyy",
-      "publishDate": "dd/mm/yyyy",
-      "closingDate": "dd/mm/yyyy"
-    },
-    {
-      "title": "new test quiz",
-      "status": "Draft",
-      "id": 7
-    },
-    {
-      "title": "unbelievable",
-      "status": "Draft",
-      "id": 8
+      "id": 2
     },
     {
       "title": "",
       "status": "Draft",
-      "id": 9
+      "id": 3
+    }
+  ],
+  "quizContent": [
+    {
+      "answer5_body": "",
+      "question_body": "What is the plural form of beef?",
+      "answer2_body": "Beefs",
+      "correct_answers": 0,
+      "correctAnswer": [
+        "A",
+        "C"
+      ],
+      "questionID": "1",
+      "question_type": "M",
+      "completed_answers": 0,
+      "answer1_body": "Beef",
+      "quizName": "Example draft quiz",
+      "answer4_body": "It has no plural form",
+      "answer3_body": "Beeves"
     },
     {
-      "title": "test",
-      "status": "Draft",
-      "id": 10
-    },
-    {
-      "title": "test",
-      "status": "Draft",
-      "id": 11
-    },
-    {
-      "title": "",
-      "status": "Draft",
-      "id": 12
-    },
-    {
-      "title": "",
-      "status": "Draft",
-      "id": 13
-    },
-    {
-      "title": "",
-      "status": "Draft",
-      "id": 14
-    },
-    {
-      "title": "",
-      "status": "Draft",
-      "id": 15
-    },
-    {
-      "title": "",
-      "status": "Draft",
-      "id": 16
-    },
-    {
-      "title": "",
-      "status": "Draft",
-      "id": 17
-    },
-    {
-      "title": "",
-      "status": "Draft",
-      "id": 18
-    },
-    {
-      "title": "",
-      "status": "Draft",
-      "id": 19
-    },
-    {
-      "title": "",
-      "status": "Draft",
-      "id": 20
-    },
-    {
-      "title": "",
-      "status": "Draft",
-      "id": 21
-    },
-    {
-      "title": "",
-      "status": "Draft",
-      "id": 22
-    },
-    {
-      "title": "",
-      "status": "Draft",
-      "id": 23
-    },
-    {
-      "title": "",
-      "status": "Draft",
-      "id": 24
-    },
-    {
-      "title": "",
-      "status": "Draft",
-      "id": 25
-    },
-    {
-      "title": "",
-      "status": "Draft",
-      "id": 26
-    },
-    {
-      "title": "testing",
-      "status": "Draft",
-      "id": 27
+      "answer5_body": "",
+      "question_body": "Which animal isn’t considered a true hibernator because their body temperature doesn’t lower significantly during “hibernation?",
+      "answer2_body": "Brown Bat",
+      "correct_answers": 0,
+      "correctAnswer": [
+        "D"
+      ],
+      "questionID": "1",
+      "question_type": "M",
+      "completed_answers": 0,
+      "answer1_body": "Woodchucks",
+      "quizName": "Example draft quiz",
+      "answer4_body": "Bears",
+      "answer3_body": "Ground Squirrels"
     }
   ]
 }
