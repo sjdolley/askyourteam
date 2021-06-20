@@ -1,5 +1,6 @@
 const AWS = require("aws-sdk");
-const { getQuestionbyIDDb } = require("../lib/questionDb")
+const { getQuestionbyIDDb } = require("../lib/questionDb");
+const { toArray } = require("../lib/utils");
 
 
 const questionTable = process.env.questionTable
@@ -98,6 +99,36 @@ const compareLists = function compare(listA, listB) {
     } //should answer 0 if the lists are the same. any other result (-1,1) should get 0 marks
 };
 
+function mark (correctAnswers, answers) {
+    console.log("entering mark function");
+    console.log("correctAnswers",correctAnswers);
+    // correctAnswers and asnwers should be passed as lists so we will turn them into arrays
+    correctAnswersArray = toArray(correctAnswers);
+    answersArray = toArray(answers);
+    let marks=0;
+    let total=0;    
+    // all our answers are stored as lists so we need to compare lists to see if the answer is right
+    // business rules indicate 0 or 1 mark per question, so they need all options correct
+
+    // check if the user answer is inside the allowed answers
+    // userAnswer.filter(answer => questionAnswer.includes(userAnswer))
+
+    // [["A"],["A","C"],["B"],["A","D"]]
+    for (i=0; i<answersArray.length; i++) {
+        console.log(JSON.stringify(correctAnswersArray[i]));
+        console.log(JSON.stringify(answersArray[i]));
+        if (JSON.stringify(correctAnswersArray[i]) === JSON.stringify(answersArray[i])) {
+            marks = marks+1;
+            console.log("Mark", marks);
+        }
+        total=total+1;
+    }
+    let mark = Math.round((marks/total)*100);
+    return mark;
+
+}
+
 module.exports = { 
-    markQuizDb2
+    markQuizDb2,
+    mark
 };
