@@ -23,7 +23,7 @@ const logQuizAnswersDb = async details => {
     console.log(correctAnswers);
     // get the mark of the quiz
     result = mark(correctAnswers, answers);
-    console.log(mark);
+    console.log(result);
 
     // store the demo question data, we know from the business rules that there will be 3 demo questions
     const params = {
