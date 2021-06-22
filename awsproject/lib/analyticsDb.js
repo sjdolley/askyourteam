@@ -1,16 +1,18 @@
 const AWS = require("aws-sdk");
-const { getQuestionbyIDDb } = require("../lib/questionDb")
+const { getQuestionbyIDDb } = require("../lib/questionDb");
+const { toArray } = require("../lib/utils");
 
 
 const questionTable = process.env.questionTable
 const quizTable = process.env.quizTable
 // INIT AWS
-AWS.config.update({
-  region: "us-east-1"
-});
+// AWS.config.update({
+//   region: "us-east-1"
+// });
 
 const docClient = new AWS.DynamoDB.DocumentClient();
 
+const answerTable = process.env.answerTable;
 // const markQuizDb = async details => {
 //     // validation for package
 //     let question = [];
@@ -70,6 +72,7 @@ const markQuizDb2 = async details => {
     return { statusCode: 200, body: mark }
 }
 
+// upon revision of marking compare lists is no longer a required function
 const compareLists = function compare(listA, listB) {
     if (Array.isArray(listA)) {
         if (Array.isArray(listB)) {
@@ -99,6 +102,7 @@ const compareLists = function compare(listA, listB) {
     } //should answer 0 if the lists are the same. any other result (-1,1) should get 0 marks
 };
 
+<<<<<<< HEAD
 
 /* need to set schema for the storage still of this data in the quiz table
     ("demographicData": [
@@ -138,9 +142,60 @@ const receiveDemoDb = async details => {
         ExpressionAttributeValues={        
             ':inc': '1' }, 
     } 
+=======
+function mark (correctAnswers, answers) {
+    console.log("entering mark function");
+    console.log("correctAnswers",correctAnswers);
+    // correctAnswers and asnwers should be passed as lists so we will turn them into arrays
+    correctAnswersArray = toArray(correctAnswers);
+    answersArray = toArray(answers);
+    let marks=0;
+    let total=0;    
+    // all our answers are stored as lists so we need to compare lists to see if the answer is right
+    // business rules indicate 0 or 1 mark per question, so they need all options correct
+
+    // check if the user answer is inside the allowed answers
+    // userAnswer.filter(answer => questionAnswer.includes(userAnswer))
+
+    // [["A"],["A","C"],["B"],["A","D"]]
+    for (i=0; i<answersArray.length; i++) {
+        console.log(JSON.stringify(correctAnswersArray[i]));
+        console.log(JSON.stringify(answersArray[i]));
+        if (JSON.stringify(correctAnswersArray[i]) === JSON.stringify(answersArray[i])) {
+            marks = marks+1;
+            console.log("Mark", marks);
+        }
+        total=total+1;
+    }
+    let mark = Math.round((marks/total)*100);
+    return mark;
+}
+
+const leaderboardDb = async details => {
+    const quizName = details.quizName;
+    console.log(quizName);
+    params = {
+        TableName: answerTable,
+        IndexName: "IndexMark",
+        KeyConditionExpression: ":n = quizName",
+        ExpressionAttributeValues: {
+            ":n": quizName
+        },
+        ScanIndexForward: false,
+        Limit: 5
+    };
+
+    let data = await docClient.query(params).promise();
+    return {statusCode: 200, body: JSON.stringify(data)}
+>>>>>>> a66fcaccde5851b43a36f0ad86d6ba7d7624e348
 }
 
 module.exports = { 
     markQuizDb2,
+<<<<<<< HEAD
     receiveDemoDb
+=======
+    mark,
+    leaderboardDb
+>>>>>>> a66fcaccde5851b43a36f0ad86d6ba7d7624e348
 };

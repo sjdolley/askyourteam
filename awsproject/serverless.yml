@@ -50,6 +50,7 @@ provider:
     quizTable: quizTable-${opt:stage, self:provider.stage}
     questionTable: questionTable-${opt:stage, self:provider.stage}
     demoQuestionTable: demoQuestionTable-${opt:stage, self:provider.stage}
+    answerTable: answerTable-${opt:stage, self:provider.stage}
 #  environment:
 #    userTable: ${self:custom.tableName}
 #        - "s3:ListBucket"
@@ -78,20 +79,6 @@ provider:
 #    - exclude-me-dir/**
 
 functions:
-  createUser:
-    handler: users/create.create
-    events:
-      - http:
-          path: users
-          method: post
-
-  getUser:
-    handler: users/get.get
-    events:
-      - http:
-          path: users/{id}
-          method: get
-
   verifyToken:
     handler: functions/authorize.handler
 
@@ -238,7 +225,31 @@ functions:
           path: markQuiz
           method: post
           cors: true
-          
+
+  logQuizAnswers:
+    handler: answers/logQuizAnswers.handler
+    events:
+      - http:
+          path: logQuizAnswers
+          method: post
+          cors: true  
+
+  leaderboard:
+    handler: analytics/leaderboard.handler
+    events:
+      - http:
+          path: leaderboard
+          method: get
+          cors: true
+
+  getAnswersByScore:
+    handler: analytics/getAnswersByScore.handler
+    events:
+      - http:
+          path: getAnswersByScore
+          method: get
+          cors: true
+
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
@@ -368,6 +379,45 @@ resources:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
         TableName: demoQuestionTable-${self:provider.stage}
+
+    answerTable:
+      Type: 'AWS::DynamoDB::Table'
+      DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: quizName
+            AttributeType: S
+          -
+            AttributeName: id
+            AttributeType: S
+          # Required for LocalSecondaryIndex
+          -
+            AttributeName: mark
+            AttributeType: N
+        KeySchema:
+          -
+            AttributeName: quizName
+            KeyType: HASH
+          -
+            AttributeName: id
+            KeyType: RANGE
+        LocalSecondaryIndexes:
+          -
+            IndexName: IndexMark
+            KeySchema:
+              -
+                AttributeName: quizName
+                KeyType: HASH
+              -
+                AttributeName: mark
+                KeyType: RANGE
+            Projection:
+              ProjectionType: ALL
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: answerTable-${self:provider.stage}
 #      Type: AWS::S3::Bucket
 #      Properties:
 #        BucketName: my-new-bucket
