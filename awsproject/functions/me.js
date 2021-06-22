@@ -11,7 +11,7 @@ module.exports.handler = async function me(event) {
   return {
     statusCode: 200,
     headers: {},
-    body: JSON.stringify(dbUser)
+    body: dbUser
   };
 };
 
