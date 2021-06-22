@@ -242,6 +242,13 @@ functions:
           method: get
           cors: true
 
+  getAnswersByScore:
+    handler: analytics/getAnswersByScore.handler
+    events:
+      - http:
+          path: getAnswersByScore
+          method: get
+          cors: true
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
@@ -382,6 +389,10 @@ resources:
             AttributeName: quizName
             AttributeType: S
           -
+            AttributeName: id
+            AttributeType: S
+          # Required for LocalSecondaryIndex
+          -
             AttributeName: mark
             AttributeType: N
         KeySchema:
@@ -389,8 +400,20 @@ resources:
             AttributeName: quizName
             KeyType: HASH
           -
-            AttributeName: mark
+            AttributeName: id
             KeyType: RANGE
+        LocalSecondaryIndexes:
+          -
+            IndexName: IndexMark
+            KeySchema:
+              -
+                AttributeName: quizName
+                KeyType: HASH
+              -
+                AttributeName: mark
+                KeyType: RANGE
+            Projection:
+              ProjectionType: ALL
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1

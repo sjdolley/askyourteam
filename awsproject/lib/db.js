@@ -75,17 +75,17 @@ const usersTable = process.env.usersTable
 const quizTable = process.env.quizTable
 
 // INIT AWS
-AWS.config.update({
-  region: "us-east-1"
-});
-
+// AWS.config.update({
+//   region: "us-east-1"
+// });
+console.log(AWS.DynamoDB.DocumentClient);
 const docClient = new AWS.DynamoDB.DocumentClient();
 
 const createDbUser = async details => {
   const email = details.email;
   const password = details.password;
   const passwordHash = await bcrypt.hash(password, 8); // hash the pass
-  delete password; // eliminate the trace of the password
+  // delete password; // eliminate the trace of the password
   
   const params = {
     TableName: usersTable,

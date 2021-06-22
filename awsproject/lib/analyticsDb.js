@@ -5,9 +5,9 @@ const { toArray } = require("../lib/utils");
 
 const questionTable = process.env.questionTable
 // INIT AWS
-AWS.config.update({
-  region: "us-east-1"
-});
+// AWS.config.update({
+//   region: "us-east-1"
+// });
 
 const docClient = new AWS.DynamoDB.DocumentClient();
 
@@ -134,12 +134,13 @@ const leaderboardDb = async details => {
     console.log(quizName);
     params = {
         TableName: answerTable,
+        IndexName: "IndexMark",
         KeyConditionExpression: ":n = quizName",
         ExpressionAttributeValues: {
             ":n": quizName
         },
         ScanIndexForward: false,
-        Limit: 10
+        Limit: 5
     };
 
     let data = await docClient.query(params).promise();

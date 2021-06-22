@@ -4,9 +4,9 @@ const { arrayToList, normalizeData } = require("../lib/utils");
 const quizTable = process.env.quizTable
 const questionTable = process.env.questionTable
 // INIT AWS
-AWS.config.update({
-  region: "us-east-1"
-});
+// AWS.config.update({
+//   region: "us-east-1"
+// });
 
 const docClient = new AWS.DynamoDB.DocumentClient();
 
@@ -157,7 +157,7 @@ const createDbQuestion = async details => {
 
 
 const getAnswersByQuizName = async details => {
-  quizName = details.quizName;
+  let quizName = details.quizName;
 
   // query the table with quizname to get all the questions
   data = await getAllQuestionswithQuizNameDb(details);
