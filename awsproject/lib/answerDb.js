@@ -48,25 +48,22 @@ const logQuizAnswersDb = async details => {
 const getAnswersByScoreDb = async details => {
     const docClient = new AWS.DynamoDB.DocumentClient();
     const mark = details.mark;
-    const operator = details.operator;
     const quizName = details.quizName;
     
     const params = {
         TableName: answerTable,
-        //IndexName: "IndexMark",
+        IndexName: "IndexMark",
         KeyConditionExpression: "quizName = :quizName",
         FilterExpression: "mark = :mark",
-        ExpressionAttributeNames: {"#operator": ":operator"}, 
         ExpressionAttributeValues: {
             ":quizName": quizName,
-            ":operator": operator,
-            ":mark": mark
+            ":mark": mark,
         },
     }
     console.log(params);
-    const stuff = await docClient.query(params).promise;
-    console.log(stuff);
-    return { statusCode: 200, body: JSON.stringify(stuff) } 
+    const response = await docClient.query(params).promise();
+    console.log(response);
+    return { statusCode: 200, body: JSON.stringify(response) } 
 }
 
 
