@@ -102,47 +102,6 @@ const compareLists = function compare(listA, listB) {
     } //should answer 0 if the lists are the same. any other result (-1,1) should get 0 marks
 };
 
-<<<<<<< HEAD
-
-/* need to set schema for the storage still of this data in the quiz table
-    ("demographicData": [
-        "Question1": ["A": "value",
-                      "B": "value",
-                      "C": "value",
-                      "D": "value",
-                      "E": "value"],
-        "Question2": ["A": "value",
-                      "B": "value",
-                      "C": "value",
-                      "D": "value",
-                      "E": "value"],
-        "Question3": ["A": "value",
-                      "B": "value",
-                      "C": "value",
-                      "D": "value",
-                      "E": "value"],
-    ]
-                }
-
-*/
-const receiveDemoDb = async details => {
-    const quizName = details.quizName;
-    const demoQuestion1 = details.demoQuestion1;
-    const demoQuestion2 = detail.demoQuestion2;
-    const demoQuestion3 = detail.demoQuestion3;
-    const 
-    params = {
-        TableName: quizTable,
-        Key: { quizName: quizName
-        },
-        UpdateExpression="SET demographicData[0].question.value = :newvalue + :inc",
-        ExpressionAttributeNames {
-            :newvalue: 
-        }
-        ExpressionAttributeValues={        
-            ':inc': '1' }, 
-    } 
-=======
 function mark (correctAnswers, answers) {
     console.log("entering mark function");
     console.log("correctAnswers",correctAnswers);
@@ -187,15 +146,10 @@ const leaderboardDb = async details => {
 
     let data = await docClient.query(params).promise();
     return {statusCode: 200, body: JSON.stringify(data)}
->>>>>>> a66fcaccde5851b43a36f0ad86d6ba7d7624e348
 }
 
 module.exports = { 
     markQuizDb2,
-<<<<<<< HEAD
-    receiveDemoDb
-=======
     mark,
     leaderboardDb
->>>>>>> a66fcaccde5851b43a36f0ad86d6ba7d7624e348
 };

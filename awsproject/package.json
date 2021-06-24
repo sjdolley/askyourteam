@@ -22,8 +22,11 @@
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "jsonschema": "^1.4.0",
     "jsonwebtoken": "^8.5.1",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "validator": "^13.6.0",
+    "validatorjs": "^3.22.1"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.14.5",
