@@ -3,7 +3,7 @@ const Validator = require("jsonschema").Validator;
 
 module.exports.handler = async function registerUser(event) {
   const body = JSON.parse(event.body);
-  
+  // schema validation on incoming payload
   let v = new Validator();
   
   let schema = {
@@ -27,14 +27,28 @@ module.exports.handler = async function registerUser(event) {
   
   // v.addSchema(schema, schema["/registrationPayload"]);
   let validation = v.validate(body, schema);
- 
+  console.log(validation.errors.length);
   if (validation.errors.length > 0){
       console.log(validation);
       return {
-        statusCode: 409,
-        headers: { "Access-Control-Allow-Origin": "*"},
-        body: { "validation error": validation.errors }
+        statusCode: 400,
+        headers: { 'Content-Type': 'text/plain' },
+        body:  JSON.stringify(validation.errors) 
       }
+        .then(user => ({
+          statusCode: 200,
+          body: JSON.stringify(user)
+        }))
+    }
+
+  // Validation if user name exists
+  const dbUser = await getUserByEmail(body.email);
+  if(dbUser==null ){
+    return {
+      statusCode: 409,
+      headers: { "Access-Control-Allow-Origin": "*"},
+      body: { "validation error": "User Already Exists" }
+    };
   }
 
   console.log(validation);

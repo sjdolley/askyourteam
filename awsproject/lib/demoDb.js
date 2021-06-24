@@ -10,7 +10,7 @@ AWS.config.update({
 const docClient = new AWS.DynamoDB.DocumentClient();
 
 const createDbDemoQuestion = async details => {
-    let quizName = details.quizName;
+    
     let questionID = details.questionID;
     let question_type = details.question_type;
     let question_body = details.question_body;

@@ -14,7 +14,7 @@ const publishDbQuiz = async (details) => {
     const theQuiz = details.quizName;
     console.log(theQuiz);
     const theEmail = details.email;
-    const endDate = details.endDate;
+    // const endDate = details.endDate;
     const table = process.env.quizTable;
     const pubDate = Date();
     console.log(table);
@@ -27,14 +27,14 @@ const publishDbQuiz = async (details) => {
           quizName: theQuiz,
           email: theEmail,
       },
-      UpdateExpression: "SET published = :published, #endDate = :endDate, #publishedDate = :publishedDate",
+      UpdateExpression: "SET published = :published, #publishedDate = :publishedDate",
       ExpressionAttributeNames: {
-        "#publishedDate": "publishedDate",
-        "#endDate": "endDate"
+        "#publishedDate": "publishedDate"
+        //"#endDate": "endDate"
       },
       ExpressionAttributeValues: {
           ":published": true,
-          ":endDate": endDate,
+          //":endDate": endDate,
           ":publishedDate": pubDate
       },
       ReturnValues:"UPDATED_NEW"
