@@ -3,9 +3,9 @@ const AWS = require("aws-sdk");
 const quizTable = process.env.quizTable
 
 // INIT AWS
-AWS.config.update({
-  region: "us-east-1"
-});
+// AWS.config.update({
+//   region: "us-east-1"
+// });
 
 const docClient = new AWS.DynamoDB.DocumentClient();
 

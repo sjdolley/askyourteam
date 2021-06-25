@@ -138,17 +138,16 @@ describe('getAllQuestionswithQuizNameDb method', () => {
         "quizName": "A Test QuizName"
     }
 
-    const params = {
-        TableName: questionTable,
-        KeyConditionExpression: "quizName = :quizName",
-        ExpressionAttributeValues: {
-          ":quizName": "A Test Quizname"
-        },
-      }
+    // const params = {
+    //     KeyConditionExpression: "quizName = :quizName",
+    //     ExpressionAttributeValues: {
+    //       ":quizName": "A Test Quizname"
+    //     },
+    //   }
         awsSdkPromiseResponse.mockReturnValueOnce(Promise.resolve({ Item: getparams }));
 
       const questions = await getAllQuestionswithQuizNameDb(queryparams);
-      expect(db.get).toHaveBeenCalledWith(params);
+      expect(db.get).toHaveBeenCalledWith({TableName: questionTable, KeyConditionExpression: "quizName = :quizName", ExpressionAttributeValues: {":quizName": "A Test Quizname"}});
       expect(questions).toEqual(getparams);
     });
   });
