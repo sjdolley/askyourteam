@@ -1,0 +1,266 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open-Sans', sans-serif;
+}
+
+body {
+  line-height: 1.5;
+  background-color: #f4f4f4;
+  font-size: 1.1em;
+  font-family:  'Arial', Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  padding-top: 1em;
+}
+
+/* Global colour variables in CSS */
+:root {
+  --ayt-orange: #f36f2d;
+  --ayt-grey: #3a3732;
+}
+
+/* Breadcrumb styles */
+/* Style the list */
+ul.breadcrumbs {
+  padding: 10px 16px;
+  list-style: none;
+  background-color: #eee;
+}
+
+/* Display list items side by side */
+ul.breadcrumbs li {
+  display: inline;
+  font-size: 18px;
+}
+
+/* Add a slash symbol (/) before/behind each list item */
+ul.breadcrumbs li+li:before {
+  padding: 8px;
+  color: black;
+  content: "/\00a0";
+}
+
+/* Add a color to all links inside the list */
+ul.breadcrumbs li a {
+  color: #0275d8;
+  text-decoration: none;
+}
+
+/* Add a color on mouse-over */
+ul.breadcrumbs li a:hover {
+  color: #01447e;
+  text-decoration: underline;
+}
+
+/************ Page Layout - Header, Main, Footer ************/
+.app {
+  height: 100vh;
+  width: 100%;
+  
+  /* grid container settings */
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: 
+    'header'
+    'main'
+    'footer';
+}
+
+.app-header {
+  grid-area: header;
+  left: 0;
+  background-color: var(--ayt-grey);
+  min-height: 4em;
+  color: white;
+  overflow: hidden;
+  width: 100%;
+  justify-content: left;
+  align-items: left;
+  padding: 2em 0 2em 1em;
+}
+
+.app > main {
+  grid-area: main;
+  overflow: auto;
+  padding: 15px 5px 10px 5px;
+}
+
+.app-footer {
+  grid-area: footer; 
+
+  padding: 2em;
+  background-color: var(--ayt-grey);
+  min-height: 3em;
+  color: white; 
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+  width: 100%; 
+
+  /* Center align text horizontally and vertically */
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/************ Running Styles - Styles for the Headers and Footers ************/
+.logo {
+  width: 100%;
+  max-width: 10em;
+  height: auto;
+  float: left;
+  padding-right: 1em;
+}
+
+.horizontal-rule {
+  float: left;
+  font-size: 2em;
+  padding-right: 0.5em;
+}
+
+.running-text {
+  float: left;  
+  padding-top: 0.2em;
+  font-size: 1.8em;
+}
+
+/************ Login Styles ************/
+.login-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form {
+  width: 40vw;
+  padding-top: 1em;
+  border-style: solid;
+  border-width: 0.1em;
+  border-radius: 1em;
+  padding: 1em 2em;
+  margin: 2em 0;
+  align-items: center;
+  background-color: whitesmoke;
+}
+
+input {
+  width: 100%;
+}
+
+.white-space {
+  white-space: pre-line;
+}
+
+.form-btn {
+  width: 80%;
+  margin: 1em 10%;
+  padding: 0.4em;
+  float: center;
+  background-color: green;
+  color: white;
+}
+
+/************ Dashboard Grid ************/
+.dashboard-wrapper {
+  margin: 0.5em;
+  
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+  /* grid-template-rows: repeat(2, 12em); */
+  /* grid-template-rows: repeat(auto-fit, minmax(12em, auto-fit)); */
+  grid-gap: 2rem;
+  grid-auto-flow: dense;
+  margin: 2em;
+}
+
+.grid-item {
+  padding: 1em;
+  /* grid-column-start: 1;
+  grid-row-end: 1; */
+  height: auto;
+  border-style: solid;
+  background-color: rgb(209, 203, 203);
+  position: relative;
+  align-items: center;
+  border-color: var(--ayt-grey);
+  color: var(--ayt-grey);
+}
+
+.grid-item:hover {
+  background-color: orange;
+}
+
+.grid-item-link {
+  text-decoration: none;
+}
+
+
+.report-btn {
+  width: 80%;
+  height: 3em;
+  text-align: center;
+  margin: 1em 10% 0 10%;
+}
+
+.title-line {
+  margin-top: 2em;
+  width: 100%;
+  text-align: center;
+}
+
+#dashboard-title {
+  display: inline-block;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+}
+
+#successful-alert {
+  display: block;
+  float: left;
+  color: black;
+  /* background-color: green; */
+}
+
+#create-quiz-form {
+  display: flex;
+  float: right;
+  /* flex-flow: row wrap; */
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+#create-quiz-input {
+  width: 20em;
+  height: 2.5em;
+  margin: 0;
+  padding: 0;
+  float: right;
+}
+
+.new-quiz-btn {
+  width: 12em;
+  height: 2.5em;
+  background-color: var(--ayt-orange);
+  font-weight: bolder;
+  font-size: medium;
+  margin-left: 1em;
+  padding: 0;
+  float: right;
+}
+
+.new-quiz-btn:hover {
+  background-color: #f8a273;
+}

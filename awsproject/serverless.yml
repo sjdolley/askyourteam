@@ -264,21 +264,6 @@ resources:
       Type: 'AWS::DynamoDB::Table'
       DeletionPolicy: Retain
       Properties:
-<<<<<<< HEAD
-        TableName: usersTable
-        AttributeDefinitions:
-          -
-            AttributeName: "email"
-            AttributeType: "S"
-        KeySchema:
-          -
-            AttributeName: "email"
-            KeyType:  "HASH"
-        ProvisionedThroughput:
-          ReadCapacityUnits: 1
-          WriteCapacityUnits: 1  
-#    NewResource:
-=======
         AttributeDefinitions:
           - AttributeName: email
             AttributeType: S
@@ -362,6 +347,7 @@ resources:
           WriteCapacityUnits: 1
         TableName: demoQuestionTable-${self:provider.stage}
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> origin/back-end
 #      Type: AWS::S3::Bucket
 #      Properties:
@@ -372,6 +358,8 @@ resources:
 #       Value: "Some output value"
 # This is to test git
 =======
+=======
+>>>>>>> 5184be7e7afb46ee7b02a6cc092d033a54ca6eec
 
     answerTable:
       Type: 'AWS::DynamoDB::Table'
@@ -411,4 +399,15 @@ resources:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
         TableName: answerTable-${self:provider.stage}
+<<<<<<< HEAD
 >>>>>>> origin/back-end
+=======
+#      Type: AWS::S3::Bucket
+#      Properties:
+#        BucketName: my-new-bucket
+#  Outputs:
+#     NewOutput:
+#       Description: "Description for the output"
+#       Value: "Some output value"
+# This is to test git
+>>>>>>> 5184be7e7afb46ee7b02a6cc092d033a54ca6eec
