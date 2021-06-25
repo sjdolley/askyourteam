@@ -13,26 +13,50 @@
 
 service: awsproject
 # app and org for use with dashboard.serverless.com
-#app: your-app-name
-#org: your-org-name
 
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
 frameworkVersion: '2'
 
+custom:
+  secrets: ${file(secrets.json)}
+  tableName: 'usersTable-${self:provider.stage}'
+
+  #Setting up serverless-s3-sync plugin to automatically sync code on deploy
+  # s3Sync:
+  #     # A simple configuration for copying static assets
+  #   - bucketName: ayt-quiz
+  #     localDir: askyourteam/askyourteam/awsproject/build # required
+
 provider:
   name: aws
   runtime: nodejs12.x
   lambdaHashingVersion: 20201221
+  logRetentionInDays: 365
 
 # you can overwrite defaults here
-#  stage: dev
-#  region: us-east-1
+  stage: dev
+  region: us-east-1
 
 # you can add statements to the Lambda function's IAM Role here
-#  iamRoleStatements:
-#    - Effect: "Allow"
-#      Action:
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: "*"
+  environment:
+    usersTable: ${self:custom.tableName}
+    JWT_SECRET: ${self:custom.secrets.JWT_SECRET}
+    AWS_ID: ${self:custom.secrets.AWS_ID}
+    quizTable: quizTable-${opt:stage, self:provider.stage, dev}
+    questionTable: questionTable-${opt:stage, self:provider.stage, dev}
+#  environment:
+#    userTable: ${self:custom.tableName}
 #        - "s3:ListBucket"
 #      Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "ServerlessDeploymentBucket" } ] ]  }
 #    - Effect: "Allow"
@@ -58,9 +82,99 @@ provider:
 #    - exclude-me.js
 #    - exclude-me-dir/**
 
+# plugins:
+#   - serverless-s3-sync
+
 functions:
-  hello:
-    handler: handler.hello
+  createUser:
+    handler: users/create.create
+    events:
+      - http:
+          path: users
+          method: post
+
+  getUser:
+    handler: users/get.get
+    events:
+      - http:
+          path: users/{id}
+          method: get
+
+  verifyToken:
+    handler: functions/authorize.handler
+
+  me:
+    handler: functions/me.handler
+    events:
+          - http:
+              path: me
+              method: get
+              cors: true
+              authorizer:
+                name: verifyToken
+                            # this tells the lambda where to take the information from, 
+                            # in our case the HTTP Authorization header
+                identitySource: method.request.header.Authorization 
+                resultTtlInSeconds: 3600 # cache the result for 1 hours
+
+  login:
+    handler: functions/login.handler
+    events:
+      - http:
+          path: login
+          method: post
+          cors: true
+          Access-Control-Allow-Origin: '*'
+          Access-Control-Allow-Credentials: true
+
+  register:
+    handler: functions/register.handler
+    events:
+      - http:
+          path: register
+          method: post
+
+  createQuiz:
+    handler: quiz/createQuiz.handler
+    events:
+      - http:
+          path: createQuiz
+          method: post
+          cors: true
+
+  publishQuiz:
+    handler: quiz/publishQuiz.handler
+    events:
+      - http:
+          path: publishQuiz
+          method: post
+          cors: true
+
+  deleteQuiz:
+    handler: quiz/deleteQuiz.handler
+    events:
+      - http:
+          path: deleteQuiz
+          method: delete
+          cors: true
+
+  getAllQuizByEmail:
+    handler: quiz/getAllQuizByEmail.handler
+    events:
+      - http:
+          path: getAllQuizByEmail
+          method: get
+          cors: true
+
+  getQuizByName:
+    handler: quiz/getQuizByName.handler
+    events:
+      - http:
+          path: getQuizByName
+          method: get
+          cors: true
+
+          
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
@@ -108,23 +222,60 @@ resources:
       Type: 'AWS::DynamoDB::Table'
       DeletionPolicy: Retain
       Properties:
-        TableName: usersTable
         AttributeDefinitions:
-          -
-            AttributeName: "email"
-            AttributeType: "S"
+          - AttributeName: email
+            AttributeType: S
         KeySchema:
-          -
-            AttributeName: "email"
-            KeyType:  "HASH"
+          - AttributeName: email
+            KeyType:  HASH
+        TableName: ${self:custom.tableName}
         ProvisionedThroughput:
           ReadCapacityUnits: 1
-          WriteCapacityUnits: 1  
-   NewResource:
-     Type: AWS::S3::Bucket
-     Properties:
-       BucketName: quizproject-dev
-#  Outputs:
+          WriteCapacityUnits: 1 
+    quizTable:
+      Type: 'AWS::DynamoDB::Table'
+      DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: quizName
+            AttributeType: S
+          -
+            AttributeName: email
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: quizName
+            KeyType: HASH
+          - 
+            AttributeName: email
+            KeyType: RANGE
+        TableName: quizTable-${self:provider.stage}   
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1        
+    # quizBucket:
+    #   Type: AWS::S3::Bucket
+    #   Properties:
+    #     BucketName: ayt-quiz-app-dev
+    #     AccessControl: PublicRead
+    #     WebsiteConfiguration:
+    #       IndexDocument: index.html
+    #       ErrorDocument: error.html
+    # GatewayResponseDefault4XX:
+    #   Type: 'AWS::ApiGateway::GatewayResponse'
+    #   Properties:
+    #     ResponseParameters:
+    #     gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
+    #     gatewayresponse.header.Access-Control-Allow-Headers: "'*'"
+    #     ResponseType: DEFAULT_4XX
+    #     RestApiId:
+    #       Ref: 'ApiGatewayRestApi'
+
+# #  Outputs:
 #     NewOutput:
 #       Description: "Description for the output"
 #       Value: "Some output value"
+# This is to test git
+
+

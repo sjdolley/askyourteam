@@ -4,10 +4,8 @@ import '../../App.css';
 import headerLogo from '../header/AYT-Logo.png';
 import footerLogo from '../footer/footer-logo.PNG';
 
-
-
 async function loginUser(credentials) {
- return fetch('http://localhost:8080/login', {
+ return fetch(' https://bzj0anqy3l.execute-api.us-east-1.amazonaws.com/dev/login', {
    method: 'POST',
    headers: {
      'Content-Type': 'application/json'
@@ -53,12 +51,12 @@ export default function Login({ setToken }) {
         <form onSubmit={handleSubmit}>
           <label>
             <p>Email Address</p>
-            <input type="email" onChange={e => setEmail(e.target.value)} required/>
+            <input type="email" onChange={e => setEmail(e.target.value)} required />
           </label>
           
           <label>
             <p>Password</p>
-            <input type="password" onChange={e => setPassword(e.target.value)} required/>
+            <input type="password" onChange={e => setPassword(e.target.value)} required />
           </label>
           <div>
             <button type="submit" id="create-quiz-btn">Submit</button>
