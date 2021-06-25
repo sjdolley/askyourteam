@@ -51,32 +51,6 @@ provider:
     questionTable: questionTable-${opt:stage, self:provider.stage}
     demoQuestionTable: demoQuestionTable-${opt:stage, self:provider.stage}
     answerTable: answerTable-${opt:stage, self:provider.stage}
-#  environment:
-#    userTable: ${self:custom.tableName}
-#        - "s3:ListBucket"
-#      Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "ServerlessDeploymentBucket" } ] ]  }
-#    - Effect: "Allow"
-#      Action:
-#        - "s3:PutObject"
-#      Resource:
-#        Fn::Join:
-#          - ""
-#          - - "arn:aws:s3:::"
-#            - "Ref" : "ServerlessDeploymentBucket"
-#            - "/*"
-
-# you can define service wide environment variables here
-#  environment:
-#    variable1: value1
-
-# you can add packaging information here
-#package:
-#  include:
-#    - include-me.js
-#    - include-me-dir/**
-#  exclude:
-#    - exclude-me.js
-#    - exclude-me-dir/**
 
 functions:
   verifyToken:
@@ -218,14 +192,6 @@ functions:
           method: get
           cors: true
 
-  markQuiz:
-    handler: analytics/markQuiz.handler
-    events:
-      - http:
-          path: markQuiz
-          method: post
-          cors: true
-
   logQuizAnswers:
     handler: answers/logQuizAnswers.handler
     events:
@@ -242,13 +208,6 @@ functions:
           method: get
           cors: true
 
-  getAnswersByScore:
-    handler: analytics/getAnswersByScore.handler
-    events:
-      - http:
-          path: getAnswersByScore
-          method: get
-          cors: true
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
@@ -418,11 +377,3 @@ resources:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
         TableName: answerTable-${self:provider.stage}
-#      Type: AWS::S3::Bucket
-#      Properties:
-#        BucketName: my-new-bucket
-#  Outputs:
-#     NewOutput:
-#       Description: "Description for the output"
-#       Value: "Some output value"
-# This is to test git
