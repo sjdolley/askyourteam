@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const { getUserByEmail } = require("../lib/db");
 
+
 async function signToken(user) {
   const secret = Buffer.from(process.env.JWT_SECRET, "base64");
 
@@ -23,6 +24,7 @@ async function login(args) {
   
       if (isValidPassword) {
         const token = await signToken(user);
+        console.log(token);
         return Promise.resolve({ auth: true, token: token, status: "SUCCESS" });
       }
     } catch (err) {
@@ -46,8 +48,35 @@ async function login(args) {
     return decoded;
   }
 
+  function arrayToList(array) {
+    let list = null;
+    for (let i = array.length - 1; i >= 0; i--) {
+        list = { value: array[i], rest: list };
+    }
+    return list;
+}
+
+const normalizeData = data => {
+  return data.map(value => {
+    if (!Array.isArray(value)) return [value]
+    return value
+  })
+}
+
+function toArray(obj) {
+  var array = [];
+  // iterate backwards ensuring that length is an UInt32
+  for (var i = obj.length >>> 0; i--;) { 
+      array[i] = obj[i];
+  }
+return array;
+}
+
   module.exports = {
+    normalizeData,
     signToken,
     getUserFromToken,
-    login
+    login,
+    arrayToList,
+    toArray
   };

@@ -50,48 +50,9 @@ provider:
     quizTable: quizTable-${opt:stage, self:provider.stage}
     questionTable: questionTable-${opt:stage, self:provider.stage}
     demoQuestionTable: demoQuestionTable-${opt:stage, self:provider.stage}
-#  environment:
-#    userTable: ${self:custom.tableName}
-#        - "s3:ListBucket"
-#      Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "ServerlessDeploymentBucket" } ] ]  }
-#    - Effect: "Allow"
-#      Action:
-#        - "s3:PutObject"
-#      Resource:
-#        Fn::Join:
-#          - ""
-#          - - "arn:aws:s3:::"
-#            - "Ref" : "ServerlessDeploymentBucket"
-#            - "/*"
-
-# you can define service wide environment variables here
-#  environment:
-#    variable1: value1
-
-# you can add packaging information here
-#package:
-#  include:
-#    - include-me.js
-#    - include-me-dir/**
-#  exclude:
-#    - exclude-me.js
-#    - exclude-me-dir/**
+    answerTable: answerTable-${opt:stage, self:provider.stage}
 
 functions:
-  createUser:
-    handler: users/create.create
-    events:
-      - http:
-          path: users
-          method: post
-
-  getUser:
-    handler: users/get.get
-    events:
-      - http:
-          path: users/{id}
-          method: get
-
   verifyToken:
     handler: functions/authorize.handler
 
@@ -231,14 +192,31 @@ functions:
           method: get
           cors: true
 
-  markQuiz:
-    handler: analytics/markQuiz.handler
+  logQuizAnswers:
+    handler: answers/logQuizAnswers.handler
     events:
       - http:
-          path: markQuiz
+          path: logQuizAnswers
           method: post
+          cors: true  
+
+  leaderboard:
+    handler: analytics/leaderboard.handler
+    events:
+      - http:
+          path: leaderboard
+          method: get
           cors: true
-          
+  
+  getAnswersByScore:
+    handler: analytics/getAnswersByScore.handler
+    events:
+      - http:
+          path: getAnswersByScore.handler
+          method: get
+          cors: true
+
+
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
@@ -354,7 +332,7 @@ resources:
             AttributeType: S
           -
             AttributeName: questionID
-            AttributeType: S
+            AttributeType: N
         KeySchema:
           -
             AttributeName: quizName
@@ -383,6 +361,7 @@ resources:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
         TableName: demoQuestionTable-${self:provider.stage}
+<<<<<<< HEAD
 >>>>>>> origin/back-end
 #      Type: AWS::S3::Bucket
 #      Properties:
@@ -392,3 +371,44 @@ resources:
 #       Description: "Description for the output"
 #       Value: "Some output value"
 # This is to test git
+=======
+
+    answerTable:
+      Type: 'AWS::DynamoDB::Table'
+      DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: quizName
+            AttributeType: S
+          -
+            AttributeName: id
+            AttributeType: S
+          # Required for LocalSecondaryIndex
+          -
+            AttributeName: mark
+            AttributeType: N
+        KeySchema:
+          -
+            AttributeName: quizName
+            KeyType: HASH
+          -
+            AttributeName: id
+            KeyType: RANGE
+        LocalSecondaryIndexes:
+          -
+            IndexName: IndexMark
+            KeySchema:
+              -
+                AttributeName: quizName
+                KeyType: HASH
+              -
+                AttributeName: mark
+                KeyType: RANGE
+            Projection:
+              ProjectionType: ALL
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: answerTable-${self:provider.stage}
+>>>>>>> origin/back-end

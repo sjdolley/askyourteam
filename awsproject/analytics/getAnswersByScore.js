@@ -1,10 +1,10 @@
-const { getAllQuizByEmailDb } = require("../lib/quizDb");
-
-module.exports.handler = async function getAllQuizByEmail(event) {
+const { getAnswersByScore } = require("../lib/analyticsDb");
+const { getAnswersByScoreDb } = require("../lib/answerDb");
+module.exports.handler = async function getAnswersByScore(event) {
   const body = event.queryStringParameters;
   console.log(body);
 
-  return getAllQuizByEmailDb(body)
+  return getAnswersByScoreDb(body)
     .then((output) => ({
       statusCode: 200,
       body: JSON.stringify(output),
@@ -19,5 +19,3 @@ module.exports.handler = async function getAllQuizByEmail(event) {
       };
     });
 };
-
-// curl -H "Content-Type: application/json" -X POST -d "{\"email\": \"test@example.com\"}" https://vvdof5ayyl.execute-api.us-east-1.amazonaws.com/dev/getAllQuizByEmail/{email}

@@ -1,4 +1,3 @@
-
 /*
 // Require AWS SDK and instantiate DocumentClient
 const AWS = require("aws-sdk");
@@ -63,87 +62,82 @@ module.exports = {
 };
 */
 
-
-
-
-
 // Require AWS SDK and instantiate DocumentClient
 const AWS = require("aws-sdk");
 const bcrypt = require("bcryptjs");
 const { v4: uuidv4 } = require("uuid");
-const usersTable = process.env.usersTable
-const quizTable = process.env.quizTable
+const usersTable = process.env.usersTable;
+const quizTable = process.env.quizTable;
 
 // INIT AWS
-AWS.config.update({
-  region: "us-east-1"
-});
-
+// AWS.config.update({
+//   region: "us-east-1"
+// });
+console.log(AWS.DynamoDB.DocumentClient);
 const docClient = new AWS.DynamoDB.DocumentClient();
 
-const createDbUser = async details => {
+const createDbUser = async (details) => {
   const email = details.email;
   const password = details.password;
   const passwordHash = await bcrypt.hash(password, 8); // hash the pass
-  delete password; // eliminate the trace of the password
-  
+  // delete password; // eliminate the trace of the password
+
   const params = {
     TableName: usersTable,
-    Item:{email: email,
-    id: uuidv4(),
-    passwordHash: passwordHash,
-    createdAt: new Date()
-    }
-  }
+    Item: {
+      email: email,
+      id: uuidv4(),
+      passwordHash: passwordHash,
+      createdAt: new Date(),
+    },
+  };
 
   console.log("create user with params", params);
 
   await docClient.put(params).promise();
 
-  return { statusCode: 200, body: JSON.stringify(params)}
+  return { statusCode: 200, body: "User Created"};
 };
 
-const createDbQuiz = async details => {
+const createDbQuiz = async (details) => {
   const quizName = details.quizName;
   const email = details.email;
 
   const table = process.env.quizTable;
-  console.log(table);
-// add validation to check if quiz already exists with this name
+  // console.log(table);
+  // add validation to check if quiz already exists with this name
   const params = {
     TableName: quizTable,
-    Item:{quizName: quizName,
-    email: email,
-    id: uuidv4(),
-    created: new Date(),
-    published: false,
-    demographics: false,
-    }
-  }
+    Item: {
+      quizName: quizName,
+      email: email,
+      id: uuidv4(),
+      created: new Date(),
+      published: false,
+      demographics: false,
+    },
+  };
 
   console.log("create quiz with params", params);
 
   await docClient.put(params).promise();
 
-  return { statusCode: 200, body: JSON.stringify(params)}
+  return { statusCode: 200, body: "Quiz has been created" };
 };
 
-const getUserByEmail = async email => {
-  
-    console.log(email)
-    // console.log(JSON.stringify(email));
-    const params = {
-      TableName: usersTable,
-      Key: {
-        "email" : email 
-      }
-    }
+const getUserByEmail = async (email) => {
+  console.log(email);
+  // console.log(JSON.stringify(email));
+  const params = {
+    TableName: usersTable,
+    Key: {
+      email: email,
+    },
+  };
   const response = await docClient.get(params).promise();
-  console.log(response)
+  console.log(response);
   return response.Item;
-
 };
-
 
 /* const getUserByEmail = (event, context, callback) => {
   const package = event.email;
@@ -170,25 +164,11 @@ const getUserByEmail = async email => {
     });
 }; */
 
-
 module.exports = {
   createDbUser,
   getUserByEmail,
-  createDbQuiz
+  createDbQuiz,
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*
 

@@ -1,9 +1,11 @@
-const { getQuizByNameDb } = require("../lib/quizDb");
+const { leaderboardDb } = require("../lib/analyticsDb");
 
-module.exports.handler = async function getQuizByName(event) {
-  body = event.queryStringParameters;
+module.exports.handler = async function markQuiz(event) {
+  console.log("in the handler");
+  const body = event.queryStringParameters;
+  // const body = JSON.parsr(event.body);
   console.log(body);
-  return getQuizByNameDb(body)
+  return leaderboardDb(body)
     .then((user) => ({
       statusCode: 200,
       body: JSON.stringify(user),
