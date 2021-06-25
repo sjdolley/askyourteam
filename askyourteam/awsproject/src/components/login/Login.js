@@ -5,7 +5,7 @@ import headerLogo from '../header/AYT-Logo.png';
 import footerLogo from '../footer/footer-logo.PNG';
 
 async function loginUser(credentials) {
- return fetch(' https://bzj0anqy3l.execute-api.us-east-1.amazonaws.com/dev/login', {
+ return fetch('http://localhost:8080/login', {
    method: 'POST',
    headers: {
      'Content-Type': 'application/json'

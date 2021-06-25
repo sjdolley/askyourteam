@@ -23,6 +23,18 @@
       "status": "Draft",
       "creationDate": "dd/mm/yyyy",
       "id": 4
+    },
+    {
+      "title": "Example test",
+      "status": "Draft",
+      "creationDate": "dd/mm/yyyy",
+      "id": 5
+    },
+    {
+      "title": "Example test",
+      "status": "Draft",
+      "creationDate": "dd/mm/yyyy",
+      "id": 6
     }
   ],
   "quizContent": [
