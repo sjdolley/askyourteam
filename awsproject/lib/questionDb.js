@@ -4,9 +4,9 @@ const { arrayToList, normalizeData } = require("../lib/utils");
 const quizTable = process.env.quizTable
 const questionTable = process.env.questionTable
 // INIT AWS
-AWS.config.update({
-  region: "us-east-1"
-});
+// AWS.config.update({
+//   region: "us-east-1"
+// });
 
 const docClient = new AWS.DynamoDB.DocumentClient();
 

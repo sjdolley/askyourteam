@@ -92,7 +92,7 @@ const createDbUser = async details => {
     Item:{email: email,
     id: uuidv4(),
     passwordHash: passwordHash,
-    createdAt: new Date()
+    createdAt: Date.now()
     }
   }
 
@@ -108,14 +108,14 @@ const createDbQuiz = async details => {
   const email = details.email;
 
   const table = process.env.quizTable;
-  console.log(table);
+  // console.log(table);
 // add validation to check if quiz already exists with this name
   const params = {
     TableName: quizTable,
     Item:{quizName: quizName,
     email: email,
     id: uuidv4(),
-    created: new Date(),
+    created: new Date(Date.now()),
     published: false,
     demographics: false,
     }
@@ -125,7 +125,7 @@ const createDbQuiz = async details => {
 
   await docClient.put(params).promise();
 
-  return { statusCode: 200, body: JSON.stringify(params)}
+  return { statusCode: 200, body: "Quiz has been created"}
 };
 
 const getUserByEmail = async email => {

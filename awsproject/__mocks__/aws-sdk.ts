@@ -6,9 +6,18 @@ const putFn = jest.fn().mockImplementation(() => ({ promise: awsSdkPromiseRespon
 
 const queryFn = jest.fn().mockImplementation(() => ({ promise: awsSdkPromiseResponse }));
 
+const deleteFn = jest.fn().mockImplementation(() => ({ promise: awsSdkPromiseResponse }));
+
+const getFn = jest.fn().mockImplementation(() => ({ promise: awsSdkPromiseResponse }));
+
+const updateFn = jest.fn().mockImplementation(() => ({ promise: awsSdkPromiseResponse }));
+
 class DocumentClient {
   put = putFn;
-  //query = queryFn;
+  query = queryFn;
+  delete = deleteFn;
+  get = getFn;
+  update = updateFn;
 }
 
 export const DynamoDB = {

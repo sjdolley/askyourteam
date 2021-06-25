@@ -40,10 +40,11 @@ module.exports.handler = async function registerUser(event) {
           body: JSON.stringify(user)
         }))
     }
-
+    console.log(between validation)
   // Validation if user name exists
   const dbUser = await getUserByEmail(body.email);
-  if(dbUser==null ){
+  console.log(dbUser);
+  if(dbUser!=null ){
     return {
       statusCode: 409,
       headers: { "Access-Control-Allow-Origin": "*"},
