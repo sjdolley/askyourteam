@@ -41,7 +41,8 @@ module.exports.handler = async function signInUser(event) {
   return login(body)
     .then(session => ({
       statusCode: 200,
-      body: JSON.stringify(session)
+      headers: { "Content-Type": "text/plain" },
+      body: JSON.stringify(session),
     }))
     .catch(err => {
       console.log({ err });
@@ -54,6 +55,3 @@ module.exports.handler = async function signInUser(event) {
     });
 };
 
-function comparePassword(eventPassword, userPassword) {
-  return bcrypt.compare(eventPassword, userPassword);
-}

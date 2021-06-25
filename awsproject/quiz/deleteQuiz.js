@@ -2,8 +2,8 @@ const { deleteDbQuiz } = require("../lib/quizDb");
 const Validator = require("jsonschema").Validator;
 
 module.exports.handler = async function deleteQuiz(event) {
-  console.log(event.body);
-
+  
+  const body = JSON.parse(event.body);
   // schema validation on incoming payload
   let v = new Validator();
 
@@ -19,14 +19,14 @@ module.exports.handler = async function deleteQuiz(event) {
       },
       quizName: {
         minLength: 5,
-        maxLength: 16,
+        maxLength: 50,
       },
       required: ["email", "quizName"],
       additionalProperties: false,
     },
   };
   // v.addSchema(schema, schema["/registrationPayload"]);
-  let validation = v.validate(body, schema);
+  let validation = v.validate(event, schema);
 
   if (validation.errors.length > 0) {
     console.log(validation);
@@ -37,8 +37,6 @@ module.exports.handler = async function deleteQuiz(event) {
     };
   }
 
-  const body = JSON.parse(event.body);
-  console.log(event.body);
   return deleteDbQuiz(body)
     .then((user) => ({
       statusCode: 200,

@@ -207,6 +207,14 @@ functions:
           path: leaderboard
           method: get
           cors: true
+  
+  getAnswersByScore:
+    handler: analytics/getAnswersByScore.handler
+    events:
+      - http:
+          path: getAnswersByScore.handler
+          method: get
+          cors: true
 
 
 #    The following are a few example events you can configure
@@ -309,7 +317,7 @@ resources:
             AttributeType: S
           -
             AttributeName: questionID
-            AttributeType: S
+            AttributeType: N
         KeySchema:
           -
             AttributeName: quizName

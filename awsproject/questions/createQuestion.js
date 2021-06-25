@@ -54,6 +54,7 @@ module.exports.handler = async function createQuestion(event) {
         maxLength: 1,
       },
       questionID: {
+        type: "number",
         maxLength: 10,
         minLength: 1,
       },

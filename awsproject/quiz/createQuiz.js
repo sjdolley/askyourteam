@@ -19,8 +19,9 @@ module.exports.handler = async function createQuiz(event) {
         maxLength: 127,
       },
       quizName: {
+
         minLength: 5,
-        maxLength: 16,
+        maxLength: 50,
       },
       required: ["email", "quizName"],
       additionalProperties: false,

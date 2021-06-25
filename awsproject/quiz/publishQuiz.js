@@ -39,7 +39,7 @@ module.exports.handler = async function publishQuiz(event) {
     },
   };
   // v.addSchema(schema, schema["/registrationPayload"]);
-  let validation = v.validate(body, schema);
+  let validation = v.validate(event, schema);
 
   if (validation.errors.length > 0) {
     console.log(validation);

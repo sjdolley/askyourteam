@@ -96,7 +96,7 @@ const createDbUser = async (details) => {
 
   await docClient.put(params).promise();
 
-  return { statusCode: 200, body: JSON.stringify(params) };
+  return { statusCode: 200, body: "User Created"};
 };
 
 const createDbQuiz = async (details) => {

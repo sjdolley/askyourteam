@@ -3,7 +3,7 @@ const Validator = require("jsonschema").Validator;
 
 module.exports.handler = async function deleteQuestion(event) {
   console.log(event.body);
-
+  const body = JSON.parse(event.body);
   let v = new Validator();
 
   let schema = {
@@ -16,7 +16,7 @@ module.exports.handler = async function deleteQuestion(event) {
         maxLength: 50,
       },
       questionID: {
-        minLength: 5,
+        minLength: 1,
         maxLength: 16,
       },
       required: ["quizName", "questionID"],
@@ -36,7 +36,7 @@ module.exports.handler = async function deleteQuestion(event) {
     };
   }
 
-  const body = JSON.parse(event.body);
+  
   console.log(event.body);
   return deleteDbQuestion(body)
     .then((user) => ({

@@ -1,11 +1,11 @@
-const { createDbUser } = require("../lib/db");
+const { createDbUser, getUserByEmail } = require("../lib/db");
 const Validator = require("jsonschema").Validator;
 
 module.exports.handler = async function registerUser(event) {
   const body = JSON.parse(event.body);
   // schema validation on incoming payload
   let v = new Validator();
-  
+  console.log("checkpoint1");
   let schema = {
     "$schema": "http://json-schema.org/draft-09/schema#",
     "id": "registration", 
@@ -24,7 +24,7 @@ module.exports.handler = async function registerUser(event) {
       "additionalProperties": false
     }
   }
-  
+  console.log("checkpoint2");
   // v.addSchema(schema, schema["/registrationPayload"]);
   let validation = v.validate(body, schema);
   console.log(validation.errors.length);
@@ -34,17 +34,13 @@ module.exports.handler = async function registerUser(event) {
         statusCode: 400,
         headers: { 'Content-Type': 'text/plain' },
         body:  JSON.stringify(validation.errors) 
-      }
-        .then(user => ({
-          statusCode: 200,
-          body: JSON.stringify(user)
-        }))
+      };
     }
-    console.log(between validation)
+    console.log(validation);
   // Validation if user name exists
   const dbUser = await getUserByEmail(body.email);
   console.log(dbUser);
-  if(dbUser!=null ){
+  if(dbUser!=null){
     return {
       statusCode: 409,
       headers: { "Access-Control-Allow-Origin": "*"},
@@ -53,9 +49,6 @@ module.exports.handler = async function registerUser(event) {
   }
 
   console.log(validation);
-  console.log(validation.valid);
-
-  
   console.log(event.body);
   return createDbUser(body)
     .then(user => ({

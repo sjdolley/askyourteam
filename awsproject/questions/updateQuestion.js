@@ -3,7 +3,7 @@ const Validator = require("jsonschema").Validator;
 module.exports.handler = async function updateQuestion(event) {
   const body = JSON.parse(event.body);
   console.log(body);
-
+  let v = new Validator();
   let schema = {
     $schema: "http://json-schema.org/draft-09/schema#",
     id: "createQuestion",

@@ -29,7 +29,7 @@ const publishDbQuiz = async (details) => {
     UpdateExpression:
       "SET published = :published, #publishedDate = :publishedDate",
     ExpressionAttributeNames: {
-      "#publishedDate": "publishedDate",
+      "#publishedDate": "publishedDate"
       //"#endDate": "endDate"
     },
     ExpressionAttributeValues: {
