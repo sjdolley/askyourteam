@@ -30,7 +30,7 @@ export function setQuizzes(newQuiz) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({  
-            "title": newQuiz,
+            "quizName": newQuiz,
             "status": "Draft",
             "creationDate": "dd/mm/yyyy"
 
