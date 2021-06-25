@@ -59,7 +59,9 @@ export default function Dashboard(){
 
         {alert && <h2 id="successful-alert"> * Quiz Creation Successful </h2>}
         <form id="create-quiz-form" onSubmit={handleSubmit}>
-          <input type="text" id="create-quiz-input" onChange={event => setQuizInput(event.target.value)} value={quizInput} />
+          <label>
+            <input type="text" id="create-quiz-input" onChange={event => setQuizInput(event.target.value)} value={quizInput} />
+          </label>         
           <button type="submit" className="new-quiz-btn" onClick={handleSubmit}>Create New Quiz</button>
         </form>
       

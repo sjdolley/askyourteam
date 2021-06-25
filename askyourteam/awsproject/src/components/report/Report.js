@@ -25,7 +25,6 @@ export default function Report() {
     return () => mounted.current = false;
   }, [alert, choosenQuiz])
 
-
   return(
     <div className="App">
       <ul className="breadcrumbs">
@@ -33,14 +32,16 @@ export default function Report() {
         <li><a href={Report_Route(quizName)} params={{quizName: quizName}}>Report</a></li>
       </ul>
 
-      <div className="title-line">
+      <div className="line">
         <h3 className="quiz-name">{quizName}</h3>
-        <a href={Edit_Route(quizName)} params={{quizName: quizName}}><button className="edit-btn">Edit this quiz</button></a>
       </div>
-      
 
-      
-
+      <div className="line">        
+          <a href={Edit_Route(quizName)} params={{quizName: quizName}}><button className="edit-btn">Edit this quiz</button></a>
+          <button className="edit-btn">Delete this quiz</button>
+          <button className="edit-btn">Publish this quiz</button>
+        </div>      
+       
       {choosenQuiz.map((quiz) =>   (     
         <div className="display-quiz" key={quiz.questionID}>
             <h4>{quiz.question_body}</h4>

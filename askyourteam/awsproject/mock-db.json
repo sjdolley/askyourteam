@@ -11,6 +11,12 @@
       "status": "Draft",
       "creationDate": "dd/mm/yyyy",
       "id": 2
+    },
+    {
+      "quizName": "Example test",
+      "status": "Draft",
+      "creationDate": "dd/mm/yyyy",
+      "id": 3
     }
   ],
   "quizContent": [

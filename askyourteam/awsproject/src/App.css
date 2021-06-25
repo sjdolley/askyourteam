@@ -278,10 +278,8 @@ input {
   text-align: center;
   float: center;
   text-decoration: underline;
-  margin-bottom: 1em;
   display: inline-block;
   padding: 0;
-  margin-left: 12em;
 }
 
 
@@ -315,14 +313,22 @@ input {
   background-color: var(--ayt-orange);
   font-weight: bolder;
   font-size: medium;
-  margin-right: 4em;
+  margin-bottom: 2em;
   padding: 0;
-  float: right;
-  margin-left: 0;
+  margin-left: 2em;
 }
 
 .edit-btn:hover {
   background-color: #f8a273;
+}
+
+.line {
+  margin-top: 2em;
+  width: 100%;
+  text-align: center;
+  float: center;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 /************ Edit Page ************/
