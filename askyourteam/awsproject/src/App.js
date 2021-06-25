@@ -9,6 +9,7 @@ import useToken from './useToken';
 import Header from "../src/components/header/Header"
 import Footer from "../src/components/footer/Footer"
 import { Report_Route } from '../src/components/dashboard/Dashboard';
+import { Edit_Route } from '../src/components/edit/Edit';
 
 function App() {
   const { token, setToken } = useToken();
@@ -35,7 +36,7 @@ function App() {
               <Report />
             </Route>
 
-            <Route path="/edit" >
+            <Route path={Edit_Route(':quizName')} >
               <Edit />
             </Route>
 

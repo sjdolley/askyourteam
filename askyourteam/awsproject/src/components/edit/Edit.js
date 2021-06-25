@@ -1,15 +1,53 @@
-import React from 'react';
+import React, { Fragment, useEffect,  useRef, useState, ChangeEvent } from 'react';
+import { useParams } from 'react-router-dom';
+import { getQuizByName, setQuizQuestionsByName } from '../../services/quizServices';
+export const Report_Route = (quizName) => `/report/:${quizName}/`;
+export const Edit_Route = (quizName) => `/edit/:${quizName}/`;
 
 export default function Edit() {
+  const { quizName } = useParams();
+  const [choosenQuiz, setChoosenQuiz] = useState(['']);
+  const [questionList, setQuestionList] = useState([]);
+  let mounted = useRef(true);
+
+  //Get the existing quiz questions
+  useEffect(() => {
+    mounted.current = true;
+    if(choosenQuiz.length  && !alert) {
+      return;
+    }
+    
+    getQuizByName( { quizName })
+      .then(quiz => {
+        if(mounted.current) {
+          setChoosenQuiz(quiz)
+        }
+      })
+    return () => mounted.current = false;
+  }, [quizName, choosenQuiz])
+
   return(
     <div className="App">
       <ul className="breadcrumbs">
         <li><a href="/dashboard">Dashboard</a></li>
-        <li><a href="/report">Report</a></li>
-        <li><a href="/edit">Edit</a></li>
+        <li><a href={Report_Route(quizName)} params={{quizName: quizName}}>Report</a></li> 
+        <li><a href={Edit_Route(quizName)} params={{quizName: quizName}}>Edit</a></li>
       </ul>
 
-      <h2>Edit Quiz</h2>
+      <h2  className="quizName">Edit Quiz: {quizName}</h2>
+      {choosenQuiz.map((quiz) =>   (     
+        <div className="display-quiz"  key={quiz.questionID}>
+            <h4>{quiz.question_body}</h4>
+
+            <div className="display-quiz-answers">
+              <button className="answer-btn" >{quiz.answer1_body}</button>
+              <button className="answer-btn" >{quiz.answer2_body}</button>
+              <button className="answer-btn" >{quiz.answer3_body}</button>
+              <button className="answer-btn" >{quiz.answer4_body}</button>
+            </div>          
+          
+        </div>
+      ))}     
 
       <hr></hr>
       

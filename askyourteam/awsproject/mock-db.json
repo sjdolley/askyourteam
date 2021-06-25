@@ -7,14 +7,22 @@
       "creationDate": "dd/mm/yyyy"
     },
     {
-      "title": "",
+      "id": 2,
+      "quizName": "Draft quiz 2",
       "status": "Draft",
-      "id": 2
+      "creationDate": "dd/mm/yyyy"
     },
     {
-      "title": "",
+      "title": "Example test",
       "status": "Draft",
+      "creationDate": "dd/mm/yyyy",
       "id": 3
+    },
+    {
+      "title": "Example test",
+      "status": "Draft",
+      "creationDate": "dd/mm/yyyy",
+      "id": 4
     }
   ],
   "quizContent": [
@@ -37,7 +45,7 @@
     },
     {
       "answer5_body": "",
-      "question_body": "Which animal isn’t considered a true hibernator because their body temperature doesn’t lower significantly during “hibernation?",
+      "question_body": "Which animal isn’t considered a true hibernator because their body temperature doesn’t lower significantly during hibernation?",
       "answer2_body": "Brown Bat",
       "correct_answers": 0,
       "correctAnswer": [

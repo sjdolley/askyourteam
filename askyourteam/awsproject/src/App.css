@@ -232,7 +232,7 @@ input {
 
 #successful-alert {
   display: block;
-  float: left;
+  float: right;
   color: black;
   /* background-color: green; */
 }
@@ -276,8 +276,12 @@ input {
 
 .quiz-name {
   text-align: center;
+  float: center;
   text-decoration: underline;
   margin-bottom: 1em;
+  display: inline-block;
+  padding: 0;
+  margin-left: 12em;
 }
 
 
@@ -297,11 +301,28 @@ input {
   font-size: medium;
   background-color: unset !important;
   color: unset !important;
+ 
 }
 
 .answer-btn:active {
   box-shadow: none;
   outline: none;
+}
+
+.edit-btn{
+  width: 12em;
+  height: 2.5em;
+  background-color: var(--ayt-orange);
+  font-weight: bolder;
+  font-size: medium;
+  margin-right: 4em;
+  padding: 0;
+  float: right;
+  margin-left: 0;
+}
+
+.edit-btn:hover {
+  background-color: #f8a273;
 }
 
 /************ Edit Page ************/

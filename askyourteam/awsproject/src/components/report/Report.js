@@ -2,6 +2,7 @@ import React, { useEffect,  useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getQuizByName } from '../../services/quizServices';
 export const Report_Route = (quizName) => `/report/:${quizName}/`;
+export const Edit_Route = (quizName) => `/edit/:${quizName}/`;
 
 export default function Report() {
   const { quizName } = useParams();
@@ -32,16 +33,16 @@ export default function Report() {
         <li><a href={Report_Route(quizName)} params={{quizName: quizName}}>Report</a></li>
       </ul>
 
-      <div>
-        <h2 >Results Report</h2>
-        <a href="/edit"><button>Edit this quiz</button></a>
+      <div className="title-line">
+        <h3 className="quiz-name">{quizName}</h3>
+        <a href={Edit_Route(quizName)} params={{quizName: quizName}}><button className="edit-btn">Edit this quiz</button></a>
       </div>
       
 
-      <h3 className="quiz-name">{quizName}</h3>
+      
 
       {choosenQuiz.map((quiz) =>   (     
-        <div className="display-quiz" key={quiz.quizName}>
+        <div className="display-quiz" key={quiz.questionID}>
             <h4>{quiz.question_body}</h4>
 
             <div className="display-quiz-answers">

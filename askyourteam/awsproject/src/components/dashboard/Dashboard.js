@@ -1,6 +1,6 @@
-import React, { Fragment, useEffect,  useRef, useState, ChangeEvent } from 'react';
+import React, { Fragment, useEffect,  useRef, useState } from 'react';
 import { getQuizzes, setQuizzes } from '../../services/quizServices';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 export const Report_Route = (quizName) => `/report/:${quizName}/`;
 
 
@@ -54,7 +54,7 @@ export default function Dashboard(){
         <li><a href="/dashboard">Dashboard</a></li>
       </ul>
 
-      <div className="title-line">
+      <div>
         <h1 id="dashboard-title">Quiz Dashboard</h1>
 
         {alert && <h2 id="successful-alert"> * Quiz Creation Successful </h2>}
@@ -67,9 +67,8 @@ export default function Dashboard(){
                 
       <div className="dashboard-grid">
           {quizList.map((quiz) =>   (   
-            <Link to={Report_Route(quiz.quizName)} params={{quizName: quiz.quizName}}>      
+            <Link to={Report_Route(quiz.quizName)} params={{quizName: quiz.quizName}}>           
             <div className="grid-item" key={quiz.id}>
-              
               <h3>{quiz.quizName}</h3>
               <p>Status: {quiz.status}</p>
               <p>Created: {quiz.creationDate}</p>
@@ -81,13 +80,13 @@ export default function Dashboard(){
               }
 
               {quiz.status === "Closed" ? 
-                <Fragment>
+                <Fragment >
                   <p>Closed: {quiz.closingDate}</p>
                 </Fragment> : null
               }
 
               {quiz.status === "Published" || quiz.status === "Closed" ? 
-                <Fragment>                 
+                <Fragment >                 
                   <a href="/report"><button className="report-btn">Results Report</button></a>
                 </Fragment> : null
               }

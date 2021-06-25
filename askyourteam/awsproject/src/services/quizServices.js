@@ -13,7 +13,7 @@ export function getQuizzes() {
 }
 
 export function getQuizByName(quizName) {
-    const url = 'http://localhost:3333/quizContent' + '?quiz-id=' + quizName ;
+    const url = 'http://localhost:3333/quizContent/' + '?quiz-id=' + quizName ;
     return fetch(url, {
        method: 'GET',
        headers: {
@@ -31,7 +31,8 @@ export function setQuizzes(newQuiz) {
         },
         body: JSON.stringify({  
             "title": newQuiz,
-            "status": "Draft"
+            "status": "Draft",
+            "creationDate": "dd/mm/yyyy"
 
         })
     })
